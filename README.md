@@ -2,9 +2,10 @@
 
 これは Super AKI-80 を、CH32V203 から制御するためのプログラム例です。
 
-現時点では TMP84C015 内蔵の PIOA を使って L チカをするコードを Z80 上の SRAM に書き込むコードになっています。
+現時点では電脳伝説さんの移植した MicrosoftBASIC(https://github.com/vintagechips/saki80basic) が起動するコードになっています。
 
 詳しくは以下の記事を参照してください。
 
 - https://shippoiincho.github.io/posts/43/
 - https://shippoiincho.github.io/posts/44/
+- https://shippoiincho.github.io/posts/45/

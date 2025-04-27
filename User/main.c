@@ -7,18 +7,19 @@
 // PA11    RD
 // PA12    BUSREQ
 // PA13    BUSACK
+// PA14    M1
 // PA15    RESET
 // PB2-9   A0-A7
-// PC13    74LCX245 OE
-// PC14    74LCX245 DIR (L for Data output)
+// PC13    74LCX245 DIR (L for Data output)
+// PC14    74LCX245 OE
 
 // Others
-// PB10
+// PB10  WAIT
 // PB11
 // PB12
-// PB13
-// PB14
-// PB15
+// PB13  (SPI SCK)
+// PB14  (SPI MISO)
+// PB15  (SPI MOSI)
 
 #include "debug.h"
 #include "z80boot.h"
@@ -46,8 +47,8 @@ void InitGPIOforRESET(void) {
 
 //  Control
 
-//  MERQ/IORQ/RD/WR/BUSACK
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8 |GPIO_Pin_9| GPIO_Pin_10|GPIO_Pin_11|GPIO_Pin_13;
+//  MERQ/IORQ/RD/WR/BUSACK/M1
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8 |GPIO_Pin_9| GPIO_Pin_10|GPIO_Pin_11|GPIO_Pin_13|GPIO_Pin_14;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
     GPIO_Init(GPIOA, &GPIO_InitStructure);
@@ -64,6 +65,13 @@ void InitGPIOforRESET(void) {
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
     GPIO_Init(GPIOA, &GPIO_InitStructure);
     GPIO_SetBits(GPIOA, GPIO_Pin_12 | GPIO_Pin_15);
+
+//  WAIT
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
+//    GPIO_SetBits(GPIOB,GPIO_Pin_10);
 
 
 //  245 control
@@ -133,7 +141,7 @@ void InitGPIOforIO(void) {
 
 //  Control
 //  MERQ/IORQ/RD/WR/BUSACK
-    GPIOC->OUTDR|=0x00f0;
+//   GPIOA->OUTDR=0xd000;
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8 |GPIO_Pin_9| GPIO_Pin_10|GPIO_Pin_11;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
@@ -141,11 +149,9 @@ void InitGPIOforIO(void) {
 
 // Set 245 for Input
 
-    GPIO_SetBits(GPIOC, GPIO_Pin_13);
-
     GPIO_SetBits(GPIOC, GPIO_Pin_14);
-
-    GPIO_ResetBits(GPIOC, GPIO_Pin_13);
+    GPIO_SetBits(GPIOC, GPIO_Pin_13);
+    GPIO_ResetBits(GPIOC, GPIO_Pin_14);
 
     return;
 
@@ -188,8 +194,90 @@ void WriteSingleByteDMA(uint8_t address,uint8_t data) {
 
 }
 
+static inline void DataBusForOutput(void) {
+
+//    GPIO_InitTypeDef  GPIO_InitStructure;
+
+//  Data bus for output
+
+//    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0| GPIO_Pin_1|GPIO_Pin_2|GPIO_Pin_3|GPIO_Pin_4|GPIO_Pin_5|GPIO_Pin_6|GPIO_Pin_7;
+//    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+//    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+//    GPIO_Init(GPIOA, &GPIO_InitStructure);
+
+     GPIOA->CFGLR=0x33333333;
+
+     GPIOC->BSHR = GPIO_Pin_14;
+     GPIOC->BCR = GPIO_Pin_13|GPIO_Pin_14;
+
+//     GPIO_SetBits(GPIOC, GPIO_Pin_14);
+//     GPIO_ResetBits(GPIOC, GPIO_Pin_13);
+//     GPIO_ResetBits(GPIOC, GPIO_Pin_14);
+
+    return;
+}
+
+static inline void WaitForIORead(void) {
+
+        uint32_t indata;
+
+        // Inactive WAIT
+
+        GPIOB->CFGHR=0x44444344;  // MUST MODIFY FOR PB11-15
+        GPIOB->BSHR=GPIO_Pin_10;
+
+    while(1) {
+        indata=GPIOA->INDR;
+        if((indata&0x0200)!=0) {
+            break;
+        }
+    }
+
+//  Data bus for input
+
+    GPIOA->CFGLR=0x44444444;
+
+// WAIT for input
+
+    GPIOB->CFGHR=0x44444444;// MUST MODIFY FOR PB11-1
+
+    // 245 for Input
+
+    GPIOC->BSHR = GPIO_Pin_13|GPIO_Pin_14;
+    GPIOC->BCR = GPIO_Pin_14;
+
+    return;
+}
+
+static inline void WaitForIOWrite(void) {
+
+        uint32_t indata;
+
+        // Inactive WAIT
+
+        GPIOB->CFGHR=0x44444344;// MUST MODIFY FOR PB11-1
+        GPIOB->BSHR=GPIO_Pin_10;
+
+    while(1) {
+        indata=GPIOA->INDR;
+        if((indata&0x0200)!=0) {
+            break;
+        }
+    }
+
+// WAIT for input
+
+    GPIOB->CFGHR=0x44444444;// MUST MODIFY FOR PB11-1
+
+    return;
+}
+
 int main(void)
 {
+
+    uint32_t indata,outdata,ioport,codesize;
+    static uint32_t code_ptr;
+
     NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
     SystemCoreClockUpdate();
     Delay_Init();
@@ -243,7 +331,101 @@ int main(void)
 
     InitGPIOforIO();
 
+    codesize=sizeof(z80prog);
+//    codesize=0x1fff;
+
     while(1)
     {
+
+        // Wait for IO Access
+
+//        ioport=GPIOB->INDR;
+//        ioport>>=2;
+//        ioport&=0xff;
+
+        indata=GPIOA->INDR;
+
+        if((indata&0x0200)!=0) {
+            continue;
+        }
+
+        // IO Read
+
+        if((indata&0x0800)==0) {
+
+            ioport=GPIOB->INDR;
+            ioport>>=2;
+            ioport&=0xff;
+
+            switch(ioport) {
+
+            case 0x40:
+
+               DataBusForOutput();
+
+//               outdata=GPIOA->OUTDR;
+//               outdata&=0xff00;
+
+               switch(code_ptr) {
+               case 0:
+                   outdata=(codesize&0xff);
+                   break;
+               case 1:
+                   outdata=((codesize>>8)&0xff);
+                   break;
+               default:
+                   outdata=z80prog[code_ptr-2];
+               }
+
+               GPIOA->BCR=0xff;
+               GPIOA->BSHR=outdata;
+
+               code_ptr++;
+
+               WaitForIORead();
+               break;
+
+            default:
+
+                WaitForIORead();
+                break;
+
+            }
+
+            continue;
+        }
+
+
+        // IO Write
+
+        if((indata&0x0400)==0) {
+
+            ioport=GPIOB->INDR;
+            ioport>>=2;
+            ioport&=0xff;
+
+            switch(ioport) {
+
+            case 0x40:
+                // reset code pointer;
+                code_ptr=0;
+                break;
+
+            default:
+
+                break;
+
+            }
+
+            WaitForIOWrite();
+            continue;
+        }
+
+        // Interrupt
+        if((indata&0x4000)==0) {
+            WaitForIOWrite();
+        }
+
+
     }
 }
