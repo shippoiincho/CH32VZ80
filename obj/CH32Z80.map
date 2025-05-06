@@ -1337,10 +1337,11 @@ END GROUP
                 0x0000000000000c6c      0x100 ./User/main.o
                 0x0000000000000c6c                z80boot
  .rodata.z80prog
-                0x0000000000000d6c     0x1d38 ./User/main.o
+                0x0000000000000d6c     0x1d37 ./User/main.o
                 0x0000000000000d6c                z80prog
  *(.gnu.linkonce.t.*)
                 0x0000000000002aa4                . = ALIGN (0x4)
+ *fill*         0x0000000000002aa3        0x1 
 
 .rela.dyn       0x0000000000002aa4        0x0
  .rela.init     0x0000000000002aa4        0x0 ./User/ch32v20x_it.o
