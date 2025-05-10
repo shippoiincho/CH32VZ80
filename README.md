@@ -4,6 +4,10 @@
 
 現時点では電脳伝説さんの移植した MicrosoftBASIC(https://github.com/vintagechips/saki80basic) が起動するコードになっています。
 
+参考回路図
+
+![sample schematics](ch32vz80-schematics.png)
+
 詳しくは以下の記事を参照してください。
 
 - https://shippoiincho.github.io/posts/43/
