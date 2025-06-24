@@ -2,7 +2,7 @@
 
 これは Super AKI-80 を、CH32V203 から制御するためのプログラム例です。
 
-現時点では電脳伝説さんの移植した MicrosoftBASIC(https://github.com/vintagechips/saki80basic) が起動するコードになっています。
+現時点でUNIMON for SAKI80 (https://github.com/yyhayami/saki80mon041) が起動するコードになっています。
 
 参考回路図
 

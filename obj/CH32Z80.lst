@@ -7,10 +7,10 @@ start address 0x00000000
 
 Program Header:
     LOAD off    0x00001000 vaddr 0x00000000 paddr 0x00000000 align 2**12
-         filesz 0x00002aa4 memsz 0x00002aa4 flags r-x
-    LOAD off    0x00004000 vaddr 0x20000000 paddr 0x00002aa4 align 2**12
+         filesz 0x0000746c memsz 0x0000746c flags r-x
+    LOAD off    0x00009000 vaddr 0x20000000 paddr 0x0000746c align 2**12
          filesz 0x00000018 memsz 0x00000028 flags rw-
-    LOAD off    0x00004800 vaddr 0x20004800 paddr 0x20004800 align 2**12
+    LOAD off    0x00009800 vaddr 0x20004800 paddr 0x20004800 align 2**12
          filesz 0x00000000 memsz 0x00000800 flags rw-
 
 Sections:
@@ -19,45 +19,45 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
   1 .vector       000000fc  00000004  00000004  00001004  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .text         000029a4  00000100  00000100  00001100  2**2
+  2 .text         0000736c  00000100  00000100  00001100  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  3 .fini         00000000  00002aa4  00002aa4  00004018  2**0
+  3 .fini         00000000  0000746c  0000746c  00009018  2**0
                   CONTENTS, ALLOC, LOAD, CODE
-  4 .dalign       00000000  20000000  20000000  00004018  2**0
+  4 .dalign       00000000  20000000  20000000  00009018  2**0
                   CONTENTS
-  5 .dlalign      00000000  00002aa4  00002aa4  00004018  2**0
+  5 .dlalign      00000000  0000746c  0000746c  00009018  2**0
                   CONTENTS
-  6 .data         00000018  20000000  00002aa4  00004000  2**2
+  6 .data         00000018  20000000  0000746c  00009000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  7 .bss          00000010  20000018  00002abc  00004018  2**2
+  7 .bss          00000010  20000018  00007484  00009018  2**2
                   ALLOC
-  8 .stack        00000800  20004800  20004800  00004800  2**0
+  8 .stack        00000800  20004800  20004800  00009800  2**0
                   ALLOC
-  9 .debug_info   00006f71  00000000  00000000  00004018  2**0
+  9 .debug_info   00006f71  00000000  00000000  00009018  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_abbrev 00001702  00000000  00000000  0000af89  2**0
+ 10 .debug_abbrev 00001702  00000000  00000000  0000ff89  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_aranges 00000320  00000000  00000000  0000c690  2**3
+ 11 .debug_aranges 00000320  00000000  00000000  00011690  2**3
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000490  00000000  00000000  0000c9b0  2**3
+ 12 .debug_ranges 00000490  00000000  00000000  000119b0  2**3
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_line   000070e9  00000000  00000000  0000ce40  2**0
+ 13 .debug_line   000070e9  00000000  00000000  00011e40  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_str    00001597  00000000  00000000  00013f29  2**0
+ 14 .debug_str    00001597  00000000  00000000  00018f29  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .comment      00000033  00000000  00000000  000154c0  2**0
+ 15 .comment      00000033  00000000  00000000  0001a4c0  2**0
                   CONTENTS, READONLY
- 16 .debug_frame  0000061c  00000000  00000000  000154f4  2**2
+ 16 .debug_frame  0000061c  00000000  00000000  0001a4f4  2**2
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_loc    00003337  00000000  00000000  00015b10  2**0
+ 17 .debug_loc    00003337  00000000  00000000  0001ab10  2**0
                   CONTENTS, READONLY, DEBUGGING
 SYMBOL TABLE:
 00000000 l    d  .init	00000000 .init
 00000004 l    d  .vector	00000000 .vector
 00000100 l    d  .text	00000000 .text
-00002aa4 l    d  .fini	00000000 .fini
+0000746c l    d  .fini	00000000 .fini
 20000000 l    d  .dalign	00000000 .dalign
-00002aa4 l    d  .dlalign	00000000 .dlalign
+0000746c l    d  .dlalign	00000000 .dlalign
 20000000 l    d  .data	00000000 .data
 20000018 l    d  .bss	00000000 .bss
 20004800 l    d  .stack	00000000 .stack
@@ -152,7 +152,7 @@ SYMBOL TABLE:
 00000140 g     F .text	00000020 .hidden __riscv_restore_8
 00000116 g     F .text	0000001a .hidden __riscv_save_6
 00000618  w      .text	00000000 SPI2_IRQHandler
-00000d6c g     O .text	00001d37 z80prog
+00000d6c g     O .text	00006700 z80prog
 00000140 g     F .text	00000020 .hidden __riscv_restore_9
 0000014a g     F .text	00000016 .hidden __riscv_restore_7
 000002e6 g     F .text	000001f8 main
@@ -179,7 +179,7 @@ SYMBOL TABLE:
 20000018 g       .data	00000000 _edata
 20000028 g       .bss	00000000 _end
 00000618  w      .text	00000000 RTCAlarm_IRQHandler
-00002aa4 g       .dlalign	00000000 _data_lma
+0000746c g       .dlalign	00000000 _data_lma
 00000618  w      .text	00000000 USART2_IRQHandler
 0000058a g     F .text	0000008e SystemCoreClockUpdate
 00000618  w      .text	00000000 I2C2_ER_IRQHandler
@@ -427,7 +427,7 @@ Disassembly of section .text:
      1ac:	679d                	lui	a5,0x7
      1ae:	004c                	addi	a1,sp,4
      1b0:	80040513          	addi	a0,s0,-2048
-     1b4:	f0078793          	addi	a5,a5,-256 # 6f00 <_data_lma+0x445c>
+     1b4:	f0078793          	addi	a5,a5,-256 # 6f00 <z80prog+0x6194>
      1b8:	827c                	sh	a5,4(sp)
      1ba:	c426                	sw	s1,8(sp)
      1bc:	c64a                	sw	s2,12(sp)
@@ -574,7 +574,7 @@ Disassembly of section .text:
      320:	6941                	lui	s2,0x10
      322:	c6c48493          	addi	s1,s1,-916 # c6c <z80boot>
      326:	400119b7          	lui	s3,0x40011
-     32a:	c0390a13          	addi	s4,s2,-1021 # fc03 <_data_lma+0xd15f>
+     32a:	c0390a13          	addi	s4,s2,-1021 # fc03 <_data_lma+0x8797>
      32e:	35f5                	jal	21a <InitGPIOforDMA>
      330:	10048a93          	addi	s5,s1,256
      334:	4b01                	li	s6,0
@@ -673,12 +673,12 @@ Disassembly of section .text:
      460:	81e7a023          	sw	t5,-2048(a5)
      464:	01c7a823          	sw	t3,16(a5)
      468:	0067aa23          	sw	t1,20(a5)
-     46c:	03700713          	li	a4,55
-     470:	c901                	beqz	a0,480 <main+0x19a>
-     472:	4775                	li	a4,29
+     46c:	4701                	li	a4,0
+     46e:	c909                	beqz	a0,480 <main+0x19a>
+     470:	06700713          	li	a4,103
      474:	01f50663          	beq	a0,t6,480 <main+0x19a>
      478:	00a38733          	add	a4,t2,a0
-     47c:	ffe74703          	lbu	a4,-2(a4) # 5ffe <_data_lma+0x355a>
+     47c:	ffe74703          	lbu	a4,-2(a4) # 5ffe <z80prog+0x5292>
      480:	8057aa23          	sw	t0,-2028(a5)
      484:	80e7a823          	sw	a4,-2032(a5)
      488:	c117a223          	sw	a7,-1020(a5)
@@ -780,7 +780,7 @@ Disassembly of section .text:
      590:	007a17b7          	lui	a5,0x7a1
      594:	4621                	li	a2,8
      596:	8b31                	andi	a4,a4,12
-     598:	20078793          	addi	a5,a5,512 # 7a1200 <_data_lma+0x79e75c>
+     598:	20078793          	addi	a5,a5,512 # 7a1200 <_data_lma+0x799d94>
      59c:	02c70563          	beq	a4,a2,5c6 <SystemCoreClockUpdate+0x3c>
      5a0:	40021737          	lui	a4,0x40021
      5a4:	4358                	lw	a4,4(a4)
@@ -809,7 +809,7 @@ Disassembly of section .text:
      5e4:	8b41                	andi	a4,a4,16
      5e6:	cf19                	beqz	a4,604 <SystemCoreClockUpdate+0x7a>
      5e8:	007a1737          	lui	a4,0x7a1
-     5ec:	20070713          	addi	a4,a4,512 # 7a1200 <_data_lma+0x79e75c>
+     5ec:	20070713          	addi	a4,a4,512 # 7a1200 <_data_lma+0x799d94>
      5f0:	02e787b3          	mul	a5,a5,a4
      5f4:	b775                	j	5a0 <SystemCoreClockUpdate+0x16>
      5f6:	40021737          	lui	a4,0x40021
@@ -817,7 +817,7 @@ Disassembly of section .text:
      5fc:	00e71693          	slli	a3,a4,0xe
      600:	fe06d4e3          	bgez	a3,5e8 <SystemCoreClockUpdate+0x5e>
      604:	003d1737          	lui	a4,0x3d1
-     608:	90070713          	addi	a4,a4,-1792 # 3d0900 <_data_lma+0x3cde5c>
+     608:	90070713          	addi	a4,a4,-1792 # 3d0900 <_data_lma+0x3c9494>
      60c:	02e787b3          	mul	a5,a5,a4
      610:	bf41                	j	5a0 <SystemCoreClockUpdate+0x16>
      612:	47c9                	li	a5,18
@@ -832,8 +832,8 @@ Disassembly of section .text:
      61e:	1f618193          	addi	gp,gp,502 # 20000810 <__global_pointer$>
      622:	20005117          	auipc	sp,0x20005
      626:	9de10113          	addi	sp,sp,-1570 # 20005000 <_eusrstack>
-     62a:	00002517          	auipc	a0,0x2
-     62e:	47a50513          	addi	a0,a0,1146 # 2aa4 <_data_lma>
+     62a:	00007517          	auipc	a0,0x7
+     62e:	e4250513          	addi	a0,a0,-446 # 746c <_data_lma>
      632:	20000597          	auipc	a1,0x20000
      636:	9ce58593          	addi	a1,a1,-1586 # 20000000 <_data_vma>
      63a:	80818613          	addi	a2,gp,-2040 # 20000018 <_edata>
@@ -1354,7 +1354,7 @@ Disassembly of section .text:
      bcc:	200007b7          	lui	a5,0x20000
      bd0:	0107a783          	lw	a5,16(a5) # 20000010 <SystemCoreClock>
      bd4:	007a1737          	lui	a4,0x7a1
-     bd8:	20070713          	addi	a4,a4,512 # 7a1200 <_data_lma+0x79e75c>
+     bd8:	20070713          	addi	a4,a4,512 # 7a1200 <_data_lma+0x799d94>
      bdc:	02e7d7b3          	divu	a5,a5,a4
      be0:	3e800713          	li	a4,1000
      be4:	0ff7f793          	andi	a5,a5,255
@@ -1415,477 +1415,1657 @@ Disassembly of section .text:
 	...
 
 00000c6c <z80boot>:
-     c6c:	31f3 8000 0021 1100 1f00 0001 ed01 c3b0     .1..!...........
-     c7c:	1f12 003e 40d3 40db db4f 4740 0021 db00     ..>..@.@O.@G!...
+     c6c:	31f3 8000 0021 1100 7f00 0001 ed01 c3b0     .1..!...........
+     c7c:	7f12 003e 40d3 40db db4f 4740 0021 db00     ..>..@.@O.@G!...
      c8c:	7740 0b23 b178 f720 00c3 0000 0000 0000     @w#.x. .........
 	...
 
 00000d6c <z80prog>:
-     d6c:	c3f3 00a0 ffff ffff 71c3 ff00 ffff ffff     .........q......
-     d7c:	4bc3 ff00 ffff ffff 7cc3 f500 d5c5 dbe5     .K.......|......
-     d8c:	cb19 2847 db1f 5718 003a fe80 2840 3c15     ..G(...W:...@(.<
-     d9c:	0032 3a80 8002 064f 2100 8003 7209 e63c     2..:..O..!...r<.
-     dac:	323f 8002 d1e1 f1c1 edfb c54d e5d5 003a     ?2........M...:.
-     dbc:	fe80 2800 f3f9 323d 8000 013a 4f80 0006     ...(..=2..:..O..
-     dcc:	0321 0980 3c56 3fe6 0132 7a80 e1fb c1d1     !...V<.?2..z....
-     ddc:	f5c9 19db 57cb fa28 d3f1 c918 003a fe80     .....W(.....:...
-     dec:	c900 ffff ffff ffff ffff ffff ffff ffff     ................
-     dfc:	001b 0118 0410 0544 03ea 18c1 0001 9002     ......D.........
-     e0c:	ed31 af20 0032 3280 8001 0232 3e80 d307     1. .2..2..2..>..
-     e1c:	3e13 d304 0613 0e09 2119 0092 b3ed 0506     .>.......!......
-     e2c:	1b0e 9b21 ed00 21b3 0090 ed7c ed47 fb5e     ..!....!..|.G.^.
-     e3c:	d3c3 c300 00d9 4ec3 c301 00e0 0991 1107     .......N........
-     e4c:	4521 f920 22c3 111d 03b8 6306 4521 1a20     !E ..".....c!E .
-     e5c:	2377 0513 efc2 f900 b9cd cd05 0b87 ef32     w#............2.
-     e6c:	3220 213e a221 2321 b57c 16ca 7e01 2f47      2>!!.!#|....~G/
-     e7c:	be77 ca70 0107 112b 21a1 4fcd da07 0157     w.p...+..!.O..W.
-     e8c:	ce11 22ff 20f4 2219 209f 94cd 2a05 209f     ...". .". ...*. 
-     e9c:	ef11 19ff 3e11 7d21 6f93 9a7c e567 6f21     .....>!}.o|.g.!o
-     eac:	cd01 1225 cde1 18c8 6021 cd01 1225 ab31     ..%.....!`..%.1.
-     ebc:	cd20 05b9 d2c3 2104 01a6 25cd c312 015d      ......!...%..].
-     ecc:	4220 7479 7365 6620 6572 0d65 000a 5a00      Bytes free....Z
-     edc:	3038 4220 5341 4349 5620 7265 3420 372e     80 BASIC Ver 4.7
-     eec:	0d62 430a 706f 7279 6769 7468 2820 2943     b..Copyright (C)
-     efc:	3120 3739 2038 7962 4d20 6369 6f72 6f73      1978 by Microso
-     f0c:	7466 0a0d 0000 654d 6f6d 7972 7320 7a69     ft....Memory siz
-     f1c:	2065 6f6e 2074 6e65 756f 6867 0a0d 6854     e not enough..Th
-     f2c:	2065 7973 7473 6d65 6920 2073 7473 706f     e system is stop
-     f3c:	6570 2e64 0a0d 0000 173d 1801 1753 2048     ped.....=...S.H 
-     f4c:	10e5 146a 1113 19c7 1aa6 15e2 1a15 1b1b     ..j.............
-     f5c:	1b21 1b82 1b97 14be 1c02 2096 1397 11af     !.......... ....
-     f6c:	1431 13a6 13b7 1c24 1cb7 13c7 13f7 1401     1.....$.........
-     f7c:	4ec5 c644 524f 45ce 5458 41c4 4154 4ec9     .ND.OR.EXT.ATA.N
-     f8c:	5550 c454 4d49 45d2 4441 45cc c754 544f     PUT.IM.EAD.ET.OT
-     f9c:	d24f 4e55 46c9 45d2 5453 524f c745 534f     O.UN.F.ESTORE.OS
-     fac:	4255 45d2 5554 4e52 45d2 d34d 4f54 cf50     UB.ETURN.EM.TOP.
-     fbc:	5455 4ecf 55ce 4c4c 41d7 5449 45c4 d046     UT.N.ULL.AIT.EF.
-     fcc:	4b4f c445 4b4f d345 5243 4545 cc4e 4e49     OKE.OKE.CREEN.IN
-     fdc:	5345 4cc3 d753 4449 4854 4fcd 494e 4f54     ES.LS.IDTH.ONITO
-     fec:	d352 5445 45d2 4553 d054 4952 544e 4fc3     R.ET.ESET.RINT.O
-     ffc:	544e 49cc 5453 4cc3 4145 c352 4f4c 4441     NT.IST.LEAR.LOAD
-    100c:	53c3 5641 ce45 5745 41d4 2842 4fd4 4ec6     .SAVE.EW.AB(.O.N
-    101c:	50d3 2843 48d4 4e45 4fce d354 4554 ab50     .PC(.HEN.OT.TEP.
-    102c:	aaad deaf 4ec1 cf44 be52 bcbd 47d3 c94e     .....ND.R....GN.
-    103c:	544e 42c1 d553 5253 52c6 c945 504e 4fd0     NT.BS.SR.RE.NP.O
-    104c:	d353 5251 4ed2 cc44 474f 58c5 c350 534f     S.QR.ND.OG.XP.OS
-    105c:	49d3 d44e 4e41 54c1 d04e 4545 c44b 4545     .IN.AN.TN.EEK.EE
-    106c:	d04b 494f 544e 45cc d34e 5254 d624 4c41     K.OINT.EN.TR$.AL
-    107c:	53c1 c343 5248 c824 5845 c224 4e49 cc24     .SC.HR$.EX$.IN$.
-    108c:	4645 2454 49d2 4847 2454 49cd 2444 2980     EFT$.IGHT$.ID$.)
-    109c:	2609 0108 760d 080a 3d0c 370f 8d0c 330a     .&...v...=.7...3
-    10ac:	160a 050a ef0b 2208 510a 780a 270a 7609     .......".Q.x.'.v
-    10bc:	e714 680a 7c09 1b14 c511 0d14 781c f30a     ...h.|.......x..
-    10cc:	e61b eb1b 1f1b 991d 9c20 2920 550b 9b09     ........ . ).U..
-    10dc:	d007 7809 780a 930a 7905 18af e379 7c14     ...x.x...y..y..|
-    10ec:	1621 827c 7f16 19d0 9650 460e 0e95 464e     !.|.....P..F..NF
-    10fc:	4e53 4752 444f 4346 564f 4d4f 4c55 5342     SNRGODFCOVOMULBS
-    110c:	4444 302f 4449 4d54 534f 534c 5453 4e43     DD/0IDTMOSLSSTCN
-    111c:	4655 4f4d 5848 4e42 4ec3 c301 09a6 00d3     UFMOHXBN.N......
-    112c:	d6c9 6f00 de7c 6700 de78 4700 003e 00c9     ...o|..gx..G>...
-    113c:	0000 4a35 99ca 1c39 9876 9522 98b3 dd0a     ..5J..9.v.".....
-    114c:	9847 d153 9999 1a0a 989f bc65 98cd 77d6     G.S.......e....w
-    115c:	983e c752 804f 00db 01c9 1cff 0000 0014     >.R.O...........
-    116c:	0014 0000 0000 ccc3 c306 0000 00c3 c300     ................
-    117c:	0000 21a2 fffe 213f 4520 7272 726f 2000     ...!..?! Error. 
-    118c:	6e69 0020 6b4f 0a0d 0000 7242 6165 006b     in .Ok....Break.
-    119c:	0421 3900 237e 81fe 4ec0 4623 e523 6069     !..9~#...N#F#.i`
-    11ac:	b37a caeb 044a cdeb 074f 0d01 e100 09c8     z...J...O.......
-    11bc:	34c3 cd04 046d e3c5 cdc1 074f 027e 0bc8     .4..m.....O.~...
-    11cc:	c32b 0459 2ae5 211f 0006 0909 e53e d03e     +.Y..*.!....>.>.
-    11dc:	6f95 ff3e da9c 047c 3967 d8e1 0c1e 9bc3     .o>...|.g9......
-    11ec:	2a04 210e a122 1e20 0102 141e 1e01 0100     .*.!". .........
-    11fc:	121e 1e01 0122 0a1e 1e01 cd18 05b9 8a32     ....".........2.
-    120c:	cd20 0b7a 8e21 5703 3f3e 60cd 1907 cd7e      .z.!..W>?.`..~.
-    121c:	0760 dfcd cd08 0760 1821 cd04 1225 a12a     `.....`.!...%.*.
-    122c:	1120 fffe 4fcd ca07 00e0 a57c c43c 18c0      ....O....|.<...
-    123c:	c13e 32af 208a 7acd 210b 0424 25cd 2112     >..2. .z.!$..%.!
-    124c:	ffff a122 cd20 06cc dfda cd04 08df 3d3c     ..". .........<=
-    125c:	dfca f504 abcd d509 e3cd 4705 f1d1 bfd2     ...........G....
-    126c:	d508 afc5 1132 cd21 08df f5b7 73cd da05     ....2.!......s..
-    127c:	0518 f5f1 4cca b70a d2c5 052f 2aeb 211b     .....L..../..*.!
-    128c:	021a 1303 4fcd c207 0520 6960 1b22 d121     .....O.. .`i".!.
-    129c:	caf1 0556 1b2a e321 09c1 cde5 0453 22e1     ..V.*.!.....S.."
-    12ac:	211b 74eb 23d1 7323 7223 1123 20a6 771a     .!.t.##s#r#.. .w
-    12bc:	1323 c2b7 054e 9fcd 2305 62eb 7e6b b623     #...N....#.bk~#.
-    12cc:	dfca 2304 2323 beaf c223 0567 73eb 7223     ...###..#.g..s#r
-    12dc:	5bc3 2a05 20a3 4d44 237e 2bb6 23c8 7e23     .[.*. DM~#.+.##~
-    12ec:	6623 cd6f 074f 6960 237e 6f66 c83f d03f     #fo.O.`i~#fo?.?.
-    12fc:	76c3 c005 a32a af20 2377 2377 1b22 2a21     .v..*. .w#w#".!*
-    130c:	20a3 222b 2113 f42a 2220 2108 cdaf 08ef     . +".!*. ".!....
-    131c:	1b2a 2221 211d 1f22 c121 9f2a f920 f821     *.!".!".!.*. .!.
-    132c:	2220 20f6 6faf 2267 2119 1032 2221 2123      ". .og".!2.!"#!
-    133c:	c5e5 132a c921 3f3e 60cd 3e07 cd20 0760     ..*.!.>?.`.> .`.
-    134c:	93c3 af20 f332 0e20 1105 20a6 fe7e ca20     .. .2. .... ~. .
-    135c:	066b fe47 ca22 068b cab7 0692 f33a b720     k.G.".......:. .
-    136c:	c27e 066b 3ffe 9e3e 6bca 7e06 30fe 16da     ~.k..?>..k.~.0..
-    137c:	fe06 da3c 066b 11d5 020f 01c5 0667 06c5     ..<.k.......g...
-    138c:	7e7f 61fe 2fda fe06 d27b 062f 5fe6 4e77     .~.a./..{./.._wN
-    139c:	23eb f2b6 0631 7e04 7fe6 b9c8 31c2 eb06     .#..1..~.....1..
-    13ac:	13e5 b71a 63fa 4f06 fe78 c288 0652 dfcd     .....c.Ox...R...
-    13bc:	2b08 7e23 61fe 5bda e606 b95f 41ca e106     .+#~.a.[.._..A..
-    13cc:	2fc3 4806 ebf1 ebc9 c179 23d1 1312 d60c     ./.H....y..#....
-    13dc:	ca3a 0679 49fe 7cc2 3206 20f3 54d6 ecc2     :.y..I.|.2. .T..
-    13ec:	4705 b77e 92ca b806 6bca 2306 0c12 c313     .G~......k.#....
-    13fc:	0682 a521 1220 1213 1213 3ac9 2089 3eb7     ..!. ......:. .>
-    140c:	3200 2089 afc2 0506 ccca cd06 0760 053e     .2. ........`.>.
-    141c:	ca2b 06c3 cd7e 0760 d5c3 0506 cd2b 0760     +...~.`.....+.`.
-    142c:	d5c2 cd06 0760 87cd c30b 06cc a621 0620     ....`.......!. .
-    143c:	af01 8932 cd20 078a fe4f ca7f 069b 893a     ..2. ...O.....:.
-    144c:	b720 eeca 3e06 cd00 0760 32af 2089 fe79      ....>..`..2. y.
-    145c:	ca07 0732 03fe 87cc 370b fec8 ca0d 0b82     ..2......7......
-    146c:	15fe c6ca fe06 ca40 06c3 5ffe bbca fe06     ......@...._....
-    147c:	ca08 06bb 12fe 2dc2 c507 e5d5 0036 31cd     .......-....6..1
-    148c:	211d 20a6 25cd e112 c1d1 d5c3 fe06 da20     .!. .%........ .
-    149c:	06d5 fe78 3e49 d207 0747 7179 1132 2321     ..x.I>..G.yq2.!#
-    14ac:	cd04 0760 d5c3 cd06 0760 083e 41c3 7c07     ..`.....`.>..A.|
-    14bc:	c092 937d 7ec9 bee3 e323 dfca c308 0487     ..}..~..#.......
-    14cc:	3af5 208a c2b7 125a c5f1 fef5 da20 0784     .:. ..Z..... ...
-    14dc:	873a 4720 f03a 0420 80ca 0507 ccb8 0b87     :. G:. .........
-    14ec:	323c 20f0 c1f1 1ccd c91d e4cd e61b fe7f     <2. ............
-    14fc:	c00f 8a3a 2f20 8a32 af20 cdc9 09ab c1c0     ..:. /2. .......
-    150c:	73cd c505 f1cd e107 234e 2346 b178 d2ca     .s......N#F#x...
-    151c:	cd04 07fa 0acd c509 87cd 5e0b 5623 e523     ...........^#V#.
-    152c:	cdeb 18c8 203e cde1 0760 b77e ca23 07a7     ....> ..`.~.#...
-    153c:	c7f2 d607 4f7f 1011 1a02 b713 d9f2 0d07     .....O..........
-    154c:	d9c2 e607 cd7f 0760 131a f2b7 07e3 cac3     ......`.........
-    155c:	e507 8d2a 2220 208b c9e1 d5e5 8b2a 1120     ..*. ". ....*. .
-    156c:	ffff 5aed 8b22 d120 f0e1 2ae5 208d 8b22     ...Z". ....*. ".
-    157c:	cd20 1be4 03fe 1dca e108 fac3 2a07 208d      ............*. 
-    158c:	8b22 c320 0151 643e 1032 cd21 0a8d e5c1     ". .Q.>d2.!.....
-    159c:	76cd 220a 210c 0221 3900 34cd d104 56c2     .v.".!!..9.4...V
-    15ac:	0908 2bd5 2b56 235e e523 0c2a cd21 074f     ...+V+^##.*.!.O.
-    15bc:	c2e1 083a f9d1 0eeb cd08 0464 2ae5 210c     ..:.......d..*.!
-    15cc:	e5e3 a12a e320 4fcd cd0d 0755 cda6 0d4c     ..*. ..O..U...L.
-    15dc:	cde5 177a c5e1 01d5 8100 5a51 fe7e 3eab     ..z.......QZ~..>
-    15ec:	c201 0892 dfcd cd08 0d4c cde5 177a 2ecd     ........L...z...
-    15fc:	e117 d5c5 33f5 2ae5 2113 06e3 c581 cd33     .....3.*.!....3.
-    160c:	090a 1322 7e21 3afe bfca b708 87c2 2304     ..".!~.:.......#
-    161c:	237e cab6 0931 5e23 5623 22eb 20a1 cdeb     ~#..1.#^#V.". ..
-    162c:	08df 9f11 d508 d6c8 da80 0a8d 25fe 87d2     .............%..
-    163c:	0704 064f eb00 2f21 0903 234e c546 23eb     ..O...!/..N#F..#
-    164c:	fe7e d03a 20fe dfca fe08 3f30 3d3c ebc9     ~.:.. ....0?<=..
-    165c:	a32a ca20 0904 cdeb 09ab cde5 0573 6960     *. .........s.`i
-    166c:	d2d1 0a4c 222b 2121 c9eb c8df fed7 281b     ..L.+"!!.......(
-    167c:	fe11 2803 fe0d c013 fed7 c811 03fe 0728     ...(..........(.
-    168c:	f618 ff3e 9232 c020 c0f6 1322 2121 fff6     ..>.2. ...".!!..
-    169c:	2ac1 20a1 7df5 3ca4 44ca 2209 2117 132a     .*. .}.<.D.".!*.
-    16ac:	2221 2119 32af 208a 7acd f10b 2a21 c204     !".!.2. .z..!*..
-    16bc:	04bb d2c3 2a04 2119 b57c 201e 9bca eb04     .....*.!|.. ....
-    16cc:	172a 2221 20a1 c9eb adcd c014 8632 c920     *.!". ......2. .
-    16dc:	2ae5 208f 0006 094f 8f22 e120 7ec9 41fe     .*. ..O.". ..~.A
-    16ec:	fed8 3f5b cdc9 08df 4ccd cd0d 172e a6fa     ..[?.....L......
-    16fc:	3a09 212c 90fe d6da 0117 9080 0011 e500     .:,!............
-    170c:	a9cd e117 c851 081e 9bc3 2b04 0011 cd00     ....Q......+....
-    171c:	08df e5d0 21f5 1998 4fcd da07 0487 6b62     .....!...O....bk
-    172c:	2919 2919 d6f1 5f30 0016 eb19 c3e1 09af     .).)..0_........
-    173c:	a3ca cd05 0988 cd2b 08df 2ae5 20f4 f3ca     ......+....*. ..
-    174c:	e109 55cd 2c07 cdd5 0988 cd2b 08df 87c2     ...U.,....+.....
-    175c:	e304 7deb 5f93 9a7c da57 047c 2ae5 211b     ...}._|.W.|..*.!
-    176c:	2801 0900 4fcd d207 047c 22eb 209f 22e1     .(...O..|..". ."
-    177c:	20f4 c3e1 05a3 9fca cd05 05a3 9f01 c308     . ..............
-    178c:	0a32 030e 64cd c104 e5e5 a12a e320 8c3e     2....d....*. .>.
-    179c:	33f5 cdc5 09ab 78cd e50a a12a cd20 074f     .3.....x..*. .O.
-    17ac:	23e1 76dc d405 0573 6960 d82b 0e1e 9bc3     .#.v..s.`i+.....
-    17bc:	c004 ff16 30cd f904 8cfe 041e 9bc2 e104     .....0..........
-    17cc:	a122 2320 b57c 70c2 3a0a 2111 c2b7 04d1     ". #|..p.:.!....
-    17dc:	9f21 e308 e13e 3a01 000e 0006 4879 7e47     !...>..:....yHG~
-    17ec:	c8b7 c8b8 fe23 ca22 0a7c 7fc3 cd0a 0f42     ....#.".|.....B.
-    17fc:	55cd b407 3ad5 20f2 cdf5 0d5e e3f1 1322     .U...:. ..^...".
-    180c:	1f21 51cd ca0d 0ae0 2ae5 2129 23e5 5e23     !..Q.....*)!.##^
-    181c:	5623 a32a cd20 074f cfd2 2a0a 209f 4fcd     #V*. .O....*. .O
-    182c:	d107 d7d2 210a 2104 4fcd d207 0ad7 d13e     .....!.!.O....>.
-    183c:	86cd eb13 bfcd cd11 1386 cde1 1789 c9e1     ................
-    184c:	cde5 1786 e1d1 cdc9 14ad 477e 8cfe f6ca     ..........~G....
-    185c:	cd0a 0755 2b88 0d4b ca78 08c7 accd fe09     ..U..+K.x.......
-    186c:	c02c f7c3 cd0a 0d5e fe7e ca88 0b13 55cd     ,.....^.~......U
-    187c:	a907 cd2b 0d4f 2ecd ca17 0a78 dfcd da08     ..+.O.....x.....
-    188c:	0a33 c6c3 2b08 dfcd ca08 0b87 fec8 caa5     3....+..........
-    189c:	0bba a8fe baca e50b 2cfe a3ca fe0b ca3b     .........,....;.
-    18ac:	0bdd cdc1 0d5e 3ae5 20f2 c2b7 0b73 d3cd     ....^..:. ..s...
-    18bc:	cd18 11e3 2036 292a 3421 292a 3a21 2087     ....6 *)!4*)!:. 
-    18cc:	0447 6fca 040b f03a 8620 b83d 87d4 cd0b     G..o..:. .=.....
-    18dc:	1228 c4af 1228 c3e1 0b25 f03a b720 c3c8     (...(...%.:. ...
-    18ec:	0b87 0036 a521 3e20 cd0d 0760 0a3e 60cd     ..6.!. >..`.>..`
-    18fc:	af07 f032 3a20 2086 c83d aff5 60cd f107     ..2. :. =....`..
-    190c:	98c3 3a0b 2088 3a47 20f0 d4b8 0b87 ddd2     ...:. G:. ......
-    191c:	d60b d20e 0bb1 c32f 0bd2 cdf5 14aa 55cd     ....../........U
-    192c:	2907 f12b a8d6 cae5 0bcd f03a 2f20 d283     .)+.......:. /..
-    193c:	0bdd 473c 203e 60cd 0507 d6c2 e10b dfcd     ..<G> .`........
-    194c:	c308 0b2c 523f 6465 206f 7266 6d6f 7320     ..,.?Redo from s
-    195c:	6174 7472 0a0d 3a00 2112 c2b7 0481 21c1     tart...:.!.....!
-    196c:	0be4 25cd c312 05d2 90cd 7e11 22fe 003e     ...%.......~.">.
-    197c:	8a32 c220 0c22 e4cd cd11 0755 e53b 28cd     2. .".....U.;..(
-    198c:	3e12 cde5 05d6 dac1 092e 7e23 2bb7 cac5     .>........#~.+..
-    199c:	0a75 2c36 3cc3 e50c 212a f621 32af 2112     u.6,.<..*!!..2.!
-    19ac:	c3e3 0c48 55cd 2c07 42cd e30f 7ed5 2cfe     ..H..U.,.B...~.,
-    19bc:	70ca 3a0c 2112 c2b7 0cdd 3f3e 60cd cd07     .p.:.!....>?.`..
-    19cc:	05d6 c1d1 2eda 2309 b77e c52b 75ca d50a     .......#~.+..u..
-    19dc:	f23a b720 9aca cd0c 08df 4757 22fe 8eca     :. .......WG."..
-    19ec:	3a0c 2112 57b7 8bca 160c 063a 2b2c e7cd     .:.!.W....:.,+..
-    19fc:	eb11 a521 e30c c3d5 0aa8 dfcd cd08 1835     ..!...........5.
-    1a0c:	cde3 1786 2be1 dfcd ca08 0cb1 2cfe f7c2     .....+.......,..
-    1a1c:	e30b cd2b 08df 44c2 d10c 123a b721 c2eb     ..+....D..:.!...
-    1a2c:	0905 b6d5 cc21 c40c 1225 c9e1 453f 7478     ....!...%...?Ext
-    1a3c:	6172 6920 6e67 726f 6465 0a0d cd00 0a76     ra ignored....v.
-    1a4c:	c2b7 0cf6 7e23 b623 061e 9bca 2304 235e     ....#~#......#^#
-    1a5c:	eb56 0e22 eb21 dfcd fe08 c283 0cdd 70c3     V.".!..........p
-    1a6c:	110c 0000 42c4 220f 2113 30cd c204 048d     .....B.".!.0....
-    1a7c:	d5f9 237e d5f5 6ccd e317 cde5 14d9 cde1     ..~#...l........
-    1a8c:	1786 cde1 177d cde5 17a9 c1e1 cd90 177d     ....}.........}.
-    1a9c:	3cca eb0d a122 6920 c360 089b 2af9 2113     .<..". i`....*.!
-    1aac:	fe7e c22c 089f dfcd cd08 0d04 5ecd f60d     ~.,..........^..
-    1abc:	3a37 20f2 b78f c3e8 0499 55cd 2807 162b     7:. .......U.(+.
-    1acc:	d500 010e 64cd cd04 0dd5 1522 2a21 2115     .....d....".!*.!
-    1adc:	78c1 78fe 4fd4 7e0d 0016 b3d6 96da fe0d     .x.x.O.~........
-    1aec:	d203 0d96 01fe aa17 57ba 87da 2204 210a     .........W...".!
-    1afc:	dfcd c308 0d7a b77a bdc2 7e0e 0a22 d621     ....z.z....~".!.
-    1b0c:	d8ac 07fe 5fd0 f23a 3d20 7bb3 1bca 0713     ....._:. =.{....
-    1b1c:	5f83 7921 1903 5678 d0ba cd23 0d4f 01c5     ._!y..xV..#.O...
-    1b2c:	0d6d 43c5 cd4a 175f 5158 234e 2346 2ac5     m..CJ._.XQN#F#.*
-    1b3c:	210a 61c3 af0d f232 cd20 08df 241e 9bca     .!.a..2. ....$..
-    1b4c:	da04 1835 7dcd d209 0e3c 26fe 1220 dfcd     ..5..}..<..& ...
-    1b5c:	fe08 ca48 1c79 42fe e9ca 1e1c ca02 049b     ..H.y..B........
-    1b6c:	acfe d5ca fe0d ca2e 1835 adfe 2bca fe0e     ........5....+..
-    1b7c:	ca22 11e4 aafe 1dca fe0f caa7 1148 b6d6     "...........H...
-    1b8c:	4dd2 cd0e 0d5a 55cd 2907 16c9 cd7d 0d61     .M..Z..U.)..}.a.
-    1b9c:	152a e521 57cd cd17 0d4f c9e1 42cd e50f     *.!..W..O....B..
-    1bac:	22eb 2129 f23a b720 6ccc e117 06c9 0700     .")!:. ..l......
-    1bbc:	c54f dfcd 7908 31fe 74da cd0e 0d5a 55cd     O....y.1.t..Z..U
-    1bcc:	2c07 50cd eb0d 292a e321 ebe5 adcd eb14     .,.P..*)!.......
-    1bdc:	c3e3 0e7c 23cd e30e 3711 d50e d801 0901     ..|..#...7......
-    1bec:	234e 6966 15e9 adfe fec8 c82d fe14 c82b     N#fi......-...+.
-    1bfc:	acfe 2bc8 f6c9 f5af 4fcd cd0d 0991 ebf1     ...+.....O......
-    1c0c:	e3c1 cdeb 176f cdf5 0991 c1f1 2179 1106     ....o.......y!..
-    1c1c:	b8c2 a30e 784f e9a2 4fb3 b278 21e9 0ecf     ....Ox...Ox..!..
-    1c2c:	f23a 1f20 177a 165f 7864 d0ba bec3 d10d     :. .z._.dx......
-    1c3c:	790e 1fb7 d1c1 cdf5 0d51 1321 e50f a9ca     .y......Q.!.....
-    1c4c:	af17 f232 d520 68cd 7e13 2323 234e d146     ..2. ..h.~##N#F.
-    1c5c:	f5c5 6ccd cd13 177d 57f1 7be1 c8b2 d67a     ...l..}..W.{..z.
-    1c6c:	d801 bbaf d03c 1d15 be0a 0323 fbca 3f0e     ....<.....#....?
-    1c7c:	39c3 3c17 c18f c6a0 9fff 40c3 1617 cd5a     .9.<.......@..Z.
-    1c8c:	0d61 4fcd cd0d 0991 2f7b 7a4f cd2f 1106     a..O....{/Oz/...
-    1c9c:	c3c1 0d6d cd2b 08df cdc8 0755 012c 0f34     ..m.+.....U.,.4.
-    1cac:	f6c5 32af 20f1 cd46 097d 87da af04 324f     ...2. F.}.....O2
-    1cbc:	20f2 dfcd da08 0f5e 7dcd da09 0f6b cd4f     . ....^..}..k.O.
-    1ccc:	08df 5fda cd0f 097d 5fd2 d60f c224 0f7a     ..._..}.._..$.z.
-    1cdc:	323c 20f2 810f cd4f 08df 103a 3d21 27ca     <2. ..O...:.!=.'
-    1cec:	f210 0f8a d67e ca28 0fff 32af 2110 50e5     ....~.(....2.!.P
-    1cfc:	2a59 2123 4fcd 1107 2125 6fca 2a16 211d     Y*#!.O..%!.o.*.!
-    1d0c:	2aeb 211b 4fcd ca07 0fbd 9679 c223 0fb2     .*.!.O....y.#...
-    1d1c:	9678 ca23 0ff1 2323 2323 a4c3 e10f d5e3     x.#...####......
-    1d2c:	3f11 cd0e 074f cad1 0ff4 e5e3 01c5 0006     .?..O...........
-    1d3c:	1f2a e521 c109 cde5 0453 22e1 211f 6960     *.!.....S..".!`i
-    1d4c:	1d22 2b21 0036 4fcd c207 0fe3 73d1 7223     ".!+6..O.....s#r
-    1d5c:	eb23 c9e1 2c32 2121 0423 2922 e121 e5c9     #...2,!!#.")!...
-    1d6c:	f12a e320 d557 cdc5 0985 f1c1 e3eb ebe5     *. .W...........
-    1d7c:	573c fe7e ca2c 1005 55cd 2907 1522 e121     <W~.,....U.)".!.
-    1d8c:	f122 1e20 d500 e511 2af5 211d 193e 2aeb     ". ......*.!>..*
-    1d9c:	211f cdeb 074f 5fca 7e10 23b9 41c2 7e10     .!..O.._.~.#.A.~
-    1dac:	23b8 235e 2356 2dc2 3a10 20f1 c2b7 0490     .#^#V#.-.:. ....
-    1dbc:	44f1 ca4d 166f ca96 10bd 101e 9bc3 1104     .DM.o...........
-    1dcc:	0004 caf1 09a6 2371 2370 cd4f 0464 2323     ......q#p#O.d.##
-    1ddc:	0a22 7121 3a23 20f1 7917 0b01 d200 1082     ".!q#:. .y......
-    1dec:	03c1 2371 2370 e5f5 1acd eb18 f1e1 c23d     ..q#p#........=.
-    1dfc:	107a 42f5 eb4b da19 047c 6dcd 2204 211f     z..BK...|..m.".!
-    1e0c:	362b cd00 074f a0c2 0310 2a57 210a eb5e     +6..O.....W*.!^.
-    1e1c:	0929 2beb 732b 7223 f123 e1da 4710 7e4f     )..++s#r#....GO~
-    1e2c:	1623 5ee1 5623 e323 cdf5 074f 5ad2 e510     #..^#V#...O..Z..
-    1e3c:	1acd d118 f119 443d c24d 10c2 2929 09c1     ......=DM...))..
-    1e4c:	2aeb 2115 2ac9 211f 21eb 0000 3a39 20f2     .*.!.*.!.!..9:. 
-    1e5c:	cab7 1101 68cd cd13 1268 9f2a eb20 082a     .....h..h.*. .*.
-    1e6c:	7d21 4f93 9a7c 5041 001e f221 7320 9006     !}.O|.AP..!. s..
-    1e7c:	45c3 3a17 20f0 af47 07c3 cd11 119e 90cd     .E.:. G.........
-    1e8c:	0111 0a76 d5c5 55cd 2807 42cd e50f 2beb     ..v....U.(.B...+
-    1e9c:	2b56 e15e 4fcd cd0d 0755 cd29 0755 44b4     V+^..O..U.).U..D
-    1eac:	e34d 2371 c370 11dd 9ecd d511 23cd cd0e     M.q#p........#..
-    1ebc:	0d4f 5ee3 5623 7a23 cab3 0493 237e 6f66     O..^#V#z....~#fo
-    1ecc:	2ae5 2123 22e3 2123 272a e521 252a e521     .*#!."#!*'!.*%!.
-    1edc:	2521 d521 86cd e117 4ccd 2b0d dfcd c208     !%!......L.+....
-    1eec:	0487 22e1 2125 22e1 2127 22e1 2123 c9e1     ..."%!."'!."#!..
-    1efc:	2ae5 20a1 7c23 e1b5 1ec0 c316 049b 55cd     .*. #|.........U
-    1f0c:	a707 803e 1032 b621 cd47 0f47 4fc3 cd0d     ..>.2.!.G.G..O..
-    1f1c:	0d4f d3cd cd18 11e3 68cd 0113 13c3 7ec5     O........h.....~
-    1f2c:	2323 cde5 123e 4ee1 4623 d7cd e511 cd6f     ##..>..N#F....o.
-    1f3c:	135b c9d1 3ecd 2112 2104 77e5 2323 2373     [....>.!.!.w##s#
-    1f4c:	e172 2bc9 2206 e550 ff0e 7e23 b70c f9ca     r..+."P...#~....
-    1f5c:	ba11 f9ca b811 eac2 fe11 cc22 08df 23e3     .........."....#
-    1f6c:	79eb d7cd 1111 2104 f62a 2220 2129 013e     .y.....!*. ")!>.
-    1f7c:	f232 cd20 1789 4fcd 2207 20f6 7ee1 1ec0     2. ....O.". .~..
-    1f8c:	c31e 049b cd23 11e3 68cd cd13 177d 1d1c     ....#....h..}...
-    1f9c:	0ac8 60cd fe07 cc0d 0b91 c303 122f 0eb7     ...`......../...
-    1fac:	f5f1 9f2a eb20 082a 2f21 064f 09ff cd23     ..*. .*.!/O...#.
-    1fbc:	074f 5cda 2212 2108 eb23 c9f1 1ef1 ca1a     O..\.".!#.......
-    1fcc:	049b f5bf 4001 c512 f42a 2220 2108 0021     .....@..*. ".!!.
-    1fdc:	e500 9f2a e520 f821 eb20 f62a eb20 4fcd     ..*. .!. .*. ..O
-    1fec:	0107 1279 cdc2 2a12 211b 2aeb 211d cdeb     ..y....*.!.*.!..
-    1ffc:	074f a0ca 7e12 2323 cdb7 12d0 8ac3 c112     O....~##........
-    200c:	2aeb 211f cdeb 074f f6ca cd12 177d e57b     .*.!..O.....}.{.
-    201c:	b709 9ff2 2212 210a 4ee1 0006 0909 eb23     .....".!.N....#.
-    202c:	0a2a eb21 4fcd ca07 12a0 bf01 c512 80f6     *.!..O..........
-    203c:	237e 5e23 5623 f023 c8b7 4d44 082a cd21     ~##^#V#...DM*.!.
-    204c:	074f 6960 e1d8 cde3 074f e5e3 6960 c1d0     O.`i....O...`i..
-    205c:	f1f1 d5e5 c9c5 e1d1 b47d 2bc8 2b46 e54e     ........}..+F+N.
-    206c:	2b2b 266e 0900 5950 442b 2a4d 2108 56cd     ++n&..PY+DM*.!.V
-    207c:	e104 2371 6970 2b60 6bc3 c512 2ae5 2129     ..q#pi`+.k...*)!
-    208c:	cde3 0dd5 cde3 0d50 e57e 292a e521 1e86     ......P.~.*)!...
-    209c:	da1c 049b d4cd d111 6ccd e313 6bcd e513     .........l...k..
-    20ac:	062a eb21 52cd cd13 1352 6a21 e30d c3e5     *.!..R..R.!j....
-    20bc:	1205 e3e1 237e 4e23 4623 2c6f c82d 120a     ....~##N#Fo,-...
-    20cc:	1303 5cc3 cd13 0d50 292a eb21 86cd eb13     ...\..P.*)!.....
-    20dc:	d5c0 5950 4e1b 082a cd21 074f 84c2 4713     ..PY.N*.!.O....G
-    20ec:	2209 2108 c9e1 f62a 2b20 2b46 2b4e cd2b     .".!..*. +F+N++.
-    20fc:	074f 22c0 20f6 01c9 1116 cdc5 1365 57af     O..". ......e..W
-    210c:	f232 7e20 c9b7 1601 c511 9bcd ca13 09a6     2. ~............
-    211c:	2323 235e 1a56 3ec9 cd01 11d4 b0cd 2a14     ##^#V..>.......*
-    212c:	2106 c173 05c3 cd12 1460 e3af e54f b87e     .!s.....`...O.~.
-    213c:	d5da 7813 0e11 c500 3ecd c112 e5e1 2323     ...x.....>....##
-    214c:	2346 6866 0006 4409 cd4d 11d7 cd6f 135b     F#fh...DM...o.[.
-    215c:	cdd1 136c 05c3 cd12 1460 d5d1 901a cbc3     ..l.....`.......
-    216c:	eb13 cd7e 1465 0504 a6ca c509 ff1e 29fe     ..~.e..........)
-    217c:	1aca cd14 0755 cd2c 14ad 55cd 2907 e3f1     ....U.,....U.)..
-    218c:	cd01 c513 be3d 0006 4fd0 917e 47bb 43d8     ....=....O~..G.C
-    219c:	cdc9 139b 4eca 5f15 2323 237e 6f66 19e5     .....N._##~#fo..
-    21ac:	7246 c5e3 fe7e c224 144f 79cd 181c fe0d     Fr..~.$.O..y....
-    21bc:	c225 1459 e9cd 181c cd03 1835 e1c1 c970     %.Y.......5...p.
-    21cc:	cdeb 0755 c129 c5d1 c943 b0cd 3214 2084     ..U.)...C....2. 
-    21dc:	83cd c320 1116 9acd c314 204b 9acd f514     .. .......K ....
-    21ec:	001e cd2b 08df 90ca cd14 0755 cd2c 14ad     ..+.......U.,...
-    21fc:	cdc1 2083 a0ab 91ca c914 adcd 3214 2084     ... .........2. 
-    220c:	4c32 cd20 0755 c32c 14ad dfcd cd08 0d4c     2L .U.,.......L.
-    221c:	8bcd 7a09 c2b7 09a6 cd2b 08df c97b 91cd     ...z....+...{...
-    222c:	1a09 16c3 cd11 0d4c 91cd d509 55cd 2c07     ......L......U.,
-    223c:	adcd d114 c912 ac21 cd19 177d e8c3 cd14     ......!...}.....
-    224c:	177d c121 cdd1 1757 b778 3ac8 212c cab7     }.!...W.x..:,!..
-    225c:	176f d290 1502 3c2f cdeb 175f cdeb 176f     o...../<.._...o.
-    226c:	d1c1 19fe f5d0 94cd 6717 cdf1 15ad 21b4     .........g.....!
-    227c:	2129 28f2 cd15 158d 6ed2 2315 ca34 0496     )!.(.....n.#4...
-    228c:	012e c3cd c315 156e 90af 7e47 5f9b 7e23     ......n...G~._#~
-    229c:	579a 7e23 4f99 99dc 6815 af63 7947 c2b7     .W#~.O...hc.Gy..
-    22ac:	155b 544a 6f65 d678 fe08 c2e0 153c 32af     [.JTeox.....<..2
-    22bc:	212c 05c9 7a29 5717 8f79 f24f 1553 5c78     ,!..)z.Wy.O.S.x\
-    22cc:	b745 6eca 2115 212c 7786 4ed2 c815 2178     E..n.!,!.w.N..x!
-    22dc:	212c fcb7 1580 2346 e67e a980 c34f 176f     ,!....F#~...O.o.
-    22ec:	c01c c014 c00c 800e c034 96c3 7e04 5f83     ........4....~._
-    22fc:	7e23 578a 7e23 4f89 21c9 212d 2f7e af77     #~.W#~.O.!-!~/w.
-    230c:	906f 7d47 5f9b 9a7d 7d57 4f99 06c9 d600     o.G}._}.W}.O....
-    231c:	da08 15bc 5a43 0e51 c300 15af 09c6 af6f     ....CZQ.......o.
-    232c:	c82d 1f79 7a4f 571f 1f7b 785f 471f bfc3     -.y.Oz.W{._x.G..
-    233c:	0015 0000 0381 56aa 8019 22f1 8076 aa45     .......V..."v.E.
-    234c:	8238 2ecd b717 a6ea 2109 212c 017e 8035     8........!,!~.5.
-    235c:	f311 9004 70f5 c5d5 e8cd c114 04d1 84cd     .....p..........
-    236c:	2116 15d1 dfcd 2114 15d5 76cd 011a 8080     .!.....!...v....
-    237c:	0011 cd00 14e8 cdf1 18a9 3101 1180 7218     ...........1...r
-    238c:	c121 cdd1 172e 2ec8 cd00 16ec 3279 213b     !...........y2;!
-    239c:	22eb 213c 0001 5000 2158 1539 21e5 1645     ."<!...PX!9..!E.
-    23ac:	e5e5 2921 7e21 b723 71ca e516 082e 671f     ..!)!~#..q.....g
-    23bc:	d279 165f 2ae5 213c eb19 3ae1 213b 1f89     y._..*<!...:;!..
-    23cc:	7a4f 571f 1f7b 785f 471f 7c2d 4ec2 e116     Oz.W{._x.G-|.N..
-    23dc:	43c9 515a c94f 5fcd 0117 8420 0011 cd00     .CZQO.._.. .....
-    23ec:	176f d1c1 2ecd ca17 048a ff2e eccd 3416     o..............4
-    23fc:	2b34 327e 2057 7e2b 5332 2b20 327e 204f     4+~2W +~2S +~2O 
-    240c:	eb41 4faf 5f57 5a32 e520 7dc5 4ecd de20     A..OW_2Z ..}.N .
-    241c:	3f00 bcd2 3216 205a f1f1 d237 e1c1 3c79     .?...2Z ..7...y<
-    242c:	1f3d 6ffa 1715 177b 7a5f 5717 1779 294f     =..o..{._z.Wy.O)
-    243c:	1778 3a47 205a 3217 205a b279 c2b3 16a9     x.G:Z .2Z y.....
-    244c:	21e5 212c e135 a9c2 c316 0496 b778 10ca     .!,!5.......x...
-    245c:	7d17 2c21 ae21 4780 a81f f278 170f 80c6     .}!,!..G..x.....
-    246c:	ca77 166f 94cd 7717 c92b 2ecd 2f17 b7e1     w.o....w+..../..
-    247c:	f2e1 154e 96c3 cd04 177a b778 c6c8 da02     ..N.....z.x.....
-    248c:	0496 cd47 14e8 2c21 3421 c3c0 0496 2c3a     ..G...!,!4....:,
-    249c:	b721 3ac8 212b 2ffe 9f17 3cc0 cdc9 172e     !..:+!./...<....
-    24ac:	8806 0011 2100 212c 704f 0006 3623 1780     .....!,!Op..#6..
-    24bc:	36c3 cd15 172e 21f0 212b ee7e 7780 ebc9     .6.....!+!~..w..
-    24cc:	292a e321 2ae5 212b e5e3 c9eb 7dcd eb17     *)!..*+!.....}..
-    24dc:	2922 6021 2269 212b c9eb 2921 5e21 5623     ")!`i"+!..!)!^#V
-    24ec:	4e23 4623 c923 2911 0621 1a04 1377 0523     #N#F#..)!...w.#.
-    24fc:	8bc2 c917 2b21 7e21 3707 771f 1f3f 2323     ....!+!~.7.w?.##
-    250c:	7977 3707 4f1f ae1f 78c9 cab7 172e 3721     wy.7.O...x....!7
-    251c:	e517 2ecd 7917 21c8 212b 79ae cdf8 17c3     .....y.!+!.y....
-    252c:	a91f 23c9 be78 2bc0 be79 2bc0 be7a 2bc0     ...#x..+y..+z..+
-    253c:	967b e1c0 c9e1 4f47 5f57 c8b7 cde5 177a     {.....GOW_....z.
-    254c:	94cd ae17 fc67 17fa 983e cd90 15ad 177c     ....g...>.....|.
-    255c:	80dc 0615 dc00 1599 c9e1 7a1b 3ca3 0bc0     ...........z.<..
-    256c:	21c9 212c fe7e 3a98 2129 7ed0 d6cd 3617     .!,!~..:)!.~...6
-    257c:	7b98 79f5 cd17 1536 c9f1 0021 7800 c8b1     .{.y..6...!..x..
-    258c:	103e da29 105a 29eb d2eb 1830 da09 105a     >.).Z..)..0...Z.
-    259c:	c23d 1822 fec9 f52d 41ca fe18 ca2b 1841     =."...-..A..+.A.
-    25ac:	cd2b 154e 5747 2f5f cd4f 08df 92da fe18     +.N.GW_/O.......
-    25bc:	ca2e 186d 45fe 71c2 cd18 08df 85cd cd0e     ..m..E.q........
-    25cc:	08df b4da 1418 71c2 af18 5f93 0c0c 49ca     .......q..._...I
-    25dc:	e518 907b 8af4 f218 1880 cdf5 1676 3cf1     ..{.........v..<
-    25ec:	74c2 d118 ccf1 1757 c9eb f5c8 17cd f117     .t....W.........
-    25fc:	c93d 57d5 8978 c547 d5e5 17cd f117 30d6     =..Wx.G........0
-    260c:	a9cd e118 d1c1 49c3 cd18 175f 40cd c117     .......I.._..@..
-    261c:	c3d1 14e8 077b 8307 8607 30d6 c35f 185f     ....{......0_._.
-    262c:	21e5 041f 25cd e112 afeb 9806 45cd 2117     .!...%.......E.!
-    263c:	1224 21e5 212e cde5 172e 2036 e1f2 3618     $..!.!....6 ...6
-    264c:	232d 3036 97ca e519 57fc af17 cdf5 199d     -#60.....W......
-    265c:	4301 1191 4ff8 a9cd b717 0ee2 f119 8bcd     .C...O..........
-    266c:	f518 f0c3 cd18 1676 3cf1 cdf5 199d d6cd     ......v..<......
-    267c:	3c14 d6cd cd17 176f 0601 f103 3c81 2afa     .<....o......<.*
-    268c:	fe19 d208 192a 473c 023e 3d3d f5e1 b011     ....*.<G>.==....
-    269c:	0519 3bc2 3619 232e 3036 0523 2e36 84cc     ...;.6.#60#.6...
-    26ac:	c517 d5e5 7acd e117 2f06 7b04 5f96 7a23     .....z.../.{._#z
-    26bc:	579e 7923 4f9e 2b2b 4ad2 cd19 158d cd23     .W#y.O++.J....#.
-    26cc:	176f e1eb 2370 0dc1 3bc2 0519 7bca 2b19     o...p#...;...{.+
-    26dc:	fe7e ca30 196f 2efe 84c4 f117 9aca 3619     ~.0.o..........6
-    26ec:	2345 2b36 8bf2 3619 2f2d 063c 042f 0ad6     E#6+...6-/<./...
-    26fc:	8dd2 c619 233a 2370 2377 e171 01c9 9474     ....:#p#w#q...t.
-    270c:	f711 cd23 17a9 e1b7 05e2 e919 0000 8000     ..#.............
-    271c:	86a0 1001 0027 03e8 6400 0000 000a 0100     ....'....d......
-    272c:	0000 5721 e317 cde9 175f ac21 cd19 176c     ..!W...._.!...l.
-    273c:	d1c1 2ecd 7817 15ca f21a 19e0 cab7 048a     .....x..........
-    274c:	cab7 154f c5d5 f679 cd7f 177a fdf2 d519     ..O...y...z.....
-    275c:	cdc5 1801 d1c1 cdf5 17a9 7ce1 e11f 2b22     ...........|.."+
-    276c:	e121 2922 dc21 19c2 57cc d517 cdc5 15e2     !.")!....W......
-    277c:	d1c1 23cd cd16 175f 3801 1181 aa3b 23cd     ...#.._..8..;..#
-    278c:	3a16 212c 88fe 0ad2 cd17 1801 80c6 02c6     .:,!............
-    279c:	0ada f517 d121 cd15 14d9 1acd f116 d1c1     ....!...........
-    27ac:	cdf5 14e5 57cd 2117 1a55 85cd 111a 0000     .....W.!U.......
-    27bc:	4ac1 23c3 0816 2e40 7494 4f70 772e 026e     .J.#..@..tpO.wn.
-    27cc:	7a88 a0e6 7c2a aa50 7eaa ffff 7f7f 0000     .z..*|P..~......
-    27dc:	8180 0000 8100 5fcd 1117 1621 e5d5 7acd     ......._..!....z
-    27ec:	cd17 1623 cde1 175f 237e 6ccd 0617 c1f1     ..#..._.~#.l....
-    27fc:	3dd1 d5c8 f5c5 cde5 1623 cde1 177d cde5     .=......#...}...
-    280c:	14e8 c3e1 1a8e 2ecd 2117 205e 07fa 211b     .........!^ ...!
-    281c:	207f 6ccd 2117 205e 86c8 07e6 0006 2377     . .l.!^ ......w#
-    282c:	8787 094f 7dcd cd17 1623 5d3a 3c20 03e6     ..O..}..#.:] <..
-    283c:	0006 01fe 3288 205d 0b21 871b 4f87 cd09     .....2] !....O..
-    284c:	14d9 7acd 7b17 ee59 4f4f 8036 462b 8036     ...z.{Y.OO6.+F6.
-    285c:	5c21 3420 d67e c2ab 1afe 0c77 1c15 39cd     !\ 4~.....w....9
-    286c:	2115 207f 86c3 7717 772b 772b e2c3 681a     .!. ...w+w+w...h
-    287c:	46b1 9968 92e9 1069 75d1 2168 1b65 d9cd     .Fh...i..uh!e...
-    288c:	cd14 175f 4901 1183 0fdb 6fcd c117 cdd1     .._..I.....o....
-    289c:	1684 5fcd cd17 1801 d1c1 e5cd 2114 1b69     ..._.........!i.
-    28ac:	dfcd cd14 172e f237 1b51 d6cd cd14 172e     ......7.Q.......
-    28bc:	f5b7 57f4 2117 1b69 d9cd f114 57d4 2117     ...W.!i......W.!
-    28cc:	1b6d 76c3 db1a 490f 0081 0000 057f d7ba     m..v...I........
-    28dc:	861e 2664 8799 3458 8723 5de0 86a5 0fda     ..d&..X4#..]....
-    28ec:	8349 5fcd cd17 1b21 e1c1 5fcd eb17 6fcd     I.._..!...._...o
-    28fc:	cd17 1b1b 82c3 cd16 172e c2fc fc19 1757     ..............W.
-    290c:	2c3a fe21 da81 1bb4 0001 5181 cd59 1684     :,!........QY...
-    291c:	df21 e514 be21 cd1b 1a76 6521 c91b 4a09     !...!...v.!e...J
-    292c:	3bd7 0278 846e fe7b 2fc1 747c 9a31 847d     .;x.n.{../|t1.}.
-    293c:	5a3d c87d 917f e47e 4cbb 6c7e aaaa 007f     =Z}...~..L~l....
-    294c:	0000 c981 c9d7 0c3e 1cc3 cd1d 14ad 327b     ......>.......{2
-    295c:	2087 cdc9 0d4c 91cd ed09 8b53 ed20 8d53     . ..L.....S. .S.
-    296c:	c920 91cd d509 46e1 7e23 07c3 cd11 0d4c      ......F#~....L.
-    297c:	91cd d509 55cd 2c07 4ccd cd0d 0991 73e3     .....U.,.L.....s
-    298c:	7223 c9e1 4fcd cd0d 0991 21c5 212e fe7a     #r...O.....!.!z.
-    299c:	2800 cd0c 1c5c fe78 2830 7002 7123 7b23     .(..\.x.0(.p#q#{
-    29ac:	5ccd 7a1c 00fe 0520 fe78 2830 7002 7123     .\.z.. .x.0(.p#q
-    29bc:	af23 2377 c177 2e21 c321 11b5 e647 fe0f     #.w#w.!.!...G...
-    29cc:	380a c602 c607 4f30 0f78 0f0f e60f fe0f     .8....0Ox.......
-    29dc:	380a c602 c607 4730 ebc9 0021 cd00 1c92     .8....0G..!.....
-    29ec:	b2da 181c cd05 1c92 1f38 2929 2929 6fb5     ........8.)))).o
-    29fc:	f318 1a13 20fe 92ca d61c d830 0afe 0538     ..... ....0...8.
-    2a0c:	07d6 0afe fed8 3f10 ebc9 4b7a cde5 1106     .......?..zK....
-    2a1c:	c9e1 261e 9bc3 cd04 0d4f 91cd c509 2e21     ...&....O.....!.
-    2a2c:	0621 0511 fe78 2801 cb08 cb13 3012 18f4     !...x..(.....0..
-    2a3c:	cb04 cb13 3e12 ce30 7700 0523 f320 77af     .....>0..w#. ..w
-    2a4c:	7723 21c1 212e b5c3 eb11 0021 cd00 1d06     #w.!.!....!.....
-    2a5c:	14da d61d 2930 6fb5 06cd 301d ebf6 4b7a     ....0).o...0..zK
-    2a6c:	cde5 1106 c9e1 1a13 20fe 06ca fe1d d830     ......... ....0.
-    2a7c:	32fe c93f 281e 9bc3 c304 00e0 08c3 c300     .2?..(..........
-    2a8c:	0000 003e 9232 c320 00e7 a0f5 b8c1 003e     ..>.2. .......>.
-    2a9c:	cdc9 0760 87c3 000b                         ..`.....
+     d6c:	aec3 c300 0142 0000 c2c3 002d 0000 0000     ....B.....-.....
+     d7c:	95c3 002d 0000 0000 bdc3 002d 0000 0000     ..-.......-.....
+     d8c:	00c9 0000 0000 0000 00c9 0000 0000 0000     ................
+     d9c:	acc3 0026 0000 0000 39c3 0027 0000 0000     ..&......9'.....
+     dac:	0068 0418 0344 05c1 01e8 1810 0001 4002     h...D..........@
+     dbc:	0407 0000 0000 0000 0000 0000 0000 0000     ................
+     dcc:	0000 0000 0000 45ed c5f5 e5d5 18db 3a57     .......E......W:
+     ddc:	ff44 40fe 1528 323c ff44 463a 4fff 0006     D..@(.<2D.:F.O..
+     dec:	5021 09ff 3c72 3fe6 4632 e1ff c1d1 fbf1     !P..r<.?2F......
+     dfc:	4ded 5021 0600 0e02 ed13 21b3 0042 0906     .M!P.......!B...
+     e0c:	190e b3ed 4b21 0600 0e05 ed1b c9b3 31f3     ....!K.........1
+     e1c:	fed0 0021 0180 8000 77af 0b23 b178 f820     ..!......w#.x. .
+     e2c:	5eed 4021 7c00 47ed 92cd fb00 0021 2280     .^!@.|.G....!.."
+     e3c:	fed0 d722 22fe fed5 1b22 22ff ff1d 493e     ..".."..".."..>I
+     e4c:	d932 affe dc21 06fe 772e 1023 21fc fe90     2...!....w#..!..
+     e5c:	f022 21fe 8000 f222 06fe 3e08 212e ff30     "..!.."....>.!0.
+     e6c:	2377 fc10 77af 493e 1532 3eff 324e ff14     w#...w>I2..>N2..
+     e7c:	002e 2265 ff16 32af ff1a 0021 2280 fef8     ..e"...2..!.."..
+     e8c:	fc22 22fe ff00 0422 22ff ff08 327e fef7     ".."..".."..~2..
+     e9c:	fb32 32fe feff 0332 32ff ff07 fa21 cd2a     2..2..2..2..!.*.
+     eac:	2570 f3af 4432 32ff ff45 4632 3eff d330     p%..2D.2E.2F.>0.
+     ebc:	3e19 d328 fb19 d031 affe 3932 21ff 2b3b     .>(...1...29.!;+
+     ecc:	70cd cd25 25d0 5acd b726 ea28 41fe 7eca     .p%..%.Z&.(..A.~
+     edc:	fe19 ca44 0709 47fe f1ca fe13 ca53 14b2     ..D....G....S...
+     eec:	4cfe 28ca fe15 ca50 1602 52fe daca fe16     .L.(..P....R....
+     efc:	ca23 01b2 42fe d0ca fe02 ca54 0380 3ffe     #....B....T....?
+     f0c:	0828 5821 cd2b 2570 ac18 2c21 cd29 2570     (.!X+.p%..!,).p%
+     f1c:	a418 cd23 265a 28b7 fee9 284c cd25 026b     ..#.Z&.(..L(%.k.
+     f2c:	e038 fe79 d206 01a2 cab7 01a2 173d 0016     8.y.........=...
+     f3c:	215f 01f7 5e19 5623 5eeb 5623 b37a c228     _!...^#V.^#Vz.(.
+     f4c:	e9eb f721 5e01 7e23 2357 cab3 0156 1313     ..!..^#~W#..V...
+     f5c:	cdeb 2570 18eb 01ee 1502 2b02 4a02 0002     ..p%.......+.J..
+     f6c:	0000 312f 202e 4247 5341 4349 5320 6174     ../1. GBASIC Sta
+     f7c:	7472 0a0d 0300 322f 202e 4247 5341 4349     rt..../2. GBASIC
+     f8c:	5220 7365 6174 7472 0a0d 0000 334c 202e      Restart....L3. 
+     f9c:	6150 6f6c 6c41 6f74 6954 796e 4142 4953     PaloAltoTinyBASI
+     fac:	2043 7453 7261 0d74 000a 5400 2e34 4d20     C Start....T4. M
+     fbc:	6369 6f72 6150 6373 6c61 5320 6174 7472     icroPascal Start
+     fcc:	0a0d d500 cde5 026b d1e1 afc9 4f47 5acd     ......k.....GO.Z
+     fdc:	b726 cdc8 028d f5d8 f108 9ccd d802 e508     &...............
+     fec:	0016 605f 1969 4d44 d8e1 1823 b7e1 0a28     .._`i.DM..#...(.
+     ffc:	30fe fed8 303a d603 c930 c937 c5e5 21cb     .0..:0..0.7....!
+    100c:	10cb 21cb 10cb 09e1 c1e5 21cb 10cb c9e1     ...!.......!....
+    101c:	fe3a b7fe 0828 002a 3eff cd31 0366 023a     :...(.*..>1.f.:.
+    102c:	b7ff 56ca 2a01 ff04 323e 66cd c303 0156     ...V.*..>2.f..V.
+    103c:	cd23 265a 28b7 01d9 fefe 31fe 0e28 0201     #.Z&.(.....1(...
+    104c:	feff 2832 fe07 2843 c339 01a2 2308 5acd     ..2(..C(9....#.Z
+    105c:	b726 5528 2cfe a2c2 2301 5acd c526 6acd     &.(U.,...#.Z&..j
+    106c:	e126 a2da cd01 030e a2da c301 0156 fe7a     &...........V.z.
+    107c:	da80 0320 013e 2377 771a 7323 7223 c9b7     .. .>.w#.w#s#r..
+    108c:	c937 cd23 265a 28b7 0114 fefe 31fe 0828     7.#.Z&.(.....1(.
+    109c:	0201 feff c232 01a2 02af 56c3 af01 fe01     ....2......V....
+    10ac:	02fe 0201 02ff 56c3 0a01 cab7 0156 2a08     .......V....V..*
+    10bc:	ff00 31fe 0328 042a cdff 0366 56c3 4201     ...1(.*...f..V.B
+    10cc:	2850 2900 003a f5e5 5f21 cd03 2570 cdf1     P(.):...!_..p%..
+    10dc:	2dc2 6321 cd03 2570 cde1 2579 b9cd c925     .-!c..p%..y%..%.
+    10ec:	2ee5 2600 2200 ff16 f22a 22fe ff18 32af     ...&."..*.."...2
+    10fc:	ff1a 23e1 5acd cd26 266a 46d2 cd04 265a     ...#.Z&.j&.F..Z&
+    110c:	b77e 6fca fe04 ca2c 0457 50fe 4e28 4dfe     ~..o..,.W..P(N.M
+    111c:	a2c2 2301 5acd 2126 03ee 49fe 1028 f421     ...#.Z&!...I(.!.
+    112c:	fe03 2853 b709 a2c2 3a01 ff15 e918 1532     ..S(.....:....2.
+    113c:	e5ff df21 cd03 2570 cde1 2570 56c3 5401     ..!...p%..p%.V.T
+    114c:	204d 6f6d 6564 3c3a 4143 4c4c 0020 4e49     M mode:<CALL .IN
+    115c:	0d3e 000a 4b53 5049 0d3e 000a cd23 265a     >...SKIP>...#.Z&
+    116c:	20b7 3a05 ff14 0918 4ffe a2c2 2301 5acd     . .:.....O...#.Z
+    117c:	2126 043b 4efe 0828 4021 fe04 c246 01a2     &!;..N(.!@..F...
+    118c:	1432 e5ff 3121 cd04 2570 cde1 2570 56c3     2...!1..p%..p%.V
+    119c:	5401 2050 6f6d 6564 203a 4f00 0d4e 000a     .TP mode: .ON...
+    11ac:	464f 0d46 000a 53ed ff18 5acd b726 1f28     OFF....S...Z&.(.
+    11bc:	2cfe 0328 a2c3 2301 5acd b726 a2ca fe01     .,(....#.Z&.....
+    11cc:	282d cd11 026b a2da ed01 1643 18ff 011b     -(..k.....C.....
+    11dc:	0001 f518 cd23 265a 31fe a2c2 2301 5acd     ....#.Z&.1...#.Z
+    11ec:	b726 a2c2 3e01 3201 ff1a 182a 7eff 0801     &....>.2..*..~..
+    11fc:	2100 0627 b1ed 1320 010e f0cd da05 05af     .!'... .........
+    120c:	020e d0cd da05 05af acc3 0105 0005 2f21     ..............!/
+    121c:	ed06 20b1 0e19 2a01 ff18 c3cd cd05 05fd     ... ...*........
+    122c:	afda 0e05 cd02 05d5 afda c305 05ac 0801     ................
+    123c:	2100 0634 b1ed 0420 010e 1318 0801 2100     .!4... ........!
+    124c:	063c b1ed 1a20 010e 153a feff 2853 cd08     <... ...:...S(..
+    125c:	05e4 afda 0e05 cd02 05da afda c305 05ac     ................
+    126c:	c9fe 0b20 010e f0cd da05 05af acc3 0105     .. .............
+    127c:	0008 4421 ed06 20b1 0e0b cd01 05d0 afda     ..!D... ........
+    128c:	c305 05ac edfe 1320 7e23 45fe 0428 4dfe     ...... .#~.E(..M
+    129c:	0920 010e f0cd 3805 1876 2a71 ff18 fe7e      ......8v.q*..~.
+    12ac:	20e9 2a0c fee2 010e fdcd 3805 1862 fe5d     . .*.......8b.].
+    12bc:	20dd 230b fe7e 20e9 2a05 feec e818 182a     . .#~.. .*....*.
+    12cc:	7eff fdfe 0b20 7e23 e9fe 0520 ee2a 18fe     .~.. .#~.. .*...
+    12dc:	2ad5 ff18 fe7e 2018 0e0c cd01 05c3 fdcd     .*..~.. ........
+    12ec:	3805 182c fe27 20c3 0e09 cd01 05e4 1f38     .8,.'.. ......8.
+    12fc:	1a18 cdfe 4cc2 0e06 3a01 ff15 53fe 0728     .....L...:...S(.
+    130c:	e4cd 3805 180a cd05 05da 0338 2ec3 2114     ...8......8....!
+    131c:	05b9 70cd c325 0156 41ff 7264 4520 5252     ...p%.V..Adr ERR
+    132c:	0a0d 2300 235e ff16 7bcb 0220 0016 c919     ...#^#...{ .....
+    133c:	182a 18ff 2a0a ff18 0418 182a 23ff 2323     *....*....*..###
+    134c:	fdcd c905 182a 23ff 235e eb56 fdcd c905     ....*..#^#V.....
+    135c:	5bed fef0 6f1a 1a13 cd67 05fd 7cc9 80fe     .[...o..g....|..
+    136c:	2338 fffe 1f30 fe79 2001 110d fef6 2212     8#..0.y.. ....."
+    137c:	fef8 327e fef7 0b18 fa11 12fe fc22 7efe     ..~2........"..~
+    138c:	fb32 affe 37c9 c0c9 d0c8 e0d8 f0e8 10f8     2....7..........
+    139c:	2820 3830 cac2 dad2 eae2 faf2 ccc4 dcd4      (08............
+    13ac:	ece4 fcf4 cfc7 dfd7 efe7 fff7 1201 2100     ...............!
+    13bc:	06e5 b1ed c0ca 0106 0008 f721 ed06 cab1     ..........!.....
+    13cc:	06cb 182a feff 28cb fe57 28dd fe0a 28ed     ..*....(W..(...(
+    13dc:	fe28 28fd 1802 233e fe7e 28cb fe59 2821     (..(..>#~..(Y.!(
+    13ec:	fe55 2822 fe51 282a fe4d 2836 0149 000a     U."(Q.*(M.6(I...
+    13fc:	ff21 ed06 28b1 1829 2332 fe7e 2843 fe37     !....().2#~.C(7.
+    140c:	284b fe33 2853 fe2f 285b fe2b 2873 fe27     K(3.S(/.[(+.s('.
+    141c:	287b 1823 0e0b cd01 05d0 afda c305 05ac     {(#.............
+    142c:	010e d5cd da05 05af acc3 0e05 cd01 05da     ................
+    143c:	afda c305 05ac 010e 182a 23ff ddcd da05     ........*..#....
+    144c:	05af acc3 0605 160e 261e 362e c63e dece     .........&.6>...
+    145c:	e6d6 f6ee dbfe 01d3 2111 2231 2a32 093a     .........!1"2*:.
+    146c:	2919 2339 e52b e3e1 23f9 fe7e ca49 0812     .)9#+....#~.I...
+    147c:	5acd cd26 266a 0638 53ed fed0 1018 2ae5     .Z&.j&8..S.....*
+    148c:	fed0 8001 0900 d222 e1fe b77e 2b28 5acd     ......"...~.(+.Z
+    149c:	7e26 2cfe 0d28 c2b7 01a2 8021 1900 d222     &~.,(.....!...".
+    14ac:	18fe 2316 5acd cd26 266a a2da cd01 265a     ...#.Z&.j&....Z&
+    14bc:	c2b7 01a2 ed13 d253 cdfe 075f 56c3 2a01     ......S..._..V.*
+    14cc:	fed0 f03e 6fa5 32af fed4 cde5 078c 01e1     ..>..o.2........
+    14dc:	0010 cd09 2dbd 0e20 d43a fefe 3802 2aeb     .....- .:....8.*
+    14ec:	fed2 d022 c9fe d022 c3fe 2d95 79cd e525     .."..."....-.y%.
+    14fc:	6021 cd2b 2570 dde1 9021 06ff cd10 07c6     !`+.p%..!.......
+    150c:	fb10 6321 cd2b 2570 9021 06ff 7e10 fe23     ..!c+.p%!....~#.
+    151c:	3820 fe09 307f cd05 2dc2 0518 2e3e c2cd      8...0...-..>...
+    152c:	102d c3ea 25b9 203e c2cd 3a2d fed4 20b7     -....%> ..-:... 
+    153c:	3a20 fed0 20bd 3a06 fed1 28bc 3e0f cd20      :... .:...(.> .
+    154c:	2dc2 c2cd dd2d 0077 dd23 c923 013e d432     .-..-.w.#.#.>.2.
+    155c:	3afe fed4 01fe e520 dd7e 0077 7ecd 2325     .:.... .~.w..~%#
+    156c:	23dd d23a bdfe 3ac0 fed3 c0bc 023e d432     .#:....:....>.2.
+    157c:	c9fe cd23 265a 6acd 3026 cd14 265a b77e     ..#.Z&.j&0..Z&~.
+    158c:	1320 0026 0a2e 327d ff3c 3a22 18ff ed33      .&...}2<.":..3.
+    159c:	3d53 18ff fee6 c22c 01a2 cd23 265a 53fe     S=....,...#.Z&.S
+    15ac:	1220 013e 3c32 23ff 6bcd da02 01a2 43ed      .>.2<.#.k.....C
+    15bc:	ff3a 0e18 6acd da26 01a2 53ed ff3a 32af     :....j&....S:..2
+    15cc:	ff3c bdcd 282d cd06 2d95 56c3 cd01 08f1     <...-(...-.V....
+    15dc:	b6cd 2108 ff90 70cd 3a25 ff3c 20b7 2a0e     ...!...p%:<.. .*
+    15ec:	ff3a 4bed ff3d 42ed d830 56c3 2a01 ff3a     :..K=..B0..V.*:.
+    15fc:	222b ff3a b57c ca20 56c3 2201 ff3d cdd5     +":.|. ..V."=...
+    160c:	08f1 b6cd d108 9021 01ff 002a b0ed 5bed     ......!...*....[
+    161c:	ff3d 433a c9ff 9021 edff 3d5b cdff 1091     =.:C..!...[=....
+    162c:	21cd cd11 1121 0406 433a 4fff 131a 5fd5     .!..!...:C.O..._
+    163c:	99cd cd10 1121 05d1 0f28 200d cdef 1121     ....!...(.. ..!.
+    164c:	21cd cd11 1121 2005 cdf4 1121 53ed ff3d     .!..!.. ..!..S=.
+    165c:	3ec9 3201 ff43 f011 cd11 10b5 ab21 cdff     .>.2C.......!...
+    166c:	10e1 3d2a 7eff 0d01 2100 1134 b1ed 1220     ..*=.~...!4... .
+    167c:	4321 cd13 1037 b5c3 e610 0f38 0f0f 064f     !C..7.....8...O.
+    168c:	c900 0afe 1928 1afe 2328 02fe 2428 12fe     ....(...(#..($..
+    169c:	2928 f9fe 2a20 8b11 cd2d 1108 dbc3 1110     ().. *..-.......
+    16ac:	2d4a cdd5 1105 cdd1 10ef e1c3 1110 2d51     J-............Q-
+    16bc:	f018 4a11 cd2d 10f7 d0c3 1110 2d51 f518     ...J-.......Q-..
+    16cc:	40fe f8da fe09 3080 fe28 2076 1106 11f3     .@.....0(.v ....
+    16dc:	b5c3 cd10 0919 34cd 2110 ffab 08cd ed11     .......4.!......
+    16ec:	3d5b 1aff 07e6 064f e500 34cd e110 dec3     [=....O....4....
+    16fc:	fe10 3088 cd08 10b2 05cd 1811 fee2 3090     ...0...........0
+    170c:	110b 11fc b5cd cd10 1105 d318 98fe 0830     ..............0.
+    171c:	0011 cd12 10b5 c718 a0fe 0b30 0411 cd12     ..........0.....
+    172c:	10b5 05cd 1811 feb8 30a8 1108 1208 b5cd     .........0......
+    173c:	1810 feac 30b0 1108 120c b5cd 1810 fea0     .....0..........
+    174c:	30b8 1108 1210 b5cd 1810 fe94 d2c0 0a74     .0............t.
+    175c:	1311 cd12 10b5 8718 0801 2100 1141 b1ed     ...........!A...
+    176c:	0e20 11f5 1216 b5cd f110 19cd c309 0989      ...............
+    177c:	0801 2100 1149 b1ed 0a20 11f5 121a b5cd     ...!I... .......
+    178c:	f110 e618 0401 2100 1151 b1ed 0f20 1611     .......!Q... ...
+    179c:	cd12 10b5 3321 cd13 102b e1c3 0110 0004     ....!3..+.......
+    17ac:	5521 ed11 20b1 110f 121a b5cd 2110 1333     !U... .......!3.
+    17bc:	2bcd c310 10e1 0401 2100 1159 b1ed 4620     .+.......!Y... F
+    17cc:	b2cd 1110 2d58 08cd e511 3321 cd13 1037     ....X-....!3..7.
+    17dc:	c3e1 10de 0401 2100 115d b1ed 0f20 1e11     .......!]... ...
+    17ec:	cd12 10b5 3b21 cd13 102b e1c3 0110 0004     ....!;..+.......
+    17fc:	6121 ed11 20b1 110f 1222 b5cd 2110 133b     !a... .."....!;.
+    180c:	2bcd c310 10e1 08fe 1728 e3fe 2128 ebfe     .+......(...(!..
+    181c:	2520 5111 cd2d 1108 dbcd 1110 1227 b5c3      %.Q-.......'...
+    182c:	1110 11d1 08cd 1111 11d4 decd 1810 11ec     ................
+    183c:	2d8b f7cd 1810 fee1 20e9 110f 11dc b5cd     .-....... ......
+    184c:	1110 2d58 eccd c310 10e1 0801 2100 0627     ..X-.........!'.
+    185c:	b1ed 0f20 d811 cd11 10b5 1b21 cd13 102b     .. .......!...+.
+    186c:	e1c3 0110 0008 4421 ed06 20b1 1117 11ec     ......!D... ....
+    187c:	b5cd 7910 cb2f cb27 cb27 e627 5f38 ab21     ...y/.'.'.'.8_!.
+    188c:	c3ff 1040 3ef5 3202 ff43 01f1 0008 e521     ..@..>.2C.....!.
+    189c:	ed06 20b1 cd16 0919 34cd cd10 1108 5bed     ... .....4.....[
+    18ac:	ff3d 1a13 cd5f 1083 e1c3 0110 000a ed21     =..._.........!.
+    18bc:	ed06 c2b1 0b9f 21c5 135d 37cd cd10 10b5     .......!]..7....
+    18cc:	79c1 01fe 1428 28b7 fe1a 3807 cd03 1105     .y..(..(...8....
+    18dc:	5bed ff3d 1a13 c35f 1040 05cd cd11 0b8f     .[=..._.@.......
+    18ec:	e1c3 2110 ffab 8fcd cd0b 112d d0c3 cd10     ...!......-.....
+    18fc:	1118 5bed ff3d 1a13 cd5f 1083 1cc3 fe11     ...[=..._.......
+    190c:	2010 1105 11e2 0718 18fe 0c20 df11 cd11     . ........ .....
+    191c:	10b5 ab21 c3ff 1064 0401 2100 0630 b1ed     ..!...d....!0...
+    192c:	1220 df11 cd11 10b5 2b21 cd13 102b 2dcd      .......!+..+..-
+    193c:	c311 1064 3ef5 3203 ff43 01f1 0004 f721     ..d..>.2C.....!.
+    194c:	ed06 c2b1 0bf5 7121 cd13 1037 08cd cd11     ......!q..7.....
+    195c:	0c1d 46c3 fe10 2822 fe12 2832 fe14 282a     ...F.."(..2(..*(
+    196c:	fe26 c23a 0c36 05cd 1811 cd22 0c17 dbc3     &.:.6.....".....
+    197c:	cd10 0c17 d0c3 cd10 0c1d 4cc3 e510 3d2a     ...........L..*=
+    198c:	23ff 235e e156 11c9 2d58 08cd cd11 0c1d     .#^#V...X-......
+    199c:	5bcd c310 10e1 c3fe 0820 dc11 cd11 10b5     .[...... .......
+    19ac:	ad18 cdfe 0820 e711 cd11 10b5 a118 0801     .... ...........
+    19bc:	2100 0634 b1ed 1120 dc11 cd11 10b5 1b21     .!4... .......!.
+    19cc:	cd13 102b 2dcd 1811 0186 0008 3c21 ed06     ..+..-......!<..
+    19dc:	20b1 1105 11e7 e318 3d2a 23ff 3ef5 3202     . ......*=.#.>.2
+    19ec:	ff43 fef1 c2cb 0d3e 217e ffab 08fe c7da     C.....>.~!......
+    19fc:	fe0c da10 0cd0 18fe d9da fe0c da20 0ce2     ............ ...
+    1a0c:	28fe ebda fe0c da30 0cf4 38fe 18da fe0d     .(....0....8....
+    1a1c:	da40 0cfd 80fe 06da fe0d dac0 0d0f 1ecd     @...............
+    1a2c:	110d 12e6 b5c3 cd10 0d23 6111 c312 10b5     ........#..a....
+    1a3c:	23cd 110d 1265 b5c3 cd10 0d23 6911 c312     .#..e.....#..i..
+    1a4c:	10b5 23cd 110d 126c b5c3 cd10 0d23 6f11     ...#..l.....#..o
+    1a5c:	c312 10b5 23cd 110d 1273 b5c3 cd10 0d23     .....#..s.....#.
+    1a6c:	7711 c312 10b5 1ecd 110d 127b b5c3 cd10     .w........{.....
+    1a7c:	0d1e 7f11 c312 10b5 ea11 c312 10b5 cdf5     ................
+    1a8c:	0d30 e6f1 4f07 0006 cde5 1034 c3e1 10de     0....O....4.....
+    1a9c:	38e6 0f0f 470f 303e 77b0 c323 112d ddfe     .8...G>0.w#.-...
+    1aac:	e4c2 110e 2d85 53ed ff3f 8d11 ed13 4153     .....-.S?.....SA
+    1abc:	7eff e3fe 98ca fe0d cae9 0d86 f9fe a7ca     .~..............
+    1acc:	010d 0004 ff21 ed06 cab1 0db0 0401 2100     ....!..........!
+    1adc:	0703 b1ed c5c2 210d 1385 37cd cd10 10b5     .......!...7....
+    1aec:	ab21 c3ff 10d5 5bed ff3f 11d5 11dc b5cd     !......[?.......
+    1afc:	d110 eccd c310 10e1 2711 cd12 10b5 8b11     .........'......
+    1b0c:	cd2d 10f7 d5c3 1110 2d8b 08cd c311 10d5     -........-......
+    1b1c:	b2cd ed10 3f5b cdff 1108 2ae5 ff41 37cd     ....[?.....*A..7
+    1b2c:	e110 dec3 f510 033e 4332 f1ff 0e01 2100     ......>.2C.....!
+    1b3c:	1165 b1ed 04ca fe0e ca86 0e2f 8efe 3aca     e........./....:
+    1b4c:	fe0e ca9e 0e3f 0701 2100 1173 b1ed 44c2     ....?....!s....D
+    1b5c:	210e 139d 37cd cd10 10b5 5bed ff3f ab21     .!...7.....[?.!.
+    1b6c:	c3ff 0ffb fe79 d207 0e1c 5bed ff3f f2cd     ....y......[?...
+    1b7c:	e50f ab21 cd13 1037 c3e1 10de 07d6 214f     ..!...7.......O!
+    1b8c:	13ab 37cd cd10 1108 5bed ff3f fbc3 110f     ...7.....[?.....
+    1b9c:	11f8 b5cd cd10 1105 ee18 fc11 1811 11f3     ................
+    1bac:	1204 ee18 3ef5 3204 ff43 fef1 ca21 0e6a     .....>.2C...!.j.
+    1bbc:	22fe 77ca fe0e ca2a 0e80 36fe 90c2 ed0e     .".w..*....6....
+    1bcc:	3f5b cdff 0ff2 c35a 1040 5bed ff3f 08cd     [?....Z.@..[?...
+    1bdc:	cd11 1020 46c3 cd10 1020 4ccd c310 10d5     .. ..F.. ..L....
+    1bec:	5bed ff3f 08cd cd11 1020 5bcd c310 10e1     .[?..... ..[....
+    1bfc:	cbfe 18c2 cd0d 1020 017a 0007 7a21 ed11     ...... .z...!z..
+    1c0c:	c2b1 0eb0 e321 cd13 1037 b5cd c310 0dfa     ....!...7.......
+    1c1c:	1801 2100 1181 b1ed 18c2 fe0d da80 0ed4     ...!............
+    1c2c:	c0fe dcda 110e 12e6 b5cd 2110 ffab 30cd     ...........!...0
+    1c3c:	c30d 0e28 7b11 cd12 10b5 ef18 7f11 cd12     ..(..{..........
+    1c4c:	10b5 e718 edfe e1c2 7e0f 3801 2100 1199     .........~.8.!..
+    1c5c:	b1ed 18c2 790d 06fe c2da fe0f da1b 0fb4     .....y..........
+    1c6c:	1efe a1da ca0f 0f81 1ffe 8aca fe0f ca20     .............. .
+    1c7c:	0f93 21fe 9cca fe0f da26 0f70 2afe 5ada     ...!....&.p..*.Z
+    1c8c:	fe0f da31 0f3f 5e11 cd12 10b5 d679 4f31     ..1.?..^....y.1O
+    1c9c:	ab21 cd13 1037 08cd 1111 12ee dec3 1110     !...7...........
+    1cac:	125a b5cd 1110 12ee 08cd 7911 2ad6 e54f     Z..........y.*O.
+    1cbc:	ab21 cd13 1037 c3e1 10de 0411 cd12 10b5     !...7...........
+    1ccc:	5811 cd2d 1108 d679 4f26 21e5 1333 e318     .X-...y.&O.!3...
+    1cdc:	fc11 cd11 10b5 5811 cd2d 1108 d679 1822     .......X-...y.".
+    1cec:	cde8 1105 9311 c32d 10de 05cd 1111 2d91     ......-........-
+    1cfc:	dec3 1110 2d93 08cd c311 10d0 9111 182d     .....-........-.
+    1d0c:	11f5 1287 b5cd 3e10 911d 30c6 ab21 77ff     .......>...0!..w
+    1d1c:	c323 10e1 06d6 064f 2100 13b9 37cd c310     #.....O..!...7..
+    1d2c:	10b5 043e 4332 c5ff 2179 1379 37cd c110     ..>.2C..y!y..7..
+    1d3c:	fe79 da03 0e84 cdd5 1020 4ccd d110 dec3     y....... ..L....
+    1d4c:	1110 2d88 53ed ff3f 9511 ed13 4153 c3ff     ...-.S?.....SA..
+    1d5c:	0d51 ab21 cdff 1001 2dc3 cd11 1001 e1c3     Q.!......-......
+    1d6c:	cd10 1118 10cd cd11 1020 fe7b 3880 ed0c     ........ .{..8..
+    1d7c:	5f44 29cd cd11 1083 1cc3 cd11 1125 f518     D_.)........%...
+    1d8c:	2ae5 ff3d 2323 235e e156 cdc9 1037 ab21     .*=.##^#V...7.!.
+    1d9c:	c3ff 1110 0b21 cb13 cb21 0910 235e c956     ....!...!...^#V.
+    1dac:	83cd c310 10e1 72cd c310 10e1 ab21 cdff     .......r....!...
+    1dbc:	1118 72cd cd10 111c 2dc3 cd11 1118 72cd     ...r.....-.....r
+    1dcc:	c310 111c 2ae5 ff3d c3cd eb05 cde1 1072     .....*=.......r.
+    1ddc:	6f18 fe7a 38a0 3e04 7730 cd23 1091 483e     .oz..8.>0w#...>H
+    1dec:	1ec3 7b11 a0fe 0438 303e 2377 99cd 1810     ...{..8.>0w#....
+    1dfc:	7aed a2cd 7a10 a6cd 7b10 a2cd 7b10 a6cd     .z...z...{...{..
+    1e0c:	c910 0f0f 0f0f 0fe6 30f6 3afe 7038 07c6     .........0.:8p..
+    1e1c:	6c18 f811 f511 06c5 2108 ffa3 b71a 0628     .l.......!....(.
+    1e2c:	2377 0513 f618 203e 2377 2005 c1fb c9f1     w#....> w#. ....
+    1e3c:	4811 182d ed09 3f5b 18ff 1103 2d58 10cd     .H-...[?....X-..
+    1e4c:	3e11 770d 3e23 770a af23 c977 ab21 cdff     .>.w#>.w#.w.!...
+    1e5c:	1118 10cd 1811 2125 ffab 18cd cd11 1110     ......%!........
+    1e6c:	1ccd 1811 1128 2d48 ab21 cdff 1110 1d18     ....(.H-!.......
+    1e7c:	771a c8b7 1323 f818 283e 0218 293e 2377     .w..#...>(..>)w#
+    1e8c:	3ec9 1820 3ef9 182b 3ef5 182d 3ef1 cd2c     .> ..>+..>-..>,.
+    1e9c:	111e ed18 0700 170f 271f 372f c93f f3d9     .........'/7?...
+    1eac:	04fb 140c 241c 342c 053c 150d 251d 352d     .....$,4<....%-5
+    1ebc:	033d 2313 0b33 2b1b 093b 2919 c139 e1d1     =..#3..+;..)9...
+    1ecc:	c5f1 e5d5 46f5 564e 665e 7e6e 7170 7372     .....FNV^fn~pqrs
+    1edc:	7574 9677 aea6 beb6 3534 0e06 1e16 2e26     tuw.....45....&.
+    1eec:	463e 564e 665e 766e 867e 968e a69e b6ae     >FNV^fnv~.......
+    1efc:	c6be d6ce e6de f6ee 40fe 5048 6058 7868     .........@HPX`hx
+    1f0c:	4941 5951 6961 4279 6252 4a72 6a5a 477a     AIQYaiyBRbrJZjzG
+    1f1c:	574f 465f 5e56 4544 674d a06f a2a1 a8a3     OW_FV^DEMgo.....
+    1f2c:	aaa9 b0ab b2b1 b8b3 bab9 43bb 7353 5b4b     ...........CSsK[
+    1f3c:	417b 0046 4641 0027 4552 0054 504a 4a00     {AF.AF'.RET.JP.J
+    1f4c:	0052 4a44 5a4e 4300 4c41 004c 5352 0054     R.DJNZ.CALL.RST.
+    1f5c:	444c 4800 4c41 0054 4441 0044 4441 0043     LD.HALT.ADD.ADC.
+    1f6c:	5553 0042 4253 0043 4e41 0044 4f58 0052     SUB.SBC.AND.XOR.
+    1f7c:	524f 4300 0050 4e49 0043 4544 0043 4f50     OR.CP.INC.DEC.PO
+    1f8c:	0050 5550 4853 4500 0058 5845 0058 4f4e     P.PUSH.EX.EXX.NO
+    1f9c:	0050 4c52 4143 5200 4352 0041 4c52 0041     P.RLCA.RRCA.RLA.
+    1fac:	5252 0041 4144 0041 5043 004c 4353 0046     RRA.DAA.CPL.SCF.
+    1fbc:	4343 0046 4944 4500 0049 554f 0054 4e49     CCF.DI.EI.OUT.IN
+    1fcc:	5200 434c 5200 4352 5200 004c 5252 5300     .RLC.RRC.RL.RR.S
+    1fdc:	414c 5300 4152 5300 4c52 4200 5449 5200     LA.SRA.SRL.BIT.R
+    1fec:	5345 4e00 4745 4900 004d 5252 0044 4c52     ES.NEG.IM.RRD.RL
+    1ffc:	0044 444c 0049 5043 0049 4e49 0049 554f     D.LDI.CPI.INI.OU
+    200c:	4954 4c00 4444 4300 4450 4900 444e 4f00     TI.LDD.CPD.IND.O
+    201c:	5455 0044 444c 5249 4300 4950 0052 4e49     UTD.LDIR.CPIR.IN
+    202c:	5249 4f00 4954 0052 444c 5244 4300 4450     IR.OTIR.LDDR.CPD
+    203c:	0052 4e49 5244 4f00 4454 0052 4552 4954     R.INDR.OTDR.RETI
+    204c:	5200 5445 004e 4553 0054 3f3f 003f 4328     .RETN.SET.???.(C
+    205c:	0029 4828 294c 4e00 005a 005a 434e 4300     ).(HL).NZ.Z.NC.C
+    206c:	5000 004f 4550 5000 4d00 4d00 4f2d 542d     .PO.PE.P.M.M-O-T
+    207c:	562d 5b2d 5d2d f22d 4812 092d 0713 0413     -V-[-]-..H-.....
+    208c:	0113 ff13 fc12 fa12 f712 ff12 fc12 fa12     ................
+    209c:	f712 8b12 582d 512d 4a2d d12d 5811 512d     ....-X-Q-J-..X-Q
+    20ac:	4a2d 572d 5412 2a12 d812 5011 4c12 4812     -J-W.T.*...P.L.H
+    20bc:	4412 4012 3c12 3712 3212 2e12 5a12 5e12     .D.@.<.7.2...Z.^
+    20cc:	1312 1012 0c12 0812 0012 0412 fc12 f811     ................
+    20dc:	8b11 582d 512d 4a2d 8b2d 512d 4a2d 8b2d     ..-X-Q-J-.-Q-J-.
+    20ec:	512d 4a2d 1e2d 2212 1a12 1612 8b12 852d     -Q-J-.."......-.
+    20fc:	512d 4a2d 8b2d 882d 512d 4a2d 1a2d 1612     -Q-J-.-.-Q-J-...
+    210c:	1312 1012 0c12 0812 0012 4812 5d2d 5b2d     ...........H-]-[
+    211c:	562d 542d 4f2d 4d2d d72d d212 cd12 c812     -V-T-O-M-.......
+    212c:	c312 be12 b912 b412 af12 ab12 a712 a312     ................
+    213c:	9e12 9a12 9612 9212 8e12 8a12 dc12 e112     ................
+    214c:	8312 7712 7312 6f12 6c12 6912 6512 6112     ...w.s.o.l.i.e.a
+    215c:	ed12 f25b edfe 1253 23ff 5acd cd26 266a     ..[...S..#.Z&.j&
+    216c:	0330 28b7 ed04 1253 cdff 265a b77e 1828     0..(..S...Z&~.(.
+    217c:	2cfe a2c2 2301 5acd cd26 266a a2da 2101     .,...#.Z&.j&...!
+    218c:	ff06 0ecd da03 01a2 122a 22ff fef2 f63a     ........*.."..:.
+    219c:	b7fe 1a28 182a 22ff fef2 f621 11fe fef8     ..(.*.."..!.....
+    21ac:	a6cd 2114 fefa fc11 cdfe 14a6 1b18 fe21     ...!..........!.
+    21bc:	11fe ff00 a6cd 2114 ff02 0411 cdff 14a6     .......!........
+    21cc:	0621 11ff ff08 a6cd 2a14 fef0 2af9 fef2     !........*...*..
+    21dc:	dde5 ec2a fdfe ee2a 2afe fee4 ede5 e64b     ..*...*..*....K.
+    21ec:	edfe e85b 2afe feea f1d9 2a08 fedc ede5     ..[..*.....*....
+    21fc:	de4b edfe e05b 2afe fee2 f43a edfe 3a47     K...[..*..:...G:
+    220c:	fef5 4fed c9f1 b77e 1ac8 134f 471a ff3e     ...O..~...O..G>.
+    221c:	c902 cd23 265a 6acd da26 01a2 5acd 7e26     ..#.Z&.j&....Z&~
+    222c:	c2b7 01a2 b779 0420 5bed fed7 cdeb 2579     ....y. ..[....y%
+    223c:	21e5 2b67 70cd e125 e57e 7ecd 3e25 cd20     .!g+.p%.~..~%> .
+    224c:	2dc2 d0cd cd25 265a b77e 0720 23e1 d722     .-..%.Z&~. ..#".
+    225c:	18fe feda 202d e107 222b fed7 cf18 2efe     ....- ..+"......
+    226c:	0720 22e1 fed7 56c3 cd01 266a e1b7 a2ca      .."...V..j&....
+    227c:	7301 2223 fed7 5bed ff00 321a feff 5bed     .s#"...[...2...[
+    228c:	ff04 321a ff03 a518 32af fefe 0232 23ff     ...2.....2..2..#
+    229c:	5acd cd26 266a 5acd 7e26 c2b7 01a2 b779     .Z&.j&.Z&~....y.
+    22ac:	0320 0011 cd00 2d95 53fe 6128 3afe 0d28      ......-.S(a.:(.
+    22bc:	0dfe f128 0afe ed28 95cd 182d 3ef3 cd2e     ..(...(...-..>..
+    22cc:	2dc2 95cd 4f25 cd47 2595 8167 cd4f 2595     .-..%OG..%g.O..%
+    22dc:	816f 194f 95cd 3225 feda 4f81 b778 1428     o.O...%2...Ox.(.
+    22ec:	95cd f525 4f81 da3a b7fe 0520 77f1 1823     ..%..O:... ..w#.
+    22fc:	f101 ec10 95cd 8125 0a20 da3a b7fe 58ca     ......%. .:....X
+    230c:	c315 0156 3e21 cd2b 2570 56c3 cd01 2d95     ..V.!>+.p%.V...-
+    231c:	da32 cdfe 2595 4f47 95cd 6725 4f81 95cd     2....%GO..%g.O..
+    232c:	6f25 4f81 0519 0505 1528 95cd f525 4f81     %o.O....(...%..O
+    233c:	da3a fefe 2031 f105 2377 0118 10f1 cdeb     :...1 ..w#......
+    234c:	2595 fe81 20ff 3a12 feda 37fe 1128 38fe     .%... .:...7(..8
+    235c:	0d28 39fe 0928 58c3 2115 2b4b 70cd c325     (..9(..X.!K+.p%.
+    236c:	0156 7e23 49fe 0428 53fe 0420 3223 fed9     V.#~.I(..S .#2..
+    237c:	5acd cd26 266a 28b7 d51c e1dd 5acd 7e26     .Z&.j&.(.....Z&~
+    238c:	2cfe 1120 cd23 265a 6acd b726 0728 5acd     ., .#.Z&.j&.(..Z
+    239c:	7e26 28b7 c303 01a2 e5dd ebe1 b723 52ed     &~.(........#..R
+    23ac:	60cd 7c16 20b5 3af9 fed9 49fe 0920 6a21     .`.|. .:...I .!j
+    23bc:	cd2b 2570 56c3 2101 2b78 70cd c325 0156     +.p%.V.!x+.p%.V.
+    23cc:	100e b77c 0520 b97d 0130 064f b700 42ed     ..|. .}.0.O....B
+    23dc:	3a41 fed9 49fe 3020 3a3e c2cd 782d 7ecd     A:...I 0>:..-x.~
+    23ec:	4825 cd7a 257e 817a 7b4f 7ecd 7b25 4f81     %Hz.~%z.O{.~%{.O
+    23fc:	cdaf 257e f51a 7ecd f125 4f81 1013 79f5     ..~%...~%..O...y
+    240c:	44ed 7ecd c325 25b9 533e c2cd 3e2d cd31     .D.~%..%>S..->1.
+    241c:	2dc2 c678 4f03 7ecd 7a25 7ecd 7a25 4f81     .-x..O.~%z.~%z.O
+    242c:	cd7b 257e 817b 1a4f cdf5 257e 81f1 134f     {.~%{.O...~%..O.
+    243c:	f510 2f79 7ecd c325 25b9 cd23 265a 20b7     ..y/.~%..%#.Z&. 
+    244c:	cd06 1760 56c3 eb01 2e21 be2c 0d28 234f     ..`..V..!.,.(.O#
+    245c:	b77e 6928 0179 0005 1809 23f0 fe7e 200f     ~.(iy......#~.. 
+    246c:	2309 234e 6966 1a13 e118 28b7 4e50 5e23     .#N#fi.....(PN#^
+    247c:	5623 23d5 237e 6f66 70cd 3e25 cd3d 2dc2     #V.#~#fo.p%>=..-
+    248c:	e679 fe07 2001 e108 e57e 7ecd 1825 e10c     y.... ..~..~%...
+    249c:	23e5 cd7e 257e 7e2b 7ecd 3e25 cd20 2dc2     .#~.~%+~.~%> ..-
+    24ac:	cdc5 25d0 5acd cd26 266a 28b7 c10d 79e1     ...%.Z&.j&.(...y
+    24bc:	01fe 0320 1873 7303 7223 56c3 c301 01a2     .. .s..s#r.V....
+    24cc:	8521 5e2b 5623 7a23 cab3 25b9 ebd5 70cd     !.+^#V#z...%...p
+    24dc:	eb25 3ed1 ba2b 0720 f03e 20bb 1802 3e29     %..>+. .>.. ..)>
+    24ec:	ba2c 0520 173e 28bb 5e1f 5623 7e23 eb23     ,. .>..(.^#V#~#.
+    24fc:	01fe 0720 cd7e 257e 18eb 23c8 cd7e 257e     .. .~.~%...#~.~%
+    250c:	7e2b 7ecd eb25 bb18 235e 2356 d51a 21e5     +~.~%...^#V#...!
+    251c:	ff30 dc01 1117 17e4 f1f5 27cb 0630 0af5     0..........'0...
+    252c:	f177 0418 1af5 f177 1303 f523 b77e e920     w.....w...#.~. .
+    253c:	21f1 ff30 70cd e125 23d1 8718 5a53 482e     .!0..p%..#..SZ.H
+    254c:	502e 434e 2e2e 2e2e 2e2e 2e2e 4e49 5249     .PNC........INIR
+    255c:	49b9 444e bb52 554f 4954 4fbd 4954 be52     .INDR.OUTI.OTIR.
+    256c:	554f 4454 4fbf 4454 c052 4148 544c 52b3     OUTD.OTDR.HALT.R
+    257c:	5445 af49 4552 4e54 44b0 4e4a ac5a 4143     ETI.RETN.DJNZ.CA
+    258c:	4c4c 43ad 4450 a852 444c 5249 4c83 4444     LL.CPDR.LDIR.LDD
+    259c:	8552 5550 4853 5288 434c 8a41 5252 4143     R.PUSH.RLCA.RRCA
+    25ac:	438e 4950 a652 444c 8249 444c 8444 5845     .CPIR.LDI.LDD.EX
+    25bc:	8758 4f50 8950 4c52 8b41 4c52 8c43 5252     X.POP.RLA.RLC.RR
+    25cc:	8f41 5252 9043 4c53 9241 5253 9341 5253     A.RRC.SLA.SRA.SR
+    25dc:	944c 4441 9544 4441 9643 4e49 9743 5553     L.ADD.ADC.INC.SU
+    25ec:	9842 4253 9943 4544 9a43 4e41 9b44 4f58     B.SBC.DEC.AND.XO
+    25fc:	9d52 5043 9e4c 454e 9f47 4343 a046 4353     R.CPL.NEG.CCF.SC
+    260c:	a146 4942 a254 4553 a354 4552 a453 5043     F.BIT.SET.RES.CP
+    261c:	a549 5043 a744 4552 ae54 5352 b154 4f4e     I.CPD.RET.RST.NO
+    262c:	b250 4e49 b849 4e49 ba44 554f bc54 4144     P.INI.IND.OUT.DA
+    263c:	c141 4c52 c244 5252 c344 524f c447 5845     A.RLD.RRD.ORG.EX
+    264c:	5286 8d4c 5252 4f91 9c52 5043 4aa9 aa50     .RL.RR.OR.CP.JP.
+    265c:	524a 49ab b64d 4e49 44b7 b449 4945 4cb5     JR.IM.IN.DI.EI.L
+    266c:	8144 4244 44c5 c657 2800 4342 9a29 4428     D.DB.DW..(BC).(D
+    267c:	2945 289b 4c48 9c29 4928 2958 289d 5949     E).(HL).(IX).(IY
+    268c:	9e29 5328 2950 28a0 2943 419f 2746 4183     ).(SP).(C).AF'.A
+    269c:	8246 4342 4485 8845 4c48 498b 8e58 5949     F.BC.DE.HL.IX.IY
+    26ac:	538f 9050 5a4e 4e94 9543 4f50 5097 9845     .SP.NZ.NC.PO.PE.
+    26bc:	8141 8442 8643 8744 8945 8a48 8c4c 8d49     A.B.C.D.E.H.L.I.
+    26cc:	9152 925a 934d 9650 2800 5849 a12b 4928     R.Z.M.P..(IX+.(I
+    26dc:	2b59 28a2 5849 a42d 4928 2d59 00a5 cd23     Y+.(IX-.(IY-..#.
+    26ec:	24de 28b7 cd11 266a a2da ed01 1b53 cdff     .$.(..j&....S...
+    26fc:	24de c2b7 01a2 1b2a 22ff ff1d 32af ff1f     .$....*.."...2..
+    270c:	2132 32ff ff22 2332 2aff ff1d 79cd 2125     2!.2".2#.*...y%!
+    271c:	2b67 70cd 2125 ff39 cecb d0cd e525 3921     g+.p%!9.....%.!9
+    272c:	cbff e18e 2acd 7e25 1bfe 0d28 2efe 0928     .....*%~..(...(.
+    273c:	c2b7 1a68 e5cd 1819 cdc3 19e5 1d2a 22ff     ..h.........*.."
+    274c:	ff1b 56c3 3e01 c30a 2dc2 ea21 cd12 19e5     ...V.>...-!.....
+    275c:	70cd 2125 2b58 70cd 1825 3aa1 ff21 44fe     .p%!X+.p%..:!..D
+    276c:	3728 45fe 3828 46fe 3f28 203e 260e 9021     (7.E(8.F(?> .&!.
+    277c:	77ff 0d23 fb20 0d3e 2377 77af 70cd 2a25     .w#. .>.w#.w.p%*
+    278c:	ff1d 9011 d5ff 9bcd e108 70cd 2a25 ff1d     ...........p%*..
+    279c:	60cd 221a ff1d 9cc3 cd19 19e5 ef18 56cd     .`."...........V
+    27ac:	cd1a 1a60 d222 18fe cd08 1a56 2323 d222     ..`.".....V.##".
+    27bc:	cdfe 075f d718 e5cd 2a19 ff1d d022 c9fe     .._......*.."...
+    27cc:	203a 4fff 47af c909 b7cd da23 19ea 1f3a     : .O.G....#...:.
+    27dc:	feff ca01 2043 02fe cdca 3a20 ff21 0d01     ....C .... :!...
+    27ec:	2100 1a93 b1ed eac2 2119 1aa0 0909 234e     .!.......!....N#
+    27fc:	c546 01c9 1506 1916 372b 2a3c 222d 2324     F.......+7<*-"$#
+    280c:	1aca 1ae8 1b06 1b87 1b94 1bb4 1bbd 1bfd     ................
+    281c:	1c32 1c3a 1cb3 1d35 1dbf c8c0 d8d0 e8e0     2.:...5.........
+    282c:	f8f0 cec6 ded6 eee6 fef6 ba21 221a ff2c     ..........!..",.
+    283c:	c221 221a ff2e 3a18 8880 9890 a8a0 b8b0     !.."...:........
+    284c:	8e86 9e96 aea6 beb6 d821 221a ff2c e021     ........!..",.!.
+    285c:	221a ff2e 1c18 4840 5850 6860 7870 4e46     ."....@HPX`hpxFN
+    286c:	5e56 6e66 7e76 f621 221a ff2c fe21 221a     V^fnv~!..",.!.."
+    287c:	ff2e 223a feff c219 19ea 242a 7cff c2b7     ..:"......*$.|..
+    288c:	19ea fe7d d208 19ea 233a feff 2821 fe2c     ..}.....:#..!(,.
+    289c:	2824 fe3a 2822 fe3b 2825 ed3f 2c4b 09ff     $(:."(;.%(?.K,..
+    28ac:	3a56 ff23 9221 011d 0008 b1ed eac2 7919     V:#.!..........y
+    28bc:	07fe 0328 063e 8291 63c3 3a23 ff2b 165f     ..(.>....c#:+._.
+    28cc:	eddd 2e4b 09ff 5e4b cb3e 86c3 3a23 ff2a     ..K...K^>...#:*.
+    28dc:	ec18 293a 5fff fd16 e718 283a 18ff ecf6     ..:)._....:(....
+    28ec:	f4e4 c4d4 ccfc 11dc 1b7f 0b18 e2ea d2f2     ................
+    28fc:	fac2 daca 8c11 211b 21d4 0801 3a00 ff22     .......!.!...:".
+    290c:	b1ed eac2 3a19 ff23 19fe eac2 6219 096b     .....:#......bk.
+    291c:	c37e 2157 d311 ed41 224b 18ff 110b 40db     ~.W!..A.K".....@
+    292c:	223a 47ff 233a 4fff fe79 2823 fe1f c21f     :".G:#.Oy.#(....
+    293c:	19ea fe78 2801 210f 1d7c 0601 cd00 1c21     ..x..(.!|.....!.
+    294c:	eada 7a19 0318 c67a c338 23b1 262a 7cff     ...z..z.8..#*&.|
+    295c:	c2b7 19ea f57d 187b 1425 1512 2106 1bf9     ....}.{.%....!..
+    296c:	0401 1600 3a20 ff22 21cd da1c 19ea 233a     .... :"..!....:#
+    297c:	feff c219 19ea 00cd da25 19ea 7af5 79c3     ........%....z.y
+    298c:	ed21 28a1 5f0c c67a 5708 b079 207b 37f2     !..(._z..Wy.{ .7
+    299c:	c9c9 9f11 3e42 08de 0618 8f11 3e4a 08ce     ....B>......J>..
+    29ac:	223a feff 2801 fe2a c20b 19ea 233a feff     :"...(*.....:#..
+    29bc:	2805 fe19 2808 fe11 280b fe09 c210 19ea     .(...(...(......
+    29cc:	303e 0918 203e 0518 103e 0118 82af b1c3     >0..> ..>.......
+    29dc:	3a23 ff23 9221 011d 0009 b1ed 1820 fe79     #:#.!....... .y.
+    29ec:	2808 b710 0528 917b 56c3 2a20 ff24 5708     .(..(.{..V *$..W
+    29fc:	4fc3 7b1e f218 9b21 011d 0004 b1ed eac2     .O.{..!.........
+    2a0c:	2119 ff28 5609 0e79 fefd 3802 0e02 1ddd     .!(..Vy....8....
+    2a1c:	92c3 111e 0987 c63e 3a08 ff23 3a47 ff22     ......>..:#.G:".
+    2a2c:	01fe ad28 0bfe 4728 0efe 0928 0ffe eac2     ..(...(G..(.....
+    2a3c:	0e19 18fd 0e02 78dd 05fe 1928 08fe 1928     .......x..(...(.
+    2a4c:	0efe 1928 0ffe 07ca fe1d c210 19ea 393e     ..(...........>9
+    2a5c:	79f5 79c3 3e21 1809 3ef7 1819 79f3 ddfe     .y.y!>...>...y..
+    2a6c:	eac2 3e19 1829 79e9 fdfe eac2 1819 78f4     ...>)..y.......x
+    2a7c:	05fe 1228 08fe 1328 0bfe 1428 10fe eac2     ..(...(...(.....
+    2a8c:	3e19 c339 1c88 093e 88c3 3e1c c319 1c88     .>9...>....>....
+    2a9c:	293e 88c3 3a1c ff23 3a47 ff22 02fe 2628     >)...:#.G:"...(&
+    2aac:	08fe 2c28 20fe eac2 7819 e31e 0bfe 1328     ..(,. ...x....(.
+    2abc:	0efe dd16 0728 0ffe eac2 1619 7bfd 7af5     ....(........{.z
+    2acc:	79c3 7b21 1218 fe78 c203 19ea 083e 0818     .y!{..x.....>...
+    2adc:	fe78 c20b 19ea eb3e 56c3 0120 0604 0907     x.....>..V .....
+    2aec:	0c0a 0805 0e0b 210f 2224 0d25 1110 1b1a     .......!$"%.....
+    2afc:	231c 0401 0706 0a09 1c0c 2119 2224 1a25     .#.........!$"%.
+    2b0c:	0d1b 2311 6068 5058 4048 0778 181e 1d1e     ...#h`XPH@x.....
+    2b1c:	211e 261e 2b1e 391e 3e1e 461e 4b1e 3a1e     .!.&.+.9.>.F.K.:
+    2b2c:	ff22 7b21 011d 0007 b1ed 5dc2 211e 1da4     ".!{.......].!..
+    2b3c:	5609 233a 21ff 1d92 0801 ed00 20b1 790c     .V:#.!....... .y
+    2b4c:	07fe 0328 063e b291 56c3 2120 1d9a 0a01     ..(.>....V !....
+    2b5c:	ed00 c2b1 19ea fe79 3005 7a06 78fe eac2     ......y..0.z.x..
+    2b6c:	2119 1dab 8cc3 3e1a 2a3a ff1d 2377 5bed     .!.....>:*..w#.[
+    2b7c:	ff26 2373 c372 2163 5f3e b1c3 3e23 1857     &.s#r.c!>_..#>W.
+    2b8c:	3ef9 c31a 2056 0a3e 56c3 3a20 ff28 1e4f     .>..V >..V :(.O.
+    2b9c:	3efd b206 7b57 6ec3 3a22 ff29 f018 2a3a     .>..W{.n":)...:*
+    2bac:	4fff dd1e eb18 2b3a 18ff 7af6 3ad6 2a57     .O....:+...z.:W*
+    2bbc:	ff24 b77c eac2 7d19 7af5 79c3 0121 0005     $.|....}.z.y!...
+    2bcc:	b1ed 7420 b779 6c28 01fe 4e28 02fe 3528     .. ty.(l..(N..(5
+    2bdc:	03fe 2928 ed16 4b1e 010e 233a feff 2819     ..()...K..:#...(
+    2bec:	7b0a 2621 4eff 5e23 86c3 2123 ff24 235e     .{!&.N#^..#!$.^#
+    2bfc:	7956 1d2a 71ff 7323 7223 63c3 1621 1eed     Vy*..q#s#r.c!...
+    2c0c:	0e5b 1811 0ed5 ed21 245b 3aff ff23 19fe     [.....!.[$.:#...
+    2c1c:	e028 2a0e 5bed ff26 d818 dd16 210e 2421     (..*.[&......!!$
+    2c2c:	3aff ff23 19fe 0528 2a0e 2621 79ff 234e     .:#...(..*!&.yN#
+    2c3c:	c35e 2386 fd16 e418 0401 ed00 20b1 213f     ^..#......... ?!
+    2c4c:	ff28 5609 1e79 fefd 3802 1e02 3add ff23     (..Vy....8...:#.
+    2c5c:	19fe 1a28 7b21 011d 0007 b1ed eac2 7919     ..(.!{.........y
+    2c6c:	06fe 773e 0328 753e 4b91 c35f 1e92 242a     ..>w(.>u.K_...*$
+    2c7c:	7cff c2b7 19ea 363e 534a c35d 2386 0701     .|....>6JS]..#..
+    2c8c:	ed00 c2b1 19ea 2c21 c31f 1a8c 1f48 1f7d     ......!,....H.}.
+    2c9c:	1fea 1fee 1ff3 1fac 1ff8 0b01 0805 0e10     ................
+    2cac:	220f 7322 4353 3222 233a 21ff 1f3a 0701     .""sSC"2:#.!:...
+    2cbc:	ed00 c2b1 19ea 4121 091f 4e79 262a feff     ......!A..yN*&..
+    2ccc:	3805 5d05 c354 1e92 02fe 0838 ed16 4d79     .8.]T.....8...yM
+    2cdc:	c35c 2386 fd16 28b7 16f5 18dd 3af1 ff23     \..#...(.....:#.
+    2cec:	19fe 1928 01fe 1128 7c21 011d 0006 b1ed     ..(...(.!|......
+    2cfc:	eac2 3e19 9175 56c3 3e20 1877 2af9 ff24     ...>u..V >w..*$.
+    2d0c:	b77c eac2 7d19 3ef5 c336 2179 233a feff     |....}.>6.y!:#..
+    2d1c:	280b fe1d 280e fe1d 280f fe1d 2819 fe22     .(...(...(...(".
+    2d2c:	c223 19ea ed16 7b3e 262a 4dff c35c 2386     #.....>{*&.M\..#
+    2d3c:	f93e 1c18 dd16 0218 fd16 f93e 7af5 79c3     >.........>..z.y
+    2d4c:	0e21 ed31 245b c3ff 1e92 123e 0218 023e     !.1.[$....>...>.
+    2d5c:	56c3 3e20 c34f 23b1 473e b1c3 0723 0b0a     .V >O..#>G..#...
+    2d6c:	0f0e 201e 2e21 3332 3534 2741 f3fb 0076     ... !.2345A'..v.
+    2d7c:	37c9 2f3f 0f1f 0717 27d9 2528 3a26 383b     .7?/.....'(%&:;8
+    2d8c:	0439 0205 1f03 3e40 3d3f 302f 4342 6f67     9.....@>?=/0BCgo
+    2d9c:	4d45 aba3 bbb3 b044 b8a0 b2a8 baa2 b1aa     EM....D.........
+    2dac:	b9a1 3aa9 ff21 0e01 2100 1ffd b1ed 62c2     ...:!....!.....b
+    2dbc:	2120 200b 7e09 1d2a 77ff 013e 2032 c3ff      !. .~*..w>.2 ..
+    2dcc:	19fb 1501 2100 2019 b1ed eac2 2a19 ff1d     .....!. .....*..
+    2ddc:	ed3e 2377 21eb 202e 7e09 3e12 1802 08dd     >.w#.!. .~.>....
+    2dec:	1709 181a 1c1b 291d 2e2a 2b31 2d2c 100c     .......)*.1+,-..
+    2dfc:	110d 1312 3614 4544 e146 f620 2f20 9521     .....6DEF. . /!.
+    2e0c:	2f23 3423 3923 3e23 4323 4823 4d23 4d23     #/#4#9#>#C#H#M#M
+    2e1c:	6821 8321 9621 c021 e421 1e21 2222 2622     !h!.!.!.!.!."""&
+    2e2c:	2a22 2e22 b022 b522 f722 fb22 3a22 ff21     "*".".".".".":!.
+    2e3c:	1a01 2100 207f b1ed eac2 2119 2099 8cc3     ...!. .....!. ..
+    2e4c:	3a1a ff22 19fe eac2 2a19 ff1d 4bed ff24     .:"......*...K$.
+    2e5c:	2371 c370 207b 223a feff 2819 fe20 c226     q#p.{ :"...( .&.
+    2e6c:	19ea 242a afff ed4f 1d5b 7eff 22fe 0928     ..*$..O.[..~."(.
+    2e7c:	28b7 1206 1323 180c 79f2 5cc3 ed20 244b     .(..#....y.\ .K$
+    2e8c:	78ff c2b7 19ea 1d2a 71ff 013e 5cc3 3a20     .x....*..q>..\ :
+    2e9c:	ff22 19fe eac2 af19 242a 01ff 8000 42ed     ".......*$.....B
+    2eac:	eada 2a19 ff24 1d22 afff 5cc3 3a20 ff22     ...*$."....\ :".
+    2ebc:	19fe eac2 3e19 2acd ff1d 2377 5bed ff24     .....>.*..w#.[$.
+    2ecc:	2373 3e72 c303 205c 223a feff c219 19ea     s#r>..\ :"......
+    2edc:	00cd da25 19ea 3ef5 2a10 ff1d 2377 77f1     ..%....>.*..w#.w
+    2eec:	7bc3 3a20 ff22 19fe eac2 cd19 2500 eada     .{ :"........%..
+    2efc:	f519 183e e318 242a 7cff c2b7 19ea 217d     ..>...*$.|....}!
+    2f0c:	21b0 0801 ed00 c2b1 19ea b821 c321 2054     .!........!.!.T 
+    2f1c:	0800 1810 2820 3830 f7ff e7ef d7df c7cf     .... (08........
+    2f2c:	223a 21ff 21d4 0801 ed00 c2b1 19ea dc21     :".!.!........!.
+    2f3c:	c321 2054 1206 1413 1615 1817 e0e8 d0f0     !.T ............
+    2f4c:	f8c0 d8c8 223a feff 2819 2e21 fee9 281c     ....:"...(!....(
+    2f5c:	fe17 281d fe0c c21e 19ea f57d fd3e 79c3     ...(......}.>..y
+    2f6c:	7d21 3ef5 c3dd 2179 c37d 2056 c33e 57c3     !}.>..y!}.V >..W
+    2f7c:	0621 0606 4606 0506 0304 0102 0700 b816     !....F..........
+    2f8c:	0e18 a816 0a18 b016 0618 a016 0218 9016     ................
+    2f9c:	223a 21ff 1d92 0d01 ed00 c2b1 19ea 1121     :".!..........!.
+    2fac:	0922 b27e 7957 05fe 4fda 7a22 56c3 fe20     ".~.Wy...O"z.V .
+    2fbc:	3804 2a0e ff24 b77c eac2 7d19 7af5 79c3     .8.*$.|....}.z.y
+    2fcc:	fe21 3e02 38fd 3e02 21dd ff28 4e09 1d2a     !..>.8.>.!(..N*.
+    2fdc:	77ff 237a 2377 c371 2163 0401 0605 0807     .wz#w#q.c!......
+    2fec:	0a09 0c0b 1c10 0f0e 2421 2522 3535 3535     ........!$"%5555
+    2ffc:	2b2b 3b35 2b2d 1d25 151b 0b0d 3d05 3434     ++5;-+%......=44
+    300c:	3434 2323 3334 232c 1c24 1413 030c 3c04     44##43,#$......<
+    301c:	8c11 1822 1103 229e 223a 21ff 227a 1201     .."....":".!z"..
+    302c:	ed00 62b1 c26b 19ea 1679 fefd d206 2054     ...bk...y.....T 
+    303c:	7e09 795f 04fe 0838 0228 dd16 c37b 225c     .~_y..8.(...{.\"
+    304c:	02fe 0238 dd16 537a 69c3 0222 0805 0e0b     ..8...zS.i".....
+    305c:	e00f e0e0 c0d0 16f0 1801 1602 2105 22eb     .............!."
+    306c:	0601 3a00 ff22 b1ed eac2 2119 22f1 7e09     ...:"......!.".~
+    307c:	57b2 fe79 7a02 56d2 1e20 79fd 28b7 1e02     .Wy..z.V ..y.(..
+    308c:	7add 7bf5 79c3 0621 0405 0203 0001 1107     .z.{.y!.........
+    309c:	383e 1c18 2e11 1828 1117 2026 1218 1e11     >8....(...& ....
+    30ac:	1818 110d 1016 0818 0e11 1808 1103 0006     ................
+    30bc:	223a 21ff 1d92 0801 ed00 20b1 210c 2327     :".!....... .!'#
+    30cc:	7e09 f5b2 cb3e 79c3 2121 1d9b 0401 ed00     .~..>..y!!......
+    30dc:	c2b1 19ea fd16 fe79 3802 1602 21dd ff28     ......y..8...!(.
+    30ec:	4e09 4623 cb3e 1d2a 72ff 7723 7123 7323     .N#F>.*..r#w#q#s
+    30fc:	043e 5cc3 3a20 ff25 c2b7 19ea 243a feff     >..\ :%.....:$..
+    310c:	d203 19ea 460e 28b7 0e07 3d56 0228 5e0e     .....F.(..V=(..^
+    311c:	f579 ed3e 79c3 cd21 247a 32d8 ff21 f1cd     y.>..y!.z$.2!...
+    312c:	7e23 c8b7 20fe efc2 cd23 23f9 32d8 ff22     #~... ..#..#.2".
+    313c:	cd08 23f1 fe08 c826 b77e fec8 202c cd10     ...#..&.~..., ..
+    314c:	23f9 32d8 ff23 f1cd 7e23 20b7 c902 37f1     .#.2#...#~. ...7
+    315c:	3ac9 ff1f 323c ff1f 23c9 70cd d024 75cd     .:..<2...#.p$..u
+    316c:	3824 f540 a3cd da24 23ee b77a e020 fe7e     $8@...$..#z. .~.
+    317c:	2029 23db f5f1 21fe 0520 2b01 18ff fe07     ) .#...! ..+....
+    318c:	2022 010b ff29 fe7b 3080 02c3 c9f1 24fe     " ..).{..0.....$
+    319c:	0c20 2a01 7bff 81fe b430 44ed ed18 2801      ..*.{..0..D...(
+    31ac:	18ff 7ef2 28fe 1220 cd23 24a3 7ed8 29fe     ...~.( .#..$.~.)
+    31bc:	9d20 ed23 2653 3eff c923 22fe 0720 2223      .#.S&.>#.." .#"
+    31cc:	ff24 263e cdc9 24a3 edd8 2453 3eff c919     $.>&...$..S$.>..
+    31dc:	0911 1819 110b 1969 0618 9021 11ff 17ec     ......i...!.....
+    31ec:	1ae5 20be 2304 1813 e6f8 2080 130e e61a     ... .#..... ....
+    31fc:	2880 13fa b71a 0828 18e1 1ae5 7fe6 c9d1     .(....(.........
+    320c:	37e1 11c9 ffb3 000e e5cd d824 1312 0c23     .7........$...#.
+    321c:	efcd 3824 120b 2313 790c 07fe 2f28 f018     ..$8...#.y..(/..
+    322c:	af08 0812 48fe 0b28 21e5 ffb3 63cd e102     .....H(..!...c..
+    323c:	5950 23c9 21e5 ffb3 6acd e126 c9b7 fe7e     PY.#.!...j&...~.
+    324c:	c020 1823 7ef9 3afe 0330 30fe 37d0 7ec9      .#..~.:0..0.7.~
+    325c:	30fe fed8 383a fe07 d841 47fe ef30 c9b7     .0..:8..A..G0...
+    326c:	d5e5 5bed ff1d 1313 242a afff 52ed 387d     ...[....*$...R}8
+    327c:	fe08 3080 b712 e1d1 7cc9 fffe 0920 ed7d     ...0.....|.. .}.
+    328c:	fe44 7d81 183f 37ef ec18 d5e5 21c5 ff90     D..}?..7.....!..
+    329c:	5d54 200e decd cd24 254f 28b7 0e0e 2300     T]. ..$.O%.(...#
+    32ac:	decd b724 0328 4fcd 1b25 c112 e1d1 06c9     ..$.(..O%.......
+    32bc:	1200 b713 b9c8 fec8 2022 0806 ee78 4701     ........" ..x..G
+    32cc:	2308 b97e eb28 40cb e720 20fe e928 e118     .#~.(..@ .. (...
+    32dc:	a77e cdc8 2dc2 1823 7cf7 7ecd 7d25 1ff5     ~....-#..|.~%}..
+    32ec:	1f1f cd1f 2587 e6f1 c60f fe30 da3a 2dc2     .....%....0.:..-
+    32fc:	07c6 c2c3 af2d 9dcd 0725 0707 c507 cd4f     ....-...%.....O.
+    330c:	2d95 30fe 1138 3afe 0a38 41fe 0938 47fe     .-.08..:8..A8..G
+    331c:	0530 07d6 30d6 c1b1 3ec9 cd0d 2dc2 0a3e     0....0...>...->.
+    332c:	c2c3 e52d cc21 cd25 2570 c9e1 5b1b 0032     ..-.!.%.p%...[2.
+    333c:	9021 06ff d528 58e5 061d cd00 2d95 0dfe     !...(..X.....-..
+    334c:	5a28 0afe 5628 08fe 3b28 7ffe 3728 22fe     (Z..(V..(;..(7."
+    335c:	0a20 3af5 ff39 04ee 3932 f1ff 20fe db38      ..:9...29... 8.
+    336c:	80fe d730 784f 30bb 04d2 cd79 2dc2 61fe     ..0.Ox.0..y..-.a
+    337c:	0f38 7bfe 0b30 21e5 ff39 56cb 0220 dfe6     8..{0..!9..V ...
+    338c:	77e1 1823 78b6 28a7 05b2 3e2b cd08 2dc2     .w#..x.(..+>...-
+    339c:	203e c2cd 3e2d cd08 2dc2 9f18 21e5 ff39     > ..->...-...!9.
+    33ac:	46cb 0520 0d3e c2cd cb2d 204e 3e05 cd0a     .F .>...-.N .>..
+    33bc:	2dc2 96cb 36e1 e100 c9d1 fe7e c020 1823     .-...6....~. .#.
+    33cc:	fef9 d861 7bfe c6d0 c9e0 000e 0011 7e00     ..a..{.........~
+    33dc:	30fe 2c38 3afe 0a38 41fe 2438 47fe 2030     .08,.:8..A8$.G0 
+    33ec:	07d6 30d6 1717 1717 cb17 cb13 1712 13cb     ...0............
+    33fc:	12cb cb17 cb13 1712 13cb 12cb 0c23 cf18     ............#...
+    340c:	b779 0628 05fe 0230 c9b7 c937 c5e5 c921     y.(...0...7...!.
+    341c:	0626 0900 0109 26f5 e5b7 42ed 30e1 4607     &......&...B.0.F
+    342c:	6623 c168 c9e3 e1c1 aec9 f500 c226 702d     #fh.........&.-p
+    343c:	9525 bd2d 372d 7927 7e25 8725 c325 d525     %.-.-7'y%~%.%.%.
+    344c:	5a25 b926 6125 6a26 6e26 a428 1a28 c529     %Z&.%a&j&n(.(.).
+    345c:	9b26 6308 3102 fed0 063a b7ff 0628 0721     &..c.1..:...(.!.
+    346c:	cdff 2826 f63a b7fe 0628 f721 cdfe 2826     ..&(:...(.!...&(
+    347c:	fa3a b7fe 0628 fb21 cdfe 2826 023a b7ff     :...(.!...&(:...
+    348c:	0628 0321 cdff 2832 fe3a b7fe 0628 ff21     (.!...2(:...(.!.
+    349c:	cdfe 2832 fcc3 af27 f5c9 5fed f532 edfe     ..2(..'...._2...
+    34ac:	3257 fef4 e222 edfe e053 edfe de43 e1fe     W2.."...S...C...
+    34bc:	dc22 08fe d9f5 ea22 edfe e853 edfe e643     "....."...S...C.
+    34cc:	e1fe e422 ddfe ec22 fdfe ee22 e1fe 222b     .."..."..."...+"
+    34dc:	fef2 73ed fef0 d031 affe 5f57 063a b7ff     ...s..1...W_:...
+    34ec:	0928 5c11 2128 ff07 26cd 3a28 ff02 28b7     (..\(!...&(:...(
+    34fc:	1109 285c 0321 cdff 2832 fe3a b7fe 0928     ..\(!...2(:...(.
+    350c:	5c11 2128 feff 32cd 3a28 fef6 28b7 1109     .\(!...2(:...(..
+    351c:	2865 f721 cdfe 2826 fa3a b7fe 0928 6511     e(!...&(:...(..e
+    352c:	2128 fefb 26cd 7a28 20b3 1103 2852 fe1a     (!...&(z. ..R(..
+    353c:	2854 eb0c 70cd cd25 1760 39cd 1828 3a1d     T(...p%.`..9(..:
+    354c:	ff14 46fe 0a28 cdeb 2570 60cd cd17 2839     ...F(...p%.`..9(
+    355c:	bdcd 282d cd13 2d95 03fe 0c20 32af ff1a     ..-(...-.. ..2..
+    356c:	6f67 1622 c3ff 0156 1a3a b7ff 1dc2 2a28     go"...V.:.....(*
+    357c:	ff16 222b ff16 b47d 0320 56c3 2a01 fef2     ..+"..}. ..V.*..
+    358c:	1822 c3ff 048a 7ee5 4e23 4623 e102 2baf     "......~#N#F...+
+    359c:	c977 237e 234e 0246 2ac9 fef2 3d22 cdff     w.~#N#F..*.."=..
+    35ac:	08f1 b6cd 2108 ff90 70cd 2a25 fef2 3d22     .....!...p%*.."=
+    35bc:	c9ff 5352 2054 3833 0d48 000a 7242 6165     ..RST 38H...Brea
+    35cc:	216b 0a0d 5400 6172 6563 0d21 000a c5f5     k!...Trace!.....
+    35dc:	e5d5 e5dd dde5 ebe1 21e5 0005 af19 eb77     .........!....w.
+    35ec:	01e1 0001 0a3e a4cd f628 1b30 0c12 b57c     ....>...(.0...|.
+    35fc:	f220 fe79 2806 dd06 e1e5 edeb ddb0 e1e1      .y..(..........
+    360c:	c1d1 c9f1 d5c5 064f af0f 1729 3891 290d     ......O...)..8.)
+    361c:	172c 3891 290c 102c c3f8 28c5 1729 3881     ,..8.),....()..8
+    362c:	29f4 f910 d181 c9c1 0a22 edff 0c53 afff     .)......"...S...
+    363c:	0e32 32ff ff0f 1032 32ff ff11 1006 0e21     2..2..2..2....!.
+    364c:	cbff 2326 16cb 0a21 cbff 2326 16cb 1021     ..&#..!...&#..!.
+    365c:	cbff 2316 16cb 0c2a 5dff 2a54 ff10 edaf     ...#..*..]T*....
+    366c:	3052 1802 220b ff10 0e3a f6ff 3201 ff0e     R0..."..:....2..
+    367c:	cc10 0e2a edff 105b c9ff c5f5 18b7 cb04     ..*...[.........
+    368c:	cb21 1f10 f930 2009 c1f6 c9f1 203f 433a     !...0.. ....? :C
+    369c:	6d6f 616d 646e 4820 6c65 0d70 230a 7c4c     ommand Help..#L|
+    36ac:	6e3c 6d75 203e 4c3a 7561 636e 2068 7270     <num> :Launch pr
+    36bc:	676f 6172 0d6d 410a 3c5b 6461 7264 7365     ogram..A[<addres
+    36cc:	3e73 205d 203a 694d 696e 4120 7373 6d65     s>] : Mini Assem
+    36dc:	6c62 2065 6f6d 6564 0a0d 5b42 7c31 5b32     ble mode..B[1|2[
+    36ec:	3c2c 6461 3e72 5d5d 3a20 6553 2074 726f     ,<adr>]] :Set or
+    36fc:	4c20 7369 2074 7242 6165 206b 6f50 6e69      List Break Poin
+    370c:	0d74 420a 5b43 7c31 5d32 3a20 6c43 6165     t..BC[1|2] :Clea
+    371c:	2072 7242 6165 206b 6f50 6e69 0d74 440a     r Break Point..D
+    372c:	3c5b 6461 3e72 205d 443a 6d75 2070 654d     [<adr>] :Dump Me
+    373c:	6f6d 7972 0a0d 4944 3c5b 6461 3e72 5b5d     mory..DI[<adr>][
+    374c:	732c 733c 6574 7370 7c3e 613c 7264 5d3e     ,s<steps>|<adr>]
+    375c:	3a20 6944 6173 7373 6d65 6c62 0d65 470a      :Disassemble..G
+    376c:	3c5b 6461 3e72 5b5d 3c2c 7473 706f 6120     [<adr>][,<stop a
+    377c:	7264 5d3e 3a20 6f47 6120 646e 5320 6f74     dr>] :Go and Sto
+    378c:	0d70 4c0a 3a20 6f4c 6461 4820 7865 6946     p..L :Load HexFi
+    379c:	656c 0a0d 5b50 7c49 5d53 3a20 6153 6576     le..P[I|S] :Save
+    37ac:	4820 7865 6946 656c 4928 493a 746e 6c65      HexFile(I:Intel
+    37bc:	532c 4d3a 746f 726f 6c6f 2961 0a0d 5b52     ,S:Motorola)..R[
+    37cc:	723c 6765 5d3e 3a20 6553 2074 726f 4420     <reg>] :Set or D
+    37dc:	6d75 2070 6572 6967 7473 7265 0a0d 5b53     ump register..S[
+    37ec:	613c 7264 5d3e 3a20 6553 2074 654d 6f6d     <adr>] :Set Memo
+    37fc:	7972 0a0d 5b54 613c 7264 5d3e 2c5b 733c     ry..T[<adr>][,<s
+    380c:	6574 7370 7c3e 312d 205d 203a 7254 6361     teps>|-1] : Trac
+    381c:	2065 6f63 6d6d 6e61 0d64 540a 5b4d 7c49     e command..TM[I|
+    382c:	5d53 3a20 7254 6361 2065 704f 6974 6e6f     S] :Trace Option
+    383c:	6620 726f 4320 4c41 0d4c 540a 5b50 4e4f      for CALL..TP[ON
+    384c:	4f7c 4646 205d 543a 6172 6563 5020 6972     |OFF] :Trace Pri
+    385c:	746e 4d20 646f 0d65 000a 0a0d 4e55 4d49     nt Mode.....UNIM
+    386c:	4e4f 6620 726f 5320 4b41 3849 2030 6552     ON for SAKI80 Re
+    387c:	2e76 3042 3134 0a0d 6854 7369 6d20 6e6f     v.B041..This mon
+    388c:	7469 726f 6920 2073 6162 6573 2064 6e6f     itor is based on
+    389c:	7520 696e 6f6d 2e6e 0a0d 5d00 0020 7245      unimon....] .Er
+    38ac:	6f72 2072 6869 7865 0a0d 4500 7272 726f     ror ihex...Error
+    38bc:	7320 6572 0d63 000a 7245 6f72 0d72 000a      srec...Error...
+    38cc:	3a20 2000 207c 2000 0020 303a 3030 3030      :. | .  .:00000
+    38dc:	3030 4631 0d46 000a 3953 3330 3030 3030     001FF...S9030000
+    38ec:	4346 0a0d da00 dd2b 01fe 2bde fede e402     FC....+....+....
+    38fc:	e02b 02fe 2bea fee2 f002 dc2b 01fe 2bf5     +....+....+....+
+    390c:	feec fa02 ee2b 02fe 2bff fee5 0501 e62c     ....+....+....,.
+    391c:	02fe 2c0b fee8 1102 ea2c 02fe 2c17 fee4     ...,....,....,..
+    392c:	1c01 f02c 02fe 2c21 fef2 2602 f42c 01fe     ..,...!,...&,...
+    393c:	2c2a fef5 0001 0000 0000 2041 003d 4220     *,........A =. B
+    394c:	2043 003d 4420 2045 003d 4820 204c 003d     C =. DE =. HL =.
+    395c:	4620 3d20 2000 5849 003d 4920 3d59 0d00      F =. IX=. IY=..
+    396c:	410a 3d27 2000 4342 3d27 2000 4544 3d27     .A'=. BC'=. DE'=
+    397c:	2000 4c48 3d27 2000 2746 003d 5320 3d50     . HL'=. F'=. SP=
+    398c:	2000 4350 003d 4920 003d 5220 003d 0f41     . PC=. I=. R=.A.
+    399c:	2c78 0000 0f42 2c86 0000 0f43 2ca8 0000     x,..B..,..C..,..
+    39ac:	0f44 2cb6 0000 0f45 2cd8 0000 0f46 2ce6     D..,..E..,..F..,
+    39bc:	0000 0f48 2cf4 0000 0f49 2d24 0000 0f4c     ..H..,..I.$-..L.
+    39cc:	2d16 0000 0f50 2d38 0000 0152 fef5 2d93     .-..P.8-..R....-
+    39dc:	0f53 2d40 0000 0000 0100 fedd 2d48 0127     S.@-........H-'.
+    39ec:	fee5 2d61 0000 0100 fedf 2d4d 0127 fee7     ..a-......M-'...
+    39fc:	2d68 0f43 2c9a 0000 0000 0200 fede 2d4a     h-C..,........J-
+    3a0c:	0227 fee6 2d64 0000 0100 fede 2d4f 0127     '...d-......O-'.
+    3a1c:	fee6 2d6b 0000 0100 fee1 2d54 0127 fee9     ..k-......T-'...
+    3a2c:	2d72 0f45 2cca 0000 0000 0200 fee0 2d51     r-E..,........Q-
+    3a3c:	0227 fee8 2d6e 0000 0100 fee0 2d56 0127     '...n-......V-'.
+    3a4c:	fee8 2d75 0000 0100 fedc 2d5f 0127 fee4     ..u-......_-'...
+    3a5c:	2d82 0000 0100 fee3 2d5b 0127 feeb 2d7c     .-......[-'...|-
+    3a6c:	0f4c 2d08 0000 0000 0200 fee2 2d58 0227     L..-........X-'.
+    3a7c:	feea 2d78 0000 0100 fee2 2d5d 0127 feea     ..x-......]-'...
+    3a8c:	2d7f 0000 0100 fef4 2d91 0258 feec 2d85     .-.......-X....-
+    3a9c:	0259 feee 2d88 0000 0243 fef2 2d8e 0000     Y....-..C....-..
+    3aac:	0250 fef0 2d8b 0000 0041 4342 4200 4300     P....-..A.BC.B.C
+    3abc:	4400 0045 0044 0045 4c48 4800 4c00 4600     .DE.D.E.HL.H.L.F
+    3acc:	4100 0027 4342 0027 2742 4300 0027 4544     .A'.BC'.B'.C'.DE
+    3adc:	0027 2744 4500 0027 4c48 0027 2748 4c00     '.D'.E'.HL'.H'.L
+    3aec:	0027 2746 4900 0058 5949 5300 0050 4350     '.F'.IX.IY.SP.PC
+    3afc:	4900 5200 c500 e5d5 443a b7ff fa28 3af3     .I.R....:D..(..:
+    3b0c:	ff44 323d ff44 453a 4fff 0006 5021 09ff     D.=2D.:E.O..!P..
+    3b1c:	3c56 3fe6 4532 7aff e1fb c1d1 3ac9 ff44     V<.?2E.z.....:D.
+    3b2c:	c9b7 d5f5 db57 e619 2804 7afa 18d3 f1d1     ....W....(.z....
+    3b3c:	ffc9 ffff ffff ffff ffff ffff ffff ffff     ................
+    3b4c:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    3b5c:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    3b6c:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    3b7c:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    3b8c:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    3b9c:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    3bac:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    3bbc:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    3bcc:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    3bdc:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    3bec:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    3bfc:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    3c0c:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    3c1c:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    3c2c:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    3c3c:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    3c4c:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    3c5c:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    3c6c:	06c3 c32f 2f7b 0dc3 bc2f 3237 213f 8045     ../.{/../.72?!E.
+    3c7c:	c3f9 4b47 e511 0631 2163 8045 771a 1323     ..GK..1.c!E..w#.
+    3c8c:	c205 2f1c cdf9 33e6 b2cd 3239 80ef 3e32     .../...3..92..2>
+    3c9c:	2181 81a2 7c23 cab5 2f43 477e 772f 70be     .!..#|..C/~G/w.p
+    3cac:	34ca 2b2f a111 cd81 357c 84da 112f ffce     .4/+....|5../...
+    3cbc:	f422 1980 9f22 cd80 33c1 9f2a 1180 ffef     "..."....3*.....
+    3ccc:	1119 813e 937d 7c6f 679a 21e5 2f9c 50cd     ..>.}.o|.g.!./.P
+    3cdc:	e140 f3cd 2146 2f8d 50cd 3140 80ab e6cd     @...F!./.P@1....
+    3cec:	c333 32ff d321 cd2f 4050 8ac3 202f 7942     3..2!./.P@../ By
+    3cfc:	6574 2073 7266 6565 0a0d 0000 385a 2030     tes free....Z80 
+    3d0c:	4142 4953 2043 6556 2072 2e34 6237 0a0d     BASIC Ver 4.7b..
+    3d1c:	6f43 7970 6972 6867 2074 4328 2029 3931     Copyright (C) 19
+    3d2c:	3837 6220 2079 694d 7263 736f 666f 0d74     78 by Microsoft.
+    3d3c:	000a 4d00 6d65 726f 2079 6973 657a 6e20     ...Memory size n
+    3d4c:	746f 6520 6f6e 6775 0d68 540a 6568 7320     ot enough..The s
+    3d5c:	7379 6574 206d 7369 7320 6f74 7070 6465     ystem is stopped
+    3d6c:	0d2e 000a 6800 2c45 7e46 4845 1080 953f     .....hE,F~EH..?.
+    3d7c:	3e42 f23f d147 0d48 4044 4648 4c49 ad49     B>?.G.H.D@HFILI.
+    3d8c:	c249 e949 2c42 964a c280 da41 5c3f d142     I.I.B,J...A.?\B.
+    3d9c:	e241 4e41 e14a f24a 2241 2c42 c542 444e     A.ANJ.J.A"B,B.ND
+    3dac:	4fc6 ce52 5845 c454 5441 c941 504e 5455     .OR.EXT.ATA.NPUT
+    3dbc:	49c4 d24d 4145 cc44 5445 4fc7 4f54 55d2     .IM.EAD.ET.OTO.U
+    3dcc:	c94e d246 5345 4f54 4552 4fc7 5553 d242     N.F.ESTORE.OSUB.
+    3ddc:	5445 5255 d24e 4d45 54d3 504f 55cf cf54     ETURN.EM.TOP.UT.
+    3dec:	ce4e 4c55 d74c 4941 c454 4645 4fd0 454b     N.ULL.AIT.EF.OKE
+    3dfc:	4fc4 454b 43d3 4552 4e45 49cc 454e c353     .OKE.CREEN.INES.
+    3e0c:	534c 49d7 5444 cd48 4e4f 5449 524f 45d3     LS.IDTH.ONITOR.E
+    3e1c:	d254 5345 5445 52d0 4e49 c354 4e4f cc54     T.ESET.RINT.ONT.
+    3e2c:	5349 c354 454c 5241 4cc3 414f c344 4153     IST.LEAR.LOAD.SA
+    3e3c:	4556 45ce d457 4241 d428 c64f d34e 4350     VE.EW.AB(.O.N.PC
+    3e4c:	d428 4548 ce4e 544f 54d3 5045 adab afaa     (.HEN.OT.TEP....
+    3e5c:	c1de 444e 52cf bdbe d3bc 4e47 4ec9 c154     ..ND.R....GN.NT.
+    3e6c:	5342 53d5 c652 4552 4ec9 d050 534f 51d3     BS.SR.RE.NP.OS.Q
+    3e7c:	d252 444e 4fcc c547 5058 4fc3 d353 4e49     R.ND.OG.XP.OS.IN
+    3e8c:	41d4 c14e 4e54 45d0 4b45 45c4 4b45 4fd0     .AN.TN.EEK.EEK.O
+    3e9c:	4e49 cc54 4e45 54d3 2452 41d6 c14c 4353     INT.EN.TR$.AL.SC
+    3eac:	48c3 2452 45c8 2458 49c2 244e 45cc 5446     .HR$.EX$.IN$.EFT
+    3ebc:	d224 4749 5448 cd24 4449 8024 3754 3651     $.IGHT$.ID$.T7Q6
+    3ecc:	3b2c 38a1 3a33 3d68 3a62 38b8 385e 3841     ,;.83:h=b:.8^8A8
+    3edc:	3930 371a 384d 387c 38a3 3752 42a1 3912     09.7M8|8.8R7.B.9
+    3eec:	3793 42a7 3f46 42f0 4a37 38a3 4a1d 4a11     .7.BF?.B7J.8.J.J
+    3efc:	4a15 4b43 8099 809c 3954 3780 35c6 37fb     .JCK....T9.7.5.7
+    3f0c:	38a3 38a3 33c0 da79 7946 430e 4c7c 7c44     .8.8.3y.Fy.C|LD|
+    3f1c:	44ad fb7f 5047 3cc1 c046 4e3c 5346 524e     .D..GP.<F.<NFSNR
+    3f2c:	4f47 4644 4f43 4f56 554d 424c 4453 2f44     GODFCOVOMULBSDD/
+    3f3c:	4930 5444 4f4d 4c53 5353 4354 554e 4d46     0IDTMOSLSSTCNUFM
+    3f4c:	484f 4258 c34e 2f7b d1c3 d337 c900 00d6     OHXBN.{/..7.....
+    3f5c:	7c6f 00de 7867 00de 3e47 c900 0000 3500     o|..gx..G>.....5
+    3f6c:	ca4a 3999 761c 2298 b395 0a98 47dd 5398     J..9.v.".....G.S
+    3f7c:	99d1 0a99 9f1a 6598 cdbc d698 3e77 5298     .......e....w>.R
+    3f8c:	4fc7 db80 c900 ff01 001c 1400 1400 0000     .O..............
+    3f9c:	0000 c300 34f9 00c3 c300 0000 00c3 a200     .....4..........
+    3fac:	fe81 3fff 2081 7245 6f72 0072 6920 206e     ...?. Error. in 
+    3fbc:	4f00 0d6b 000a 4200 6572 6b61 2100 0004     .Ok....Break.!..
+    3fcc:	7e39 fe23 c081 234e 2346 69e5 7a60 ebb3     9~#...N#F#.i`z..
+    3fdc:	77ca eb32 7ccd 0135 000d c8e1 c309 3261     .w2..|5.......a2
+    3fec:	9acd c532 c1e3 7ccd 7e35 c802 2b0b 86c3     ..2....|5~...+..
+    3ffc:	e532 1f2a 0681 0900 3e09 3ee5 95d0 3e6f     2.*......>.>..o>
+    400c:	9cff a9da 6732 e139 1ed8 c30c 32c8 0e2a     ....2g9......2*.
+    401c:	2281 80a1 021e 1e01 0114 001e 1e01 0112     ."..............
+    402c:	221e 1e01 010a 181e e6cd 3233 808a a5cd     ."........32....
+    403c:	2139 31bb 3e57 cd3f 358d 7e19 8dcd cd35     9!.1W>?..5.~..5.
+    404c:	370a 8dcd 2135 3245 50cd 2a40 80a1 fe11     .7..5!E2.P@*....
+    405c:	cdff 357c 0dca 7c2f 3ca5 ebc4 3e46 afc1     ..|5../|.<..F>..
+    406c:	8a32 cd80 39a5 5121 cd32 4050 ff21 22ff     2....9!Q2.P@!.."
+    407c:	80a1 f9cd da34 330c 0acd 3c37 ca3d 330c     ....4..3..7<=..3
+    408c:	cdf5 37d6 cdd5 3410 d147 d2f1 36ea c5d5     ...7...4G....6..
+    409c:	32af 8111 0acd b737 cdf5 33a0 45da f133     .2....7....3.E3.
+    40ac:	caf5 3877 c5b7 5cd2 eb33 1b2a 1a81 0302     ..w8...\3.*.....
+    40bc:	cd13 357c 4dc2 6033 2269 811b f1d1 83ca     ..|5.M3`i"......
+    40cc:	2a33 811b c1e3 e509 80cd e132 1b22 eb81     3*........2."...
+    40dc:	d174 2323 2373 2372 a611 1a80 2377 b713     t.##s#r#....w#..
+    40ec:	7bc2 cd33 33cc eb23 6b62 237e cab6 330c     .{3..3#.bk~#...3
+    40fc:	2323 af23 23be 94c2 eb33 2373 c372 3388     ###..#..3.s#r..3
+    410c:	a32a 4480 7e4d b623 c82b 2323 237e 6f66     *..DM~#.+.##~#fo
+    411c:	7ccd 6035 7e69 6623 3f6f 3fc8 c3d0 33a3     .|5`i~#fo?.?...3
+    412c:	2ac0 80a3 77af 7723 2223 811b a32a 2b80     .*...w#w#"..*..+
+    413c:	1322 2a81 80f4 0822 af81 1acd 2a37 811b     "..*..".....7*..
+    414c:	1d22 2281 811f 2ac1 809f 21f9 80f8 f622     ".."...*...!..".
+    415c:	af80 676f 1922 3281 8110 2322 e581 2ac5     ..og"..2.."#...*
+    416c:	8113 3ec9 cd3f 358d 203e 8dcd c335 8093     ...>?..5> ..5...
+    417c:	32af 80f3 050e a611 7e80 20fe 98ca 4734     .2.......~. ..4G
+    418c:	22fe b8ca b734 bfca 3a34 80f3 7eb7 98c2     ."..4...4:...~..
+    419c:	fe34 3e3f ca9e 3498 fe7e da30 3443 3cfe     4.?>...4~.0.C4.<
+    41ac:	98da d534 3c11 c530 9401 c534 7f06 fe7e     ..4..<0...4...~.
+    41bc:	da61 345c 7bfe 5cd2 e634 775f eb4e b623     a.\4.{.\4._wN.#.
+    41cc:	5ef2 0434 e67e c87f c2b9 345e e5eb 1a13     .^4.~.....^4....
+    41dc:	fab7 3490 784f 88fe 7fc2 cd34 370a 232b     ...4Ox....4..7+#
+    41ec:	fe7e da61 3488 5fe6 cab9 346e c3e1 345c     ~.a..4._..n4..\4
+    41fc:	f148 c9eb 79eb d1c1 1223 0c13 3ad6 a6ca     H....y..#....:..
+    420c:	fe34 c249 34a9 f332 d680 c254 3419 7e47     4.I..42...T..4G~
+    421c:	cab7 34bf cab8 3498 1223 130c afc3 2134     ...4...4#.....4!
+    422c:	80a5 1312 1312 c912 893a b780 003e 8932     ........:...>.2.
+    423c:	c280 34dc ca05 34f9 8dcd 3e35 2b05 f0ca     ...4...4..5>.+..
+    424c:	7e34 8dcd c335 3502 2b05 8dcd c235 3502     4~..5..5.+..5..5
+    425c:	8dcd cd35 39b2 f9c3 2134 80a6 0106 32af     ..5..9..4!.....2
+    426c:	8089 b5cd 4f35 7ffe c8ca 3a34 8089 cab7     ....5O....4:....
+    427c:	351b 003e 8dcd af35 8932 7980 07fe 5fca     .5>...5.2..y..._
+    428c:	fe35 cc03 39b2 c837 0dfe adca fe39 ca15     5....97.....9...
+    429c:	34f3 40fe f0ca fe34 ca5f 34e8 08fe e8ca     .4.@..4._..4....
+    42ac:	fe34 c212 355a d5c5 36e5 cd00 4b56 a621     4...Z5...6..VK!.
+    42bc:	cd80 4050 d1e1 c3c1 3502 20fe 02da 7835     ..P@.....5. ..5x
+    42cc:	49fe 073e 74d2 7935 3271 8111 0423 8dcd     .I>..t5yq2..#...
+    42dc:	c335 3502 8dcd 3e35 c308 356e 927c 7dc0     5..5..5>..n5|..}
+    42ec:	c993 e37e 23be cae3 370a b4c3 f532 8a3a     ..~..#...7..2.:.
+    42fc:	b780 85c2 f140 f5c5 20fe b1da 3a35 8087     ....@.... ..5:..
+    430c:	3a47 80f0 ca04 35ad b805 b2cc 3c39 f032     G:.....5....9<2.
+    431c:	f180 cfc1 cdc9 4a0f 7fe6 0ffe 3ac0 808a     .......J.....:..
+    432c:	322f 808a c9af d6cd c037 cdc1 33a0 cdc5     /2......7....3..
+    433c:	361c 4ee1 4623 7823 cab1 32ff 25cd cd36     .6.N#F#x...2.%6.
+    434c:	3735 cdc5 39b2 235e 2356 ebe5 f3cd 3e46     57...9^#V#....F>
+    435c:	e120 8dcd 7e35 23b7 d2ca f235 35f2 7fd6      ...5~.#..5..5..
+    436c:	114f 303d 131a f2b7 3604 c20d 3604 7fe6     O.=0.....6...6..
+    437c:	8dcd 1a35 b713 0ef2 c336 35f5 2ae5 808d     ..5.....6..5.*..
+    438c:	8b22 e180 e5c9 2ad5 808b ff11 edff 225a     "......*......Z"
+    439c:	808b e1d1 e5f0 8d2a 2280 808b 0fcd fe4a     ......*.."....J.
+    43ac:	ca03 3648 c3e1 3625 8d2a 2280 808b 7ec3     ..H6..%6*.."...~
+    43bc:	3e2f 3264 8110 b8cd c138 cde5 38a1 0c22     />d2....8....8".
+    43cc:	2181 0002 cd39 3261 c2d1 3681 d509 562b     .!..9.a2...6..+V
+    43dc:	5e2b 2323 2ae5 810c 7ccd e135 65c2 d136     +^##.*...|5..e6.
+    43ec:	ebf9 080e 91cd e532 0c2a e381 2ae5 80a1     ......2.*....*..
+    43fc:	cde3 3b7a 82cd a635 77cd e53b a5cd e145     ..z;..5..w;...E.
+    440c:	d5c5 0001 5181 7e5a abfe 013e bdc2 cd36     .....QZ~..>...6.
+    441c:	370a 77cd e53b a5cd cd45 4559 c5e1 f5d5     .7.w;...E.YE....
+    442c:	e533 132a e381 8106 33c5 35cd 2237 8113     3.*......3.57"..
+    443c:	fe7e ca3a 36ea c2b7 32b4 7e23 b623 5cca     ~.:..6...2#~#..\
+    444c:	2337 235e eb56 a122 eb80 0acd 1137 36ca     7#^#V.".....7..6
+    445c:	c8d5 80d6 b8da fe38 d225 32b4 4f07 0006     ......8.%..2.O..
+    446c:	21eb 315c 4e09 4623 ebc5 7e23 3afe fed0     .!\1.N#F..#~.:..
+    447c:	ca20 370a 30fe 3c3f c93d 2aeb 80a3 2fca      ..7.0?<=..*.../
+    448c:	eb37 d6cd e537 a0cd 6033 d169 77d2 2b38     7...7...3`i..w8+
+    449c:	2122 eb81 dfc9 d7c8 1bfe 1128 03fe 0d28     "!........(...(.
+    44ac:	13fe d7c0 11fe fec8 2803 1807 3ef6 32ff     .........(...>.2
+    44bc:	8092 f6c0 22c0 8113 f621 c1ff a12a f580     ....."..!...*...
+    44cc:	a47d ca3c 376f 1722 2a81 8113 1922 af81     }.<.o7"..*.."...
+    44dc:	8a32 cd80 39a5 21f1 3257 e8c2 c332 32ff     2....9.!W2..2..2
+    44ec:	192a 7c81 1eb5 ca20 32c8 2aeb 8117 a122     *..|.. ..2.*..".
+    44fc:	eb80 cdc9 42d8 32c0 8086 e5c9 8f2a 0680     .....B.2....*...
+    450c:	4f00 2209 808f c9e1 fe7e d841 5bfe c93f     .O."....~.A..[?.
+    451c:	0acd cd37 3b77 59cd fa45 37d1 2c3a fe81     ..7.w;.YE..7:,..
+    452c:	da90 4601 8001 1190 0000 cde5 45d4 51e1     ...F.........E.Q
+    453c:	1ec8 c308 32c8 112b 0000 0acd d037 f5e5     .....2+.....7...
+    454c:	9821 cd19 357c b4da 6232 196b 1929 f129     !...|5..2bk.).).
+    455c:	30d6 165f 1900 e1eb dac3 ca37 33d0 b3cd     .0_.......7..3..
+    456c:	2b37 0acd e537 f42a ca80 381e cde1 3582     7+..7.*....8...5
+    457c:	d52c b3cd 2b37 0acd c237 32b4 ebe3 937d     ,...7+..7..2..}.
+    458c:	7c5f 579a a9da e532 1b2a 0181 0028 cd09     _|.W..2.*...(...
+    459c:	357c a9d2 eb32 9f22 e180 f422 e180 d0c3     |5..2."...".....
+    45ac:	ca33 33cc d0cd 0133 36ca 5dc3 0e38 cd03     3..3..3..6.]8...
+    45bc:	3291 e5c1 2ae5 80a1 3ee3 f58c c533 d6cd     .2...*...>..3...
+    45cc:	cd37 38a3 2ae5 80a1 7ccd e135 dc23 33a3     7..8.*...|5.#..3
+    45dc:	a0d4 6033 2b69 1ed8 c30e 32c8 16c0 cdff     ..3`i+.....2....
+    45ec:	325d fef9 1e8c c204 32c8 22e1 80a1 7c23     ]2.......2."..#|
+    45fc:	c2b5 389b 113a b781 fec2 2132 36ca 3ee3     ...8:.....2!.6.>
+    460c:	01e1 0e3a 0600 7900 4748 b77e b8c8 23c8     ..:....yHG~....#
+    461c:	22fe a7ca c338 38aa 6dcd cd3d 3582 d5b4     ."..8..8.m=..5..
+    462c:	f23a f580 89cd f13b 22e3 8113 cd1f 3b7c     :.....;.."....|;
+    463c:	0bca e539 292a e581 2323 235e 2a56 80a3     ..9.*)..##^#V*..
+    464c:	7ccd d235 38fa 9f2a cd80 357c d2d1 3902     .|5..8*...|5...9
+    465c:	0421 cd81 357c 02d2 3e39 cdd1 41b1 cdeb     !...|5..9>...A..
+    466c:	3fea b1cd e141 b4cd e145 e5c9 b1cd d145     .?..A...E.....E.
+    467c:	c9e1 d8cd 7e42 fe47 ca8c 3921 82cd 8835     ....B~G...!9..5.
+    468c:	4b2b 780d f2ca cd36 37d7 2cfe c3c0 3922     +K.x..6..7.,.."9
+    469c:	89cd 7e3b 88fe 3eca cd39 3582 2ba9 7acd     ..;~...>9..5.+.z
+    46ac:	cd3b 4559 a3ca cd38 370a 5eda c338 36f1     ;.YE..8..7.^8..6
+    46bc:	cd2b 370a b2ca c839 a5fe e5ca fe39 caa8     +..7..9.....9...
+    46cc:	39e5 fee5 ca2c 39ce 3bfe 08ca c13a 89cd     .9..,..9.;..:...
+    46dc:	e53b f23a b780 9ec2 cd39 46fe 0ecd 3640     ;.:.....9..F..@6
+    46ec:	2a20 8129 2a34 8129 873a 4780 ca04 399a      *).4*).:..G...9
+    46fc:	3a04 80f0 3d86 d4b8 39b2 53cd af40 53c4     .:...=...9.S@..S
+    470c:	e140 50c3 3a39 80f0 c8b7 b2c3 3639 2100     @..P9:......96.!
+    471c:	80a5 0d3e 8dcd 3e35 cd0a 358d 32af 80f0     ..>...5>...5.2..
+    472c:	863a 3d80 f5c8 cdaf 358d c3f1 39c3 883a     :..=.....5...9:.
+    473c:	4780 f03a b880 b2d4 d239 3a08 0ed6 dcd2     .G:.....9..:....
+    474c:	2f39 fdc3 f539 d5cd cd42 3582 2b29 d6f1     9/..9...B..5)+..
+    475c:	e5a8 f8ca 3a39 80f0 832f 08d2 3c3a 3e47     ....9:../...:<G>
+    476c:	cd20 358d c205 3a01 cde1 370a 57c3 3f39      ..5...:...7.W9?
+    477c:	6552 6f64 6620 6f72 206d 7473 7261 0d74     Redo from start.
+    478c:	000a 123a b781 aec2 c132 0f21 cd3a 4050     ..:.....2.!.:.P@
+    479c:	ffc3 cd33 3fbb fe7e 3e22 3200 808a 4dc2     ..3..?~.">.2...M
+    47ac:	cd3a 400f 82cd 3b35 cde5 4053 e53e 03cd     :..@..5;..S@>...
+    47bc:	c134 59da 2337 b77e c52b a0ca 3638 c32c     4..Y7#~.+...86,.
+    47cc:	3a67 2ae5 8121 aff6 1232 e381 73c3 cd3a     g:.*!...2....s:.
+    47dc:	3582 cd2c 3d6d d5e3 fe7e ca2c 3a9b 123a     .5,.m=..~.,..::.
+    47ec:	b781 08c2 3e3b cd3f 358d 03cd d134 dac1     ....;>?..5..4...
+    47fc:	3759 7e23 2bb7 cac5 38a0 3ad5 80f2 cab7     Y7#~.+...8.:....
+    480c:	3ac5 0acd 5737 fe47 ca22 3ab9 123a b781     .:..7WG."..::...
+    481c:	ca57 3ab6 3a16 2c06 cd2b 4012 21eb 3ad0     W..:.:.,+..@.!.:
+    482c:	d5e3 d3c3 cd38 370a 60cd e346 b1cd e145     ....8..7.`F...E.
+    483c:	cd2b 370a dcca fe3a c22c 3a22 2be3 0acd     +..7..:.,.":.+..
+    484c:	c237 3a6f 3ad1 8112 ebb7 30c2 d537 21b6     7.o:.:.....07..!
+    485c:	3af7 50c4 e140 3fc9 7845 7274 2061 6769     .:.P@..?Extra ig
+    486c:	6f6e 6572 0d64 000a a1cd b738 21c2 233b     nored.....8..!;#
+    487c:	237e 1eb6 ca06 32c8 5e23 5623 22eb 810e     ~#.....2#^#V."..
+    488c:	cdeb 370a 83fe 08c2 c33b 3a9b 0011 c400     ...7....;..:....
+    489c:	3d6d 1322 cd81 325d bac2 f932 7ed5 f523     m="...]2..2..~#.
+    48ac:	cdd5 4597 e5e3 04cd e143 b1cd e145 a8cd     ...E....C...E...
+    48bc:	e545 d4cd e145 90c1 a8cd ca45 3b67 22eb     E...E.....E.g;."
+    48cc:	80a1 6069 c6c3 f936 132a 7e81 2cfe cac2     ..i`..6.*..~.,..
+    48dc:	cd36 370a 2fcd cd3b 3b89 37f6 f23a 8f80     6..7./;..;.7:...
+    48ec:	e8b7 c6c3 cd32 3582 2b28 0016 0ed5 cd01     ....2..5(+......
+    48fc:	3291 00cd 223c 8115 152a c181 fe78 d478     .2..<"..*...x.x.
+    490c:	3b7a 167e d600 dab3 3bc1 03fe c1d2 fe3b     z;~......;....;.
+    491c:	1701 baaa da57 32b4 0a22 cd81 370a a5c3     ....W..2"....7..
+    492c:	7a3b c2b7 3ce8 227e 810a acd6 fed8 d007     ;z...<~"........
+    493c:	3a5f 80f2 b33d ca7b 4146 8307 215f 31a6     _:..=.{.FA.._!.1
+    494c:	7819 ba56 23d0 7acd c53b 9801 c53b 4a43     .xV..#.z;...;.CJ
+    495c:	8acd 5845 4e51 4623 c523 0a2a c381 3b8c     ..EXQN#F#.*....;
+    496c:	32af 80f2 0acd 1e37 ca24 32c8 60da cd46     .2....7.$..2.`F.
+    497c:	37a8 67d2 fe3c 2026 cd12 370a 48fe a3ca     .7.g<.& ...7.H..
+    498c:	fe4a ca42 4b13 021e c8ca fe32 caac 3c00     J.B..K....2....<
+    499c:	2efe 60ca fe46 caad 3c56 22fe 0fca fe40     ...`F...V<."..@.
+    49ac:	caaa 3d48 a7fe 73ca d63f d2b6 3c78 85cd     ..H=...s?...x<..
+    49bc:	cd3b 3582 c929 7d16 8ccd 2a3b 8115 cde5     ;..5)..}..;*....
+    49cc:	4582 7acd e13b cdc9 3d6d ebe5 2922 3a81     .E.z;...m=..").:
+    49dc:	80f2 ccb7 4597 c9e1 0006 4f07 cdc5 370a     .....E.....O...7
+    49ec:	fe79 da31 3c9f 85cd cd3b 3582 cd2c 3b7b     y.1..<..;..5,.{;
+    49fc:	2aeb 8129 e5e3 cdeb 42d8 e3eb a7c3 cd3c     .*)......B....<.
+    4a0c:	3c4e 11e3 3c62 01d5 3005 4e09 6623 e969     N<..b<...0.N#fi.
+    4a1c:	fe15 c8ad 2dfe 14c8 2bfe fec8 c8ac c92b     .....-...+....+.
+    4a2c:	aff6 cdf5 3b7a bccd f137 c1eb ebe3 9acd     ....z;..7.......
+    4a3c:	f545 bccd f137 79c1 3121 c23f 3ce3 4fa3     E...7..y!1?..<.O
+    4a4c:	a278 b3e9 784f e9b2 fa21 3a3c 80f2 7a1f     x...Ox..!.<:...z
+    4a5c:	5f17 6416 ba78 c3d0 3be9 3cfc b779 c11f     ._.dx....;.<y...
+    4a6c:	f5d1 7ccd 213b 3d3e cae5 45d4 32af 80f2     ...|;!>=...E.2..
+    4a7c:	cdd5 4193 237e 4e23 4623 c5d1 cdf5 4197     ...A~##N#F.....A
+    4a8c:	a8cd f145 e157 b27b 7ac8 01d6 afd8 3cbb     ..E.W.{..z.....<
+    4a9c:	15d0 0a1d 23be ca03 3d26 c33f 4564 8f3c     .....#..&=?.dE<.
+    4aac:	a0c1 ffc6 c39f 456b 5a16 8ccd cd3b 3b7a     ......kE.Z..;.z;
+    4abc:	bccd 7b37 4f2f 2f7a 31cd c13f 98c3 2b3b     ..7{/Oz/.1?...;+
+    4acc:	0acd c837 82cd 2c35 5f01 c53d aff6 f132     ..7...5,._=...2.
+    4adc:	4680 a8cd da37 32b4 4faf f232 cd80 370a     .F..7..2.O2....7
+    4aec:	89da cd3d 37a8 96da 4f3d 0acd da37 3d8a     ..=..7..=O..7..=
+    4afc:	a8cd d237 3d8a 24d6 a5c2 3c3d f232 0f80     ..7..=.$..=<2...
+    4b0c:	4f81 0acd 3a37 8110 ca3d 3e52 b5f2 7e3d     .O..7:..=.R>..=~
+    4b1c:	28d6 2aca af3e 1032 e581 5950 232a cd81     .(.*>.2...PY*#..
+    4b2c:	357c 2511 ca81 449a 1d2a eb81 1b2a cd81     |5.%...D*...*...
+    4b3c:	357c e8ca 793d 2396 ddc2 783d 2396 1cca     |5..=y.#..=x.#..
+    4b4c:	233e 2323 c323 3dcf e3e1 11d5 3c6a 7ccd     >####..=....j<.|
+    4b5c:	d135 1fca e33e c5e5 0601 2a00 811f 09e5     5...>......*....
+    4b6c:	e5c1 80cd e132 1f22 6081 2269 811d 362b     ....2."..`i"..+6
+    4b7c:	cd00 357c 0ec2 d13e 2373 2372 e1eb 32c9     ..|5..>.s#r#...2
+    4b8c:	812c 5021 2232 8129 c9e1 2ae5 80f1 57e3     ,.!P2")....*...W
+    4b9c:	c5d5 b0cd c137 ebf1 e5e3 3ceb 7e57 2cfe     ....7......<W~.,
+    4bac:	30ca cd3e 3582 2229 8115 22e1 80f1 001e     .0>..5)"..."....
+    4bbc:	11d5 f5e5 1d2a 3e81 eb19 1f2a eb81 7ccd     ....*..>..*....|
+    4bcc:	ca35 3e8a b97e c223 3e6c b87e 5e23 5623     5..>~.#.l>~.#^#V
+    4bdc:	c223 3e58 f13a b780 bdc2 f132 4d44 9aca     #.X>:.....2.DM..
+    4bec:	9644 e8ca 1e3e c310 32c8 0411 f100 d1ca     D...>....2......
+    4bfc:	7137 7023 4f23 91cd 2332 2223 810a 2371     7q#p#O..2##"..q#
+    4c0c:	f13a 1780 0179 000b add2 c13e 7103 7023     :...y.....>..q#p
+    4c1c:	f523 cde5 4645 e1eb 3df1 a5c2 f53e 4b42     #...EF...=..>.BK
+    4c2c:	19eb a9da cd32 329a 1f22 2b81 0036 7ccd     ....2..2"..+6..|
+    4c3c:	c235 3ecb 5703 0a2a 5e81 29eb eb09 2b2b     5..>.W*..^.)..++
+    4c4c:	2373 2372 daf1 3f0c 4f47 237e e116 235e     s#r#...?GO~#..^#
+    4c5c:	2356 f5e3 7ccd d235 3e85 cde5 4645 19d1     V#...|5..>..EF..
+    4c6c:	3df1 4d44 edc2 293e c129 eb09 152a c981     .=DM..>))...*...
+    4c7c:	1f2a eb81 0021 3900 f23a b780 2cca cd3f     *...!..9:....,?.
+    4c8c:	4193 93cd 2a40 809f 2aeb 8108 937d 7c4f     .A..@*...*..}.O|
+    4c9c:	419a 1e50 2100 80f2 0673 c390 4570 f03a     .AP..!..s...pE:.
+    4cac:	4780 c3af 3f32 c9cd cd3f 3fbb a101 c538     .G..2?..?..?..8.
+    4cbc:	cdd5 3582 cd28 3d6d ebe5 562b 5e2b cde1     ...5(.m=..+V+^..
+    4ccc:	3b7a 82cd 2935 82cd b435 4d44 71e3 7023     z;..5)..5.DM.q#p
+    4cdc:	08c3 cd40 3fc9 cdd5 3c4e 7acd e33b 235e     ..@..?..N<.z;.^#
+    4cec:	2356 b37a c0ca 7e32 6623 e56f 232a e381     V#z...2~#fo.*#..
+    4cfc:	2322 2a81 8127 2ae5 8125 21e5 8125 cdd5     "#.*'..*%..!%...
+    4d0c:	45b1 cde1 3b77 cd2b 370a b4c2 e132 2522     .E..w;+..7..2."%
+    4d1c:	e181 2722 e181 2322 e181 e5c9 a12a 2380     .."'.."#....*..#
+    4d2c:	b57c c0e1 161e c8c3 cd32 3582 3ea7 3280     |.......2..5.>.2
+    4d3c:	8110 47b6 72cd c33d 3b7a 7acd cd3b 46fe     ...G.r=.z;.z;..F
+    4d4c:	0ecd cd40 4193 ee01 c541 237e e523 69cd     ..@..A..A.~##..i
+    4d5c:	e140 234e cd46 4002 6fe5 86cd d141 cdc9     @.N#F..@.o..A...
+    4d6c:	4069 0421 e581 2377 7323 7223 c9e1 062b     i@!...w##s#r..+.
+    4d7c:	5022 0ee5 23ff 0c7e cab7 4024 caba 4024     "P...#~...$@..$@
+    4d8c:	c2b8 4015 22fe 0acc e337 eb23 cd79 4002     ...@."..7.#.y..@
+    4d9c:	0411 2a81 80f6 2922 3e81 3201 80f2 b4cd     ...*..").>.2....
+    4dac:	cd45 357c f622 e180 c07e 1e1e c8c3 2332     E.|5"...~.....2#
+    4dbc:	0ecd cd40 4193 a8cd 1c45 c81d cd0a 358d     ..@..A..E......5
+    4dcc:	0dfe bccc 0339 5ac3 b740 f10e 2af5 809f     ....9..Z@....*..
+    4ddc:	2aeb 8108 4f2f ff06 2309 7ccd da35 4087     .*../O...#.|5..@
+    4dec:	0822 2381 f1eb f1c9 1a1e c8ca bf32 01f5     "..#........2...
+    4dfc:	406b 2ac5 80f4 0822 2181 0000 2ae5 809f     k@.*.."..!...*..
+    4e0c:	21e5 80f8 2aeb 80f6 cdeb 357c a401 c240     .!...*....|5..@.
+    4e1c:	40f8 1b2a eb81 1d2a eb81 7ccd ca35 40cb     .@*...*....|5..@
+    4e2c:	237e b723 fbcd c340 40b5 ebc1 1f2a eb81     ~##...@..@..*...
+    4e3c:	7ccd ca35 4121 a8cd 7b45 09e5 f2b7 40ca     .|5.!A..E{.....@
+    4e4c:	0a22 e181 064e 0900 2309 2aeb 810a cdeb     "...N....#.*....
+    4e5c:	357c cbca 0140 40ea f6c5 7e80 2323 235e     |5..@..@...~##^#
+    4e6c:	2356 b7f0 44c8 2a4d 8108 7ccd 6035 d869     V#...DM*...|5`i.
+    4e7c:	e3e1 7ccd e335 60e5 d069 f1c1 e5f1 c5d5     ...|5..`i.......
+    4e8c:	d1c9 7de1 c8b4 462b 4e2b 2be5 6e2b 0026     ...}..+F+N.++n&.
+    4e9c:	5009 2b59 4d44 082a cd81 3283 71e1 7023     .PY+DM*....2.q#p
+    4eac:	6069 c32b 4096 e5c5 292a e381 00cd e33c     i`+..@..*)....<.
+    4ebc:	7bcd 7e3b 2ae5 8129 86e5 1c1e c8da cd32     .{;~.*).......2.
+    4ecc:	3fff cdd1 4197 cde3 4196 2ae5 8106 cdeb     .?...A...A.*....
+    4edc:	417d 7dcd 2141 3b95 e5e3 30c3 e140 7ee3     }A.}A!.;...0@..~
+    4eec:	2323 234e 6f46 2d2c 0ac8 0312 c313 4187     ##N#Fo,-.......A
+    4efc:	7bcd 2a3b 8129 cdeb 41b1 c0eb 50d5 1b59     .{;*)....A...PY.
+    4f0c:	2a4e 8108 7ccd c235 41af 0947 0822 e181     N*...|5..AG."...
+    4f1c:	2ac9 80f6 462b 4e2b 2b2b 7ccd c035 f622     .*..+F+N++.|5.".
+    4f2c:	c980 4101 c53f 90cd af41 3257 80f2 b77e     ...A?...A.W2..~.
+    4f3c:	01c9 3f41 cdc5 41c6 d1ca 2337 5e23 5623     ..A?...A..7##^#V
+    4f4c:	c91a 013e ffcd cd3f 42db 062a 7381 c3c1     ..>...?..B*..s..
+    4f5c:	4030 8bcd af42 4fe3 7ee5 dab8 4200 1178     0@..B..O.~...Bx.
+    4f6c:	000e cdc5 4069 e1c1 23e5 4623 6623 0668     ....i@...##F#fh.
+    4f7c:	0900 4d44 02cd 6f40 86cd d141 97cd c341     ..DM..@o..A...A.
+    4f8c:	4030 8bcd d142 1ad5 c390 41f6 7eeb 90cd     0@..B......A.~..
+    4f9c:	0442 ca05 37d1 1ec5 feff ca29 4245 82cd     B....7....).EB..
+    4fac:	2c35 d8cd cd42 3582 f129 01e3 41f8 3dc5     5,..B..5)....A.=
+    4fbc:	06be d000 7e4f bb91 d847 c943 c6cd ca41     ....O~..G.C...A.
+    4fcc:	4379 235f 7e23 6623 e56f 4619 e372 7ec5     yC_##~#fo..Fr..~
+    4fdc:	24fe 7ac2 cd42 4aa3 0d18 25fe 84c2 cd42     .$.zB..J...%..B.
+    4fec:	4b13 0318 60cd c146 70e1 ebc9 82cd 2935     .K...`F..p....5)
+    4ffc:	d1c1 43c5 cdc9 42db 8432 cd80 8083 41c3     ...C...B2......A
+    500c:	cd3f 42c5 4bc3 cd80 42c5 1ef5 2b00 0acd     ?..B.K...B...+..
+    501c:	ca37 42bb 82cd 2c35 d8cd c142 83cd ab80     7..B..5,..B.....
+    502c:	caa0 42bc cdc9 42d8 8432 3280 804c 82cd     ...B...B2..2L...
+    503c:	2c35 d8c3 cd42 370a 77cd cd3b 37b6 b77a     5,..B..7.w;..7z.
+    504c:	d1c2 2b37 0acd 7b37 cdc9 37bc c31a 3f41     ..7+..7{...7..A?
+    505c:	77cd cd3b 37bc cdd5 3582 cd2c 42d8 12d1     .w;..7...5,..B..
+    506c:	21c9 47d7 a8cd c345 4313 a8cd 2145 d1c1     .!.G..E..C..E!..
+    507c:	82cd 7845 c8b7 2c3a b781 9aca 9045 2dd2     ..Ex..:,....E..-
+    508c:	2f43 eb3c 8acd eb45 9acd c145 fed1 d019     C/<...E...E.....
+    509c:	cdf5 45bf f167 d8cd b443 2921 f281 4353     ...Eg...C.!)..SC
+    50ac:	b8cd d243 4399 3423 c3ca 2e32 cd01 43ee     ..C..C#4..2....C
+    50bc:	99c3 af43 4790 9b7e 235f 9a7e 2357 997e     ..C..G~._#~.W#~.
+    50cc:	dc4f 43c4 6368 47af b779 86c2 4a43 6554     O..Chc.Gy...CJTe
+    50dc:	786f 08d6 e0fe 67c2 af43 2c32 c981 2905     ox.....gC.2,...)
+    50ec:	177a 7957 4f8f 7ef2 7843 455c cab7 4399     z.Wy.O.~Cx\E...C
+    50fc:	2c21 8681 d277 4379 78c8 2c21 b781 abfc     !,..w.yC.x!,....
+    510c:	4643 7e23 80e6 4fa9 9ac3 1c45 14c0 0cc0     CF#~...O..E.....
+    511c:	0ec0 3480 c3c0 32c3 837e 235f 8a7e 2357     ...4...2~._#~.W#
+    512c:	897e c94f 2d21 7e81 772f 6faf 4790 9b7d     ~.O.!-.~/w.o.G}.
+    513c:	7d5f 579a 997d c94f 0006 08d6 e7da 4343     _}.W}.O.......CC
+    514c:	515a 000e dac3 c643 6f09 2daf 79c8 4f1f     ZQ....C..o.-.y.O
+    515c:	1f7a 7b57 5f1f 1f78 c347 43ea 0000 8100     z.W{._x.G..C....
+    516c:	aa03 1956 f180 7622 4580 38aa cd82 4559     ..V..."v.E.8..YE
+    517c:	eab7 37d1 2c21 7e81 3501 1180 04f3 f590     ...7!,.~.5......
+    518c:	d570 cdc5 4313 d1c1 cd04 44af fc21 cd43     p....C.....D!.C.
+    519c:	430a 0021 cd44 48a1 8001 1180 0000 13cd     .C!.D..H........
+    51ac:	f143 d4cd 0146 8031 1811 2172 d1c1 59cd     C...F.1...r!...Y
+    51bc:	c845 002e 17cd 7945 3b32 eb81 3c22 0181     E.....Ey2;.."<..
+    51cc:	0000 5850 6421 e543 7021 e544 21e5 8129     ..PX!dC.!pD..!).
+    51dc:	237e cab7 449c 2ee5 1f08 7967 8ad2 e544     ~#...D....gy..D.
+    51ec:	3c2a 1981 e1eb 3b3a 8981 4f1f 1f7a 7b57     *<....:;...Oz.W{
+    51fc:	5f1f 1f78 2d47 c27c 4479 c9e1 5a43 4f51     ._x.G-|.yD..CZQO
+    520c:	cdc9 458a 2001 1184 0000 9acd c145 cdd1     ...E. ......E...
+    521c:	4559 b7ca 2e32 cdff 4517 3434 7e2b 5732     YE..2....E44+~2W
+    522c:	2b80 327e 8053 7e2b 4f32 4180 afeb 574f     .+~2S.+~2O.A..OW
+    523c:	325f 805a c5e5 cd7d 804e 00de d23f 44e7     _2Z...}.N...?..D
+    524c:	5a32 f180 37f1 c1d2 79e1 3d3c fa1f 439a     2Z...7...y<=...C
+    525c:	7b17 5f17 177a 7957 4f17 7829 4717 5a3a     .{._z.Wy.O)x.G:Z
+    526c:	1780 5a32 7980 b3b2 d4c2 e544 2c21 3581     ..2Z.y....D.!,.5
+    527c:	c2e1 44d4 c3c3 7832 cab7 453b 217d 812c     ...D..2x..;E}!,.
+    528c:	80ae 1f47 78a8 3af2 c645 7780 9aca cd44     ..G..x.:E..w..D.
+    529c:	45bf 2b77 cdc9 4559 e12f e1b7 79f2 c343     .Ew+..YE/....yC.
+    52ac:	32c3 a5cd 7845 c8b7 02c6 c3da 4732 13cd     .2..Ex......2G..
+    52bc:	2143 812c c034 c3c3 3a32 812c c8b7 2b3a     C!,.4...2:,...:+
+    52cc:	fe81 172f c09f c93c 59cd 0645 1188 0000     ../...<..YE.....
+    52dc:	2c21 4f81 0670 2300 8036 c317 4361 59cd     !,.Op..#6...aC.Y
+    52ec:	f045 2b21 7e81 80ee c977 2aeb 8129 e5e3     E.!+.~..w..*)...
+    52fc:	2b2a e381 ebe5 cdc9 45a8 22eb 8129 6960     *+.......E.").`i
+    530c:	2b22 eb81 21c9 8129 235e 2356 234e 2346     "+...!).^#V#N#F#
+    531c:	11c9 8129 0406 771a 2313 c205 45b6 21c9     ..)....w.#...E.!
+    532c:	812b 077e 1f37 3f77 231f 7723 0779 1f37     +.~.7.w?.##wy.7.
+    533c:	1f4f c9ae b778 59ca 2145 4562 cde5 4559     O...x..YE!bE..YE
+    534c:	c879 2b21 ae81 f879 eecd 1f45 c9a9 7823     y.!+..y...E...#x
+    535c:	c0be 792b c0be 7a2b c0be 7b2b c096 e1e1     ..+y..+z..+{....
+    536c:	47c9 574f b75f e5c8 a5cd cd45 45bf 67ae     .GOW_.....E..E.g
+    537c:	25fc 3e46 9098 d8cd 7c43 dc17 43ab 0006     .%F>....C|...C..
+    538c:	c4dc e143 1bc9 a37a c03c c90b 2c21 7e81     ..C...z.<...!,.~
+    539c:	98fe 293a d081 cd7e 4601 9836 f57b 1779     ..:)..~..F6.{.y.
+    53ac:	61cd f143 21c9 0000 b178 3ec8 2910 85da     .aC..!..x..>.)..
+    53bc:	eb3e eb29 5bd2 0946 85da 3d3e 4dc2 c946     >.)..[F...>=.MF.
+    53cc:	2dfe caf5 466c 2bfe 6cca 2b46 79cd 4743     .-..lF.+.lF+.yCG
+    53dc:	5f57 4f2f 0acd da37 46bd 2efe 98ca fe46     W_/O..7..F....F.
+    53ec:	c245 469c 0acd cd37 3cb0 0acd da37 46df     E..F..7..<..7..F
+    53fc:	c214 469c 93af 0c5f ca0c 4674 7be5 f490     ...F.._...tF.{..
+    540c:	46b5 abf2 f546 a1cd f144 c23c 469f f1d1     .F..F...D.<..F..
+    541c:	82cc eb45 c8c9 cdf5 4542 3df1 d5c9 7857     ..E.....BE.=..Wx
+    542c:	4789 e5c5 cdd5 4542 d6f1 cd30 46d4 c1e1     .G....BE..0..F..
+    543c:	c3d1 4674 8acd cd45 456b d1c1 13c3 7b43     ..tF..E.kE....C{
+    544c:	0707 0783 d686 5f30 8ac3 e546 4c21 cd32     ......0_..F.!L2.
+    545c:	4050 ebe1 06af cd98 4570 4f21 e540 2e21     P@......pE!O@.!.
+    546c:	e581 59cd 3645 f220 470c 2d36 3623 ca30     ...YE6 ..G6-#60.
+    547c:	47c2 fce5 4582 f5af c8cd 0147 9143 f811     .G...E....G.C...
+    548c:	cd4f 45d4 e2b7 4739 cdf1 46b6 c3f5 471b     O..E..9G...F...G
+    549c:	a1cd f144 f53c c8cd cd47 4301 cd3c 4601     ..D.<...G..C<..F
+    54ac:	9acd 0145 0306 81f1 fa3c 4755 08fe 55d2     ..E.....<.UG...U
+    54bc:	3c47 3e47 3d02 e13d 11f5 47db c205 4766     G<G>.==....G..fG
+    54cc:	2e36 3623 2330 3605 cc2e 45af e5c5 cdd5     6.#60#.6...E....
+    54dc:	45a5 06e1 042f 967b 235f 9e7a 2357 9e79     .E../.{._#z.W#y.
+    54ec:	2b4f d22b 4775 b8cd 2343 9acd eb45 70e1     O++.uG..C#..E..p
+    54fc:	c123 c20d 4766 ca05 47a6 7e2b 30fe 9aca     #...fG...G+~.0..
+    550c:	fe47 c42e 45af caf1 47c5 4536 3623 f22b     G....E...G6E#6+.
+    551c:	47b6 2d36 3c2f 2f06 d604 d20a 47b8 3ac6     .G6-/<./.....G.:
+    552c:	7023 7723 7123 c9e1 7401 1194 23f7 d4cd     #p#w#q...t...#..
+    553c:	b745 e2e1 4730 00e9 0000 a080 0186 2710     E...0G.........'
+    554c:	e800 0003 0064 0a00 0000 0001 2100 4582     ....d........!.E
+    555c:	e9e3 8acd 2145 47d7 97cd c145 cdd1 4559     ....E!.G..E...YE
+    556c:	ca78 4840 0bf2 b748 b7ca b732 7aca d543     x.@H..H...2..zC.
+    557c:	79c5 7ff6 a5cd f245 4828 c5d5 2ccd c146     .y....E.(H...,F.
+    558c:	f5d1 d4cd e145 1f7c 22e1 812b 22e1 8129     ....E.|.."+..").
+    559c:	eddc cc47 4582 c5d5 0dcd c144 cdd1 444e     ..G..E....D...ND
+    55ac:	8acd 0145 8138 3b11 cdaa 444e 2c3a fe81     ..E.8..;..ND:,..
+    55bc:	d288 4535 2ccd c646 c680 da02 4535 21f5     ..5E.,F.....5E.!
+    55cc:	43fc 04cd cd43 4445 c1f1 f5d1 10cd cd43     .C..C.ED......C.
+    55dc:	4582 8021 cd48 48b0 0011 c100 c34a 444e     .E!.H..H....J.ND
+    55ec:	4008 942e 7074 2e4f 6e77 8802 e67a 2aa0     .@..tpO.wn..z..*
+    55fc:	507c aaaa ff7e 7fff 007f 8000 0081 0000     |P..~...........
+    560c:	cd81 458a 4c11 d544 cde5 45a5 4ecd e144     ...E.LD....E.ND.
+    561c:	8acd 7e45 cd23 4597 f106 d1c1 c83d c5d5     ..E~#..E....=...
+    562c:	e5f5 4ecd e144 a8cd e545 13cd e143 b9c3     ...ND...E...C...
+    563c:	cd48 4559 5e21 fa80 4932 7f21 cd80 4597     H.YE!^..2I!....E
+    564c:	5e21 c880 e686 0607 7700 8723 4f87 cd09     !^.......w#..O..
+    565c:	45a8 4ecd 3a44 805d e63c 0603 fe00 8801     .E.ND:].<.......
+    566c:	5d32 2180 4936 8787 094f 04cd cd43 45a5     2].!6I..O...C..E
+    567c:	597b 4fee 364f 2b80 3646 2180 805c 7e34     {Y.OO6.+F6.!\.4~
+    568c:	abd6 29c2 7749 150c cd1c 4364 7f21 c380     ...)Iw....dC!...
+    569c:	45b1 2b77 2b77 c377 490d b168 6846 e999     .Ew+w+w..Ih.Fh..
+    56ac:	6992 d110 6875 9021 cd49 4304 8acd 0145     .i..uh!.I..C..E.
+    56bc:	8349 db11 cd0f 459a d1c1 afcd cd44 458a     I......E....D..E
+    56cc:	2ccd c146 cdd1 4310 9421 cd49 430a 59cd     .,F....C!.I..C.Y
+    56dc:	3745 7cf2 cd49 4301 59cd b745 f4f5 4582     E7.|I..C.YE....E
+    56ec:	9421 cd49 4304 d4f1 4582 9821 c349 48a1     !.I..C...E!.I..H
+    56fc:	0fdb 8149 0000 7f00 ba05 1ed7 6486 9926     ..I..........d&.
+    570c:	5887 2334 e087 a55d da86 490f cd83 458a     .X4#..]....I...E
+    571c:	4ccd c149 cde1 458a cdeb 459a 46cd c349     .LI....E...E.FI.
+    572c:	44ad 59cd fc45 47ed 82fc 3a45 812c 81fe     .D.YE..G..E:,...
+    573c:	dfda 0149 8100 5951 afcd 2144 430a 21e5     ..I...QY..D!.C.!
+    574c:	49e9 a1cd 2148 4990 09c9 d74a 783b 6e02     .I..H!.I..J.;x.n
+    575c:	7b84 c1fe 7c2f 3174 7d9a 3d84 7d5a 7fc8     .{../|t1.}.=Z}..
+    576c:	7e91 bbe4 7e4c aa6c 7faa 0000 8100 d7c9     .~..L~l.........
+    577c:	3ec9 cf0c cdc9 42d8 327b 8087 cdc9 3b77     .>.....B{2....w;
+    578c:	bccd ed37 8b53 ed80 8d53 c980 bccd d537     ..7.S...S.....7.
+    579c:	46e1 7e23 32c3 cd3f 3b77 bccd d537 82cd     .F#~.2?.w;..7...
+    57ac:	2c35 77cd cd3b 37bc 73e3 7223 c9e1 7acd     5,.w;..7.s#r...z
+    57bc:	cd3b 37bc 21c5 812e fe7a 2800 cd0c 4a86     ;..7.!..z..(...J
+    57cc:	fe78 2830 7002 7123 7b23 86cd 7a4a 00fe     x.0(.p#q#{..Jz..
+    57dc:	0520 fe78 2830 7002 7123 af23 2377 c177      .x.0(.p#q#.w#w.
+    57ec:	2e21 c381 3fe0 e647 fe0f 380a c602 c607     !....?G....8....
+    57fc:	4f30 0f78 0f0f e60f fe0f 380a c602 c607     0Ox........8....
+    580c:	4730 ebc9 0021 cd00 4abc dcda 184a cd05     0G..!....J..J...
+    581c:	4abc 1f38 2929 2929 6fb5 f318 1a13 20fe     .J8.)))).o..... 
+    582c:	bcca d64a d830 0afe 0538 07d6 0afe fed8     ..J.0...8.......
+    583c:	3f10 ebc9 4b7a cde5 3f31 c9e1 261e c8c3     .?..zK..1?...&..
+    584c:	cd32 3b7a bccd c537 2e21 0681 0511 fe78     2.z;..7.!.....x.
+    585c:	2801 cb08 cb13 3012 18f4 cb04 cb13 3e12     .(.....0.......>
+    586c:	ce30 7700 0523 f320 77af 7723 21c1 812e     0..w#. ..w#w.!..
+    587c:	e0c3 eb3f 0021 cd00 4b30 3eda d64b 2930     ..?.!...0K.>K.0)
+    588c:	6fb5 30cd 304b ebf6 4b7a cde5 3f31 c9e1     .o.0K0..zK..1?..
+    589c:	1a13 20fe 30ca fe4b d830 32fe c93f 281e     ... .0K.0..2?..(
+    58ac:	c8c3 0e32 f701 3ec9 3200 8092 14c3 f52f     ..2....>.2..../.
+    58bc:	c1a0 3eb8 c900 8dcd c335 39b2 ffff ffff     ...>....5..9....
+    58cc:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    58dc:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    58ec:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    58fc:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    590c:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    591c:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    592c:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    593c:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    594c:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    595c:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    596c:	06c3 c34c 4c27 8031 21fe 8014 0022 cd80     ..L.'L1..!.."...
+    597c:	53b3 6c11 9753 a5cd 1153 5381 cd97 53a5     .S.lS...S..S...S
+    598c:	9611 9753 a5cd 3153 fe80 b3cd 1153 5358     ..S...S1....S.XS
+    599c:	cd97 53a5 3b21 224c 8002 0021 2200 8008     ...S!;L"..!.."..
+    59ac:	0422 3e80 cd3e 4ca3 11d5 fd37 dacd cd52     "..>>..L..7...R.
+    59bc:	4d7f b57c cac1 4d38 7c1b 1b12 127d d5c5     .M|...8M.|..}...
+    59cc:	9379 cdf5 4cf4 c2d5 4c7a cdd5 4d12 2ac1     y....L..zL...M.*
+    59dc:	8000 1ecd 604d 2269 8000 2ac1 8000 e5f1     ....M`i"...*....
+    59ec:	03fe 27ca 854c 3e6f 8c00 1167 fd00 3bcd     ...'L.o>..g....;
+    59fc:	d252 5329 0022 d180 29cd d14d cde1 4d1e     R.)S"....)M....M
+    5a0c:	43c3 cd4c 53b5 3711 cdfd 53c1 a9ca fe4c     .CL..S.7...S..L.
+    5a1c:	ca0a 4ca9 cab7 4ca9 08fe d3ca fe4c ca18     ...L...L....L...
+    5a2c:	4cec b5cd cd53 53ca 1312 0dfe 7bc8 87fe     .L..S..S.....{..
+    5a3c:	a9c2 7b4c 37fe a9ca 1b4c 083e b5cd 3e53     ..L{.7..L.>...S>
+    5a4c:	cd20 53b5 083e b5cd c353 4ca9 b3cd 3e53      ..S>...S..L..S>
+    5a5c:	c340 4ca3 b77c 22fa 1153 8014 2ae5 8000     @..L|.."S....*..
+    5a6c:	cd2b 523b d8e1 951a 1347 9c1a 13da 1b4d     +.;R....G.....M.
+    5a7c:	c9b0 1313 fe1a c20d 4d13 c313 4cfc 3bcd     .........M...L.;
+    5a8c:	c852 021a 0313 1ec3 784d c292 4d31 9379     R.......Mx..1My.
+    5a9c:	1bc8 1a2b c377 4d29 8621 cd4d 4d7f 1ad5     ..+.w.)M!.M..M..
+    5aac:	fe13 ca2e 4d5c be23 3fca 3e4d 1b7f dabe     ....\M#..?M>....
+    5abc:	4d63 be23 52d2 234d c3d1 4d3e 7f3e be23     cM#..RM#..>M>.#.
+    5acc:	5ed2 7e4d 6e23 7fe6 f167 e3e9 7fcd be4d     .^M~#n..g.....M.
+    5adc:	ca23 4d7b 4ec5 0006 c109 131b e323 1ac9     #.{M.N......#...
+    5aec:	20fe 13c0 7fc3 4c4d 5349 cf54 5250 4e55     . ....MLIST.PRUN
+    5afc:	cdd0 454e cd57 42e3 4559 e0cd 454e 5458     ..NEW..BYE..NEXT
+    5b0c:	a2ce 454c d054 499b 504e 5455 3fd0 4649     ..LET..INPUT.?IF
+    5b1c:	3ccf 4f47 4f54 bcd0 4f47 5553 cd42 52f2     .<GOTO..GOSUB..R
+    5b2c:	5445 5255 ce4e 5214 4d45 44cf 4f46 ce52     ETURN..REM.DFOR.
+    5b3c:	502f 4952 544e 7dcf 5453 504f eccd 93d0     /PRINT.}STOP....
+    5b4c:	010e cdf7 5105 1421 2280 8000 05cd c351     .....Q!.."....Q.
+    5b5c:	4c27 f7cd cd4e 510e cdd5 4cf4 23c2 2a53     'L..N..Q...L.#S*
+    5b6c:	8002 2ae5 8004 21e5 0000 0822 3980 0422     ...*...!.."..9".
+    5b7c:	c380 50dc 05cd 2a51 8004 b57c 1bca f953     ...P..Q*..|...S.
+    5b8c:	22e1 8004 22e1 8002 cdd1 4f20 ecc3 cd50     ."...".... O..P.
+    5b9c:	4ef7 a6cd 2b50 0822 2180 4e3e 3bc3 544d     .N..P+"..!>N.;MT
+    5bac:	ce4f d345 cd1b 510e 0c22 2180 4e50 3bc3     O.E....Q"..!PN.;
+    5bbc:	534d 4554 ce50 ce59 cd5f 510e 62c3 214e     MSTEP.Y._..Q.bN!
+    5bcc:	0001 0a22 2a80 8002 0e22 eb80 1022 0180     .."..*.."..."...
+    5bdc:	000a 082a eb80 6860 3e39 7e09 b623 9bca     ..*...`h9>.~#...
+    5bec:	7e4e ba2b 7ac2 7e4e c2bb 4e7a 21eb 0000     N~+..zN~..zN.!..
+    5bfc:	4439 214d 000a cd19 4d29 2af9 8010 c3eb     9DM!....)M.*....
+    5c0c:	50ec a6cd da52 531b 0622 d580 2aeb 8008     .P..R..S"....*..
+    5c1c:	b57c 1cca cd53 523b c5ca d14e 20cd 2a4f     |...S.;R..N.. O*
+    5c2c:	8006 abc3 5e4e 5623 0a2a e580 eb19 082a     ....N^#V*.....*.
+    5c3c:	7380 7223 0c2a f180 f2b7 4edd cdeb 5235     .s#r*......N..5R
+    5c4c:	dad1 4ef1 0e2a 2280 8002 102a eb80 ecc3     ...N*.."..*.....
+    5c5c:	cd50 4f20 ecc3 2150 fda5 29cd c152 d239     P. O..P!...)R.9.
+    5c6c:	5329 082a 7c80 cab5 4f1d 102a e580 0e2a     )S*..|...O*...*.
+    5c7c:	e580 0c2a e580 0a2a e580 082a e580 c9c5     ..*...*...*.....
+    5c8c:	e1c1 0822 7c80 cab5 4f3a 22e1 800a 22e1     .."..|..:O."..."
+    5c9c:	800c 22e1 800e 22e1 8010 c9c5 0ecd 7c51     ..."..."......Q|
+    5cac:	c2b5 50e3 0021 cd00 4d14 dcd2 c350 4c27     ...P!....M..P.'L
+    5cbc:	dacd cd52 5105 f4cd da4c 4c27 68cd cd4f     ..R..Q..L.'L.hO.
+    5ccc:	53c1 fccd c34c 4f59 6f1a 1a13 1367 040e     .S..L.YO.o..g...
+    5cdc:	f3cd 3e4f cd20 53b5 cd97 53a5 0ec9 cd06     ..O> ..S...S....
+    5cec:	4d6b 063b b3cd c353 50e3 6bcd 0d4d cd06     kM;...S..P.kM...
+    5cfc:	53b3 d3c3 cd50 4d6b 0723 0ecd 4d51 a7c3     .S..P.kM#...QM..
+    5d0c:	cd4f 4fc3 b8c3 cd4f 4d6b 062c f2cd c350     O..O..O.kM,...P.
+    5d1c:	4f95 b3cd c353 50ec 0ecd c551 f3cd c14f     .O..S..P..Q...O.
+    5d2c:	a7c3 cd4f 4d6b 0522 223e d4c3 cd4f 4d6b     ..O.kM".>"..O.kM
+    5d3c:	0e27 273e a5cd fe53 e10d d3ca c350 4fee     '.>'..S.....P..O
+    5d4c:	6bcd 5f4d 3e0d cd8d 53b5 b5cd e153 2323     .kM_.>...S..S.##
+    5d5c:	e923 d5c9 0a11 d500 0d42 26cd f252 5003     #.......B..&R..P
+    5d6c:	2d06 c50d 09cd 7852 cab1 5014 2de3 60e5     .-....Rx...P.-.`
+    5d7c:	c369 5004 0dc1 b779 23fa 3e50 cd20 53b5     i..P..y..#P> ..S
+    5d8c:	15c3 7850 b5cd 5d53 fe7b d10a c6c8 cd30     ..Px..S]{.....0.
+    5d9c:	53b5 28c3 2a50 8006 e1f9 0222 d180 d5d1     .S.(P*....".....
+    5dac:	c3cd c34f 504f a6cd da52 508a 61c3 d550     ..O.OP..R..P.aP.
+    5dbc:	a6cd da52 531b 4f1a 1297 cdd1 53a5 1b79     ..R..S.O.....Sy.
+    5dcc:	d512 2aeb 8002 21e5 503f 0222 2180 0000     ...*...!?P"..!..
+    5ddc:	2239 8006 3ed5 cd3a 4ca3 3711 cdfd 510e     9"...>:..L.7...Q
+    5dec:	ebd1 2373 e172 0222 d180 cdf1 4d6b 5c2c     ..s#r.".....kM,\
+    5dfc:	3fc3 cd50 50fb 0dfe ecca cd50 50a6 6bcd     .?P..P....P..P.k
+    5e0c:	2c4d c349 509b a6cd da52 531b cde5 4d6b     M,I..P..R..S..kM
+    5e1c:	3d3d 0ecd 4451 e14d 2371 c970 0ecd d551     ==..QDM.q#p...Q.
+    5e2c:	05cd cd51 4cf4 23c2 f153 dcc3 cd50 5105     ..Q..L.#S...P..Q
+    5e3c:	1411 2180 0000 fccd da4c 4c27 22eb 8002     ...!....L.'L."..
+    5e4c:	13eb cd13 53c1 9b21 c34d 4d3b f2cd c350     .....S!.M.;M..P.
+    5e5c:	531b 6bcd 3b4d f104 e3c3 cd50 4d6b 040d     .S.kM;....P.kM..
+    5e6c:	c3f1 50d3 cdc9 4d7f 0dfe c3c8 531b 6dcd     ...P...M.....S.m
+    5e7c:	e551 1721 c351 4d3b 3d3e 2fd1 3e3c 35d1     Q.!.Q.;M>=./<>.5
+    5e8c:	d13e 3d3b 4ad1 3d3c 42d1 d13c d150 cd56     >.;=.J<=.B<.P.V.
+    5e9c:	5158 6fd8 cdc9 5158 6fc8 cdc9 5158 d8c8     XQ.o..XQ.o..XQ..
+    5eac:	c96f 58cd 6f51 d8c8 c96c 58cd c051 c96f     o..XQo..l..XQ.o.
+    5ebc:	58cd d051 c96f c9e1 e179 e5c1 4fc5 6dcd     .XQ.o...y....O.m
+    5ecc:	eb51 cde3 5235 21d1 0000 013e cdc9 4d6b     Q...5R.!..>...kM
+    5edc:	062d 0021 c300 5191 6bcd 2b4d cd00 51a9     -.!....Q.kM+...Q
+    5eec:	6bcd 2b4d e507 a9cd c351 5198 6bcd 2d4d     .kM+....Q..Q.kM-
+    5efc:	e58d a9cd cd51 5229 e3eb aa7c 197a fad1     ....Q.)R..|.z...
+    5f0c:	5180 f2ac 5180 22c3 cd53 5241 6bcd 2a4d     .Q...Q."S.AR.kM*
+    5f1c:	e52b 41cd 0652 cd00 5226 e3eb 26cd 7c52     +..AR...&R...&R|
+    5f2c:	cab7 51ca b27a c2eb 5323 2e7d b700 fbca     ...Qz...#S}.....
+    5f3c:	1951 23da 3d53 d1c2 c351 51fb 6bcd 2f4d     Q..#S=..Q..Q.kM/
+    5f4c:	e53d 41cd 0652 cd00 5226 e3eb 26cd 7a52     =..AR...&R...&Rz
+    5f5c:	cab3 5323 cdc5 5209 6960 d1c1 b77c 22fa     ..#S...R`i..|.."
+    5f6c:	7853 fcb7 5229 acc3 e551 266c cd00 5214     Sx..)R..Q.l&...R
+    5f7c:	7d41 67e1 ff0e cd0c 521f 16d2 1952 7dc9     A}.g.....R..R..}
+    5f8c:	6f93 9a7c c967 b77c 7cf0 672f 2f7d 236f     .o|.g.|..|/g}/o#
+    5f9c:	ee78 4780 7cc9 f2aa 523b 7ceb c0ba bb7d     x..G.|..;R.|..}.
+    5fac:	21c9 5246 3bc3 524d 444e 59d2 4241 d253     .!FR.;MRND.YABS.
+    5fbc:	5382 5a49 d245 d28e cd9b 530d b77c 22fa     .SIZE......S|.."
+    5fcc:	b553 22ca d553 2ae5 8012 e67c 6707 0011     S.."S..*..|..g..
+    5fdc:	194c 235e 2256 8012 ebe1 cdc5 5209 d1c1     L.^#V".......R..
+    5fec:	c923 0dcd cd53 5226 b47c 22fa c953 002a     #...S.&R|.."S.*.
+    5ffc:	d580 21eb fd00 1fcd d152 cdc9 52a6 07da     ...!....R....R..
+    600c:	7e53 6623 c96f 7fcd d64d d840 cac2 1352     S~#fo...M.@...R.
+    601c:	0dcd 2953 22da d553 cdeb 528e 3bcd da52     ..S)."S....R.;R.
+    602c:	532a 0021 cdfd 521f c9d1 1bfe d83f 2113     *S!....R....?..!
+    603c:	fd00 8507 3e6f 8c00 c967 0021 4400 7fcd     ....o>..g.!..D..
+    604c:	fe4d d830 3afe 3ed0 a4f0 22c2 0453 44c5     M.0..:.>..."S..D
+    605c:	294d 0929 1a29 e613 850f 3e6f 8c00 c167     M)).).....o>..g.
+    606c:	fa1a 5322 e1c3 cd52 52da b778 cdc0 4d6b     .."S..R..Rx...kM
+    607c:	0928 0ecd cd51 4d6b 0129 d5c9 6011 c353     (...Q.kM)....`S.
+    608c:	532d 11d5 535b 2dc3 d553 6611 9753 a5cd     -S..[S.-S..fS...
+    609c:	d153 f51a 1297 022a e580 237e d1b6 27ca     S.....*...~#...'
+    60ac:	7e4c fab7 5035 68cd 1b4f 12f1 3f3e b5cd     L~..5P.hO...>?..
+    60bc:	9753 a5cd c353 4c27 4b4f 480d 574f 0d3f     S...S.'LOK.HOW?.
+    60cc:	4857 5441 0d3f 4f53 5252 0d59 4150 4f4c     WHAT?.SORRY.PALO
+    60dc:	4120 544c 204f 4954 594e 4220 5341 4349      ALTO TINY BASIC
+    60ec:	500d 524f 4154 4c42 2045 385a 2030 4556     .PORTABLE Z80 VE
+    60fc:	5352 4f49 0d4e 4253 5a43 3038 4520 4944     RSION.SBCZ80 EDI
+    610c:	4954 4e4f 470d 131a c8b8 b5cd fe53 c20d     TION.G......S...
+    611c:	53a6 3ec9 cf0d 0dfe 3ec0 cd0a 53b5 0d3e     .S.>.....>...S>.
+    612c:	dfc9 d7c8 1bfe c3c0 4c27 61fe fed8 d07b     ........'L.a..{.
+    613c:	dfe6 ffc9 ffff ffff ffff ffff ffff ffff     ................
+    614c:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    615c:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
+    616c:	3bc3 0054 f500 0779 4f81 06f1 2100 5412     .;T...y..O...!.T
+    617c:	e909 3bc3 c354 5427 2cc3 c354 5427 2cc3     ...;T.'T.,T.'T.,
+    618c:	c354 542c 2ec3 d754 d7c9 f1c9 c9cf 7bf5     T.,T..T........{
+    619c:	fffe 0228 f518 dff1 d7c8 c3c9 581c d021     ..(..........X!.
+    61ac:	f9fe e811 cd03 6564 9822 1180 0040 64cd     ......de"...@..d
+    61bc:	2265 809a 1811 cd02 6564 9c22 2180 80a2     e"......de"..!..
+    61cc:	a022 cd80 65ea 0a0d 4552 4441 2e59 0a0d     "....e..READY...
+    61dc:	2100 0000 9222 2280 8094 8021 3680 23db     .!..".."..!..6.#
+    61ec:	3623 23c9 d336 2323 c936 3e3e d0cd cd54     #6.#6.##6.>>..T.
+    61fc:	6698 9acd fe55 da41 65fd 55fe fdd2 d665     .f..U.A..e.U..e.
+    620c:	0141 548a cdc5 5dcf 65fd 55a1 65fd 5648     A..T...].e.U.eHV
+    621c:	56d0 5682 5ab4 65fd 55c0 65fd 5824 5612     .V.V.Z.e.U.e$X.V
+    622c:	55e8 5601 65fd 5659 56de 55d9 65fd 55fb     .U.V.eYV.V.U.e.U
+    623c:	982a cd80 669f 5d54 3c0e cd41 66ae 08fe     *....fT].<A..f..
+    624c:	1328 0dfe 0428 20fe f138 fe77 c80d 9fcd     (...(.. 8.w.....
+    625c:	2366 200d 78e6 28b9 2be2 3e0c cd08 669f     f#. .x.(.+.>...f
+    626c:	d918 9e2a eb80 a02a cd80 63a5 d83f 7e23     ..*...*....c?.#~
+    627c:	2223 80a0 0dfe fec8 3893 fe04 3896 fe09     #".......8...8..
+    628c:	388e feec 3093 23e8 1823 2ae4 809e 2aeb     .8...0.##..*...*
+    629c:	80a0 a5cd 3f63 d5d8 cde5 5502 e1eb a022     ....c?.....U..".
+    62ac:	4480 e14d 0418 021a 0313 a5cd 2063 60f7     .DM.........c .`
+    62bc:	2269 809e e5c9 9c2a eb80 9e2a 0980 a5cd     i"....*...*.....
+    62cc:	d163 d83f c5d5 4d44 2aeb 809e 22eb 809e     c.?...DM.*..."..
+    62dc:	a02a 1880 1b04 1a0b cd02 63a5 f720 6960     *..........c .`i
+    62ec:	a022 c180 78e1 c8b1 b0ed cdc9 559a e6cd     "....x.......U..
+    62fc:	cd57 559a 0dfe c3c8 65fd fe1a c020 1813     W..U.....e.. ...
+    630c:	cdf9 5591 9e2a 2280 80a0 982a cd80 54d6     ...U*.."..*....T
+    631c:	98cd d566 9acd d155 0dfe cdc8 55c9 ea18     ..f...U......U..
+    632c:	cdd5 559a fed1 280d cde1 56eb 64cd 4465     ...U...(...V.deD
+    633c:	eb4d 55cd d055 f7c3 d565 9acd fe55 ca0d     M..UU...e...U...
+    634c:	65fd 2bcd d155 e118 91cd 2a55 809e 2aeb     .e.+U.....U*...*
+    635c:	809c 64cd cd65 5956 98c3 2166 80a2 a022     ...de.VY..f!..".
+    636c:	cd80 558b b57c 68ca e558 02cd e155 2bd8     ...U|..hX...U..+
+    637c:	f218 8bcd 7c55 cab5 5868 2ae5 80a0 a311     ....U|..hX.*....
+    638c:	cd80 63a5 d8c1 1bc5 22eb 80a0 0001 d500     ...c....."......
+    639c:	02cd 0355 cdd1 63a5 f520 21d1 80a2 a022     ..U....c ..!..".
+    63ac:	6080 cd69 6564 bc18 8bcd 7c55 cdb5 5868     .`i.de....U|..hX
+    63bc:	cde5 552b d8e1 182b cdf2 5814 73ca cd56     ..+U..+....X.sV.
+    63cc:	558b cde5 5868 7ce1 c8b5 e52b 02cd e155     .U..hX.|..+...U.
+    63dc:	18d8 21ef 80a2 a022 cd80 5868 02cd 3055     ...!.."...hX..U0
+    63ec:	c9f8 ebcd 1356 4b42 a02a eb80 eb13 fe1a     ....V.BK*.......
+    63fc:	ca0d 5868 20be 1326 fe23 388e fef1 3091     ..hX. &.#..8...0
+    640c:	1306 1323 1823 fee7 3093 1a0c 20be 131b     ..#.#....0... ..
+    641c:	1a23 28be 18ed fe13 3096 18d3 cde5 56e4     #..(.....0.....V
+    642c:	0838 cd7e 56e4 d830 02cd d855 5950 b818     8.~..V0...U.PY..
+    643c:	9acd fe55 ca0d 65fd 9621 c380 57ad 0acd     ..U....e!....W..
+    644c:	0e58 f701 93fe fed8 3f96 2ac9 809a 06e5     X........?.*....
+    645c:	1bff 1a13 fe04 2820 70f9 cd23 559a d5e5     ...... (.p#..U..
+    646c:	0006 9fcd 3857 130b 041a 9fcd dc57 57a6     ....W8......W..W
+    647c:	f530 3278 8094 21d1 59b1 6006 4ed5 131b     0.x2...!.Y.`.N..
+    648c:	231a 28be 7efa f0e6 2728 7e23 f0e6 fa20     .#.(.~..('#~.. .
+    649c:	7e04 d1a7 e620 1ae1 cd13 579f 2138 2377     .~.. ......W8!w#
+    64ac:	131a 9fcd dc57 57a6 f430 361b 2393 1823     ....W..W0..6.##.
+    64bc:	3aaa 8094 28b9 3805 d103 da18 e1f1 fe78     .:...(.8......x.
+    64cc:	d296 6606 2377 25fe 91cc fe57 cc22 5791     ...fw#.%..W."..W
+    64dc:	27fe 91cc fe57 cc91 57ad 8efe 0638 91fe     .'..W....W..8...
+    64ec:	0230 2323 a6cd d457 57d4 0dfe fbc2 d156     0.##..W..W....V.
+    64fc:	47c9 771a 2313 c8b8 0dfe f620 fac3 fe65     .G.w.#.... ...e.
+    650c:	d841 5bfe c93f 30fe fed8 3f3a e5c9 0021     A..[?..0..:?..!.
+    651c:	1a00 a6cd 3057 fe0a 3841 fe22 3047 d61e     ....W0..A8".G0..
+    652c:	d607 f530 e67c c2f0 65f5 2929 2929 85f1     ..0.|....e))))..
+    653c:	136f dd18 2b1b 9236 e523 e6cd 4457 e14d     o....+6.#...WDM.
+    654c:	2371 2370 c9af 0021 1a00 a6cd d857 e67c     q#p#..!.....W.|.
+    655c:	c2f0 65f5 4d44 2929 2909 131a 30d6 064f     ...eDM)).)...0O.
+    656c:	0900 a77c e9f2 c357 65f5 fe1a c22f 65fd     ..|...W..e../..e
+    657c:	c313 5591 fe1a c02f c313 5591 d021 22fe     ...U../....U!.."
+    658c:	8096 0318 0acd 2158 fed0 3ef9 cd0b 669f     ......X!...>...f
+    659c:	a221 2280 809e eacd 2a65 2a2a 4d20 4349     !.."....e*** MIC
+    65ac:	4f52 5020 5341 4143 204c 4556 2052 2e32     RO PASCAL VER 2.
+    65bc:	2034 6f66 2072 4153 494b 382d 2030 2a2a     4 for SAKI-80 **
+    65cc:	202a 0a0d c300 543e 9e2a eb80 a02a cd80     * ....>T*...*...
+    65dc:	63a5 0ed0 4601 1004 1802 cd05 594c f718     .c...F......LY..
+    65ec:	7e23 0dfe 98ca fe66 3060 cd52 579f 3830     #~....f.`0R..W08
+    65fc:	27fe 2128 22fe 1d28 25fe 1928 fe23 2829     .'(!."(..%(.#.)(
+    660c:	fe20 285d 2b1c 28fe 0420 c40d 594c 010e      .](.+.( ...LY..
+    661c:	9fcd 1866 0dcb 4cc4 cd59 669f cdeb 614f     ..f....LY..f..Oa
+    662c:	cdeb 669f 000e b918 c40d 594c 9fcd 2366     ...f......LY..f#
+    663c:	cd7e 579f a6dc 3057 0ef3 1800 fea5 3096     ~..W..W0.......0
+    664c:	fecf 3092 1141 59b1 5fd6 1047 1802 1308     ...0A..Y._G.....
+    665c:	e61a 20f0 18fa 1af4 1347 fe1a 2824 cd05     ... ....G...$(..
+    666c:	579f 0438 c40d 594c cd1a 669f 1013 0ef9     .W8...LY...f....
+    667c:	cd01 579f 0138 7e0d 8efe 80da 2358 91fe     ...W8..~....X#..
+    668c:	1a28 c323 5880 c223 5880 c40d 594c 235e     (.#..X#..X..LY^#
+    669c:	e556 cdeb 5958 0ee1 c300 5880 235e a77e     V...XY.....X^#~.
+    66ac:	9ac4 7b59 9acd 0e59 c300 5880 3ef5 cd20     ..Y{..Y....X.> .
+    66bc:	669f 0ef1 c901 080e 06d5 0d00 a77c 67f2     .f..........|..g
+    66cc:	cd59 659f 2d06 110d 000a c5d5 4b42 cdeb     Y..e.-......BK..
+    66dc:	648b b37a 0528 2de3 18e5 c1f4 790d faa7     .dz.(..-.....y..
+    66ec:	5989 203e 9fcd 1866 78f3 9fcd 5d66 fe7b     .Y> ..f..x..f]{.
+    66fc:	d10a c6c8 cd30 669f f418 0ff5 0f0f cd0f     ....0..f........
+    670c:	59a3 e6f1 c60f fe30 da3a 669f 07c6 9fc3     .Y....0.:..f....
+    671c:	0466 5250 434f 4604 4e55 0543 5241 4152     f.PROC.FUNC.ARRA
+    672c:	0359 4156 0552 4542 4947 024e 4649 5705     Y.VAR.BEGIN.IF.W
+    673c:	4948 454c 5206 5045 4145 0454 5550 2854     HILE.REPEAT.PUT(
+    674c:	5706 4952 4554 0428 554f 2854 5005 4b4f     .WRITE(.OUT(.POK
+    675c:	2845 4305 4c41 284c 5304 4f54 0350 4f46     E(.CALL(.STOP.FO
+    676c:	0552 4552 4441 0328 4e45 0544 4e55 4954     R.READ(.END.UNTI
+    677c:	024c 3d3a 2903 3d3a 5204 444e 0428 4241     L.:=.):=.RND(.AB
+    678c:	2853 4904 504e 0528 4550 4b45 0328 4547     S(.INP(.PEEK(.GE
+    679c:	0654 4441 4552 2853 4904 434e 0428 4544     T.ADRES(.INC(.DE
+    67ac:	2843 2a01 4403 5649 4d03 444f 4103 444e     C(.*.DIV.MOD.AND
+    67bc:	2b01 2d01 4f02 0352 4f58 0252 3d3e 3e01     .+.-.OR.XOR.>=.>
+    67cc:	3d01 2301 3c02 023e 3d3c 3c01 4e03 544f     .=.#.<>.<=.<.NOT
+    67dc:	5402 044f 4f44 4e57 5404 4548 044e 4c45     .TO.DOWN.THEN.EL
+    67ec:	4553 4402 014f 0024 fe1a c00d 13e5 1a13     SE.DO.$.........
+    67fc:	922a 2380 9222 e180 cdc9 5a88 a6cd d05a     *..#"......Z..Z.
+    680c:	30c3 cd66 5a88 c5e5 2a47 809e cd2b 63a5     .0f..Z..G*..+..c
+    681c:	c178 c9e1 0acd 2158 80a2 a022 eb80 a6cd     x.....X!..".....
+    682c:	d85a 013e 9532 2a80 809c 0036 2223 808e     Z.>.2..*..6.#"..
+    683c:	0036 2223 8090 cd13 5a99 62fe 0928 25fe     6.#".....Z.b(..%
+    684c:	0820 3ccd 185b cdf0 5bc3 99cd fe5a 2863      ..<[....[..Z.c(
+    685c:	fe09 2025 cd1e 5b3c f018 9c2a cd80 5c20     ..% ..<[..*... \
+    686c:	8e22 3680 fe00 282c fef1 c23b 65fd 2313     "..6..,(..;..e.#
+    687c:	9022 d580 922a e580 a3cd da5a 5cc7 25fe     "...*.....Z..\.%
+    688c:	0c28 60fe 34ca 0e5b fe80 ca61 5b36 3ccd     (..`.4[...a.6[.<
+    689c:	c35b 5b18 000e 52cd c35c 5b18 22eb 80a0     [..[...R\..[."..
+    68ac:	02cd eb55 c91b 13c5 66cd 1a5b e4cd da56     ..U......f[...V.
+    68bc:	661e 1313 99cd c15a fe0c 282c 13e9 29fe     .f....Z...,(...)
+    68cc:	99ca c35a 660f 982a cd80 5a99 9fcd da57     ..Z..f*....Z..W.
+    68dc:	65f5 2377 1a13 9fcd dc57 57a6 f430 7e2b     .ew#....W..W0.+~
+    68ec:	80f6 c977 06eb 2a00 8098 d61a d801 be1a     ..w....*........
+    68fc:	0e20 2313 f2a7 5b8e 4eeb 7e23 6623 c96f      ..#...[.N#~#fo.
+    690c:	a713 f21a 5ba0 1313 0413 87c3 2a5b 809a     .....[......[*..
+    691c:	a5cd da63 65f5 982a eb80 771a 2313 f2a7     ..c..e*....w.#..
+    692c:	5bba 13c9 66cd d55b 9c2a cd80 5b84 f7d2     .[...f[.*....[..
+    693c:	cd65 5bad 1ad1 e4cd da56 661e 1313 99cd     e..[....V..f....
+    694c:	fe5a c25b 6615 cd13 5a99 92fe 33c2 1366     Z.[..f...Z...3f.
+    695c:	4f1a 1a13 ff36 7123 7723 3623 2300 8e22     .O..6.#q#w#6.#".
+    696c:	3680 2300 9022 1380 99cd fe5a c25d 6618     .6.#".....Z.]..f
+    697c:	cd13 5a99 2cfe c3ca fe5b c23b 65fd c913     ...Z.,..[.;..e..
+    698c:	e513 66cd d55b 8e2a cd80 5b84 f7d2 d165     ...f[.*....[..e.
+    699c:	d5e1 84cd d25b 65f7 adcd d15b cd1a 56e4     ....[..e..[....V
+    69ac:	1eda 1366 3613 2300 3623 2380 0036 c323     ..f..6.##6.#6.#.
+    69bc:	5a99 cd13 5b66 2ad5 809c 84cd d25b 65f7     .Z..f[.*....[..e
+    69cc:	8e2a cd80 5b84 f7d2 cd65 5bad 1ad1 e4cd     *....[..e..[....
+    69dc:	da56 6636 1313 cde5 5a99 28fe 46cc fe5b     V.6f.....Z.(.F[.
+    69ec:	c23b 65fd cd13 5a99 63fe b7c2 065c f500     ;..e...Z.c..\...
+    69fc:	13f1 cdc5 5b66 cd1a 56e4 1eda 1366 04c1     ....f[...V..f...
+    6a0c:	13d5 99cd fe5a ca2c 5c90 3bfe fdc2 e165     ....Z.,..\.;..e.
+    6a1c:	2b70 e3eb b9c3 e15c 71d5 7323 7223 3623     p+....\..q#s#r#6
+    6a2c:	2300 9022 d180 e1c9 9222 d180 902a 3680     .#"....."...*..6
+    6a3c:	cd00 5a99 60fe c213 5ce0 76cd c35d 5ccc     ...Z.`...\.v]..\
+    6a4c:	61fe ebc2 cd5c 5dc3 ccc3 fe5c c225 5cfc     .a..\..]..\.%..\
+    6a5c:	0bcd 1a5e 0dfe 30c2 c366 5ccc d51b dbcd     ..^....0f..\....
+    6a6c:	cd5d 5a99 2efe 1bc2 1366 a3cd d25a 662d     ]..Z....f...Z.-f
+    6a7c:	9c2a eb80 9e2a e580 61cd 225d 8088 cd13     *...*....a]"....
+    6a8c:	5d61 8a22 4480 e14d 2aeb 8088 a5cd ca63     a]"..DM..*....c.
+    6a9c:	5d55 5eeb 5623 29eb 55da eb5d 2b70 2371     U].^#V.).U].p+q#
+    6aac:	eb23 da09 65f5 ebd5 9a2a eb80 a5cd da63     #....e..*.....c.
+    6abc:	5d25 f5c3 d165 023e 9532 cd80 608b 3ec3     %]..e.>.2....`.>
+    6acc:	1a54 c8a7 f213 5d61 23eb 234e 2346 71eb     T.....a].#N#F#.q
+    6adc:	7023 c323 5d61 66cd 135b cd13 5a99 28fe     #p#.a].f[....Z.(
+    6aec:	94c2 2a5d 8090 20cd fe5c ca2c 5d83 29fe     ..]*... \.,..].)
+    6afc:	0fc2 1366 99cd fe5a c23b 65fd cd13 5a99     ..f...Z.;..e...Z
+    6b0c:	63fe b6c2 2a5d 8090 20cd fe5c ca2c 5da5     .c..]*... \.,..]
+    6b1c:	3bfe fdc2 1365 dbcd cd5d 5a99 3bfe fdc2     .;..e...]..Z.;..
+    6b2c:	1365 cdc9 5b66 902a cd80 5c31 7bc3 135d     e...f[*...1\.{].
+    6b3c:	87e1 064f 0900 237e 6f66 cde9 5a99 64fe     ..O...~#fo...Z.d
+    6b4c:	05da fe5e d270 5e05 64d6 cfcd af5d df5e     ..^.p..^.d..].^.
+    6b5c:	d45e b85e 155e 2a5f 585f 585f 645f 435f     ^.^.^._*_X_X_d_C
+    6b6c:	c35e 7f5e fe5f c225 5e18 1a13 fe13 c825     ^.^._.%..^....%.
+    6b7c:	0dfe 0bc2 c35e 6630 9fcd d857 66cd cd5b     ....^.0f..W..f[.
+    6b8c:	5e44 8dd2 cd5f 5e7c fada cd65 5a99 28fe     D^.._.|^..e..Z.(
+    6b9c:	39ca 795e c8a7 24c3 7966 cdf5 5e8d b9f1     .9^y...$fy...^..
+    6bac:	24c2 c966 2ad5 8090 84cd da5b 5e57 3ed1     .$f..*....[.W^.>
+    6bbc:	1294 7813 1312 2ac9 809c 84cd d15b 3ed8     ...x...*....[..>
+    6bcc:	1293 7813 1312 a779 cdc8 5a99 5bfe 15c2     ...x..y....Z.[..
+    6bdc:	1366 96cd fe5f c25d 6618 c913 2ad5 808e     f..._.]..f...*..
+    6bec:	84cd d15b 3ed8 1295 7813 1312 0ec9 1300     ..[..>...x......
+    6bfc:	cdc5 5f96 0cc1 2cfe 8fca fe5e c229 660f     ..._...,..^.)..f
+    6c0c:	c913 dbcd cd5d 5a99 fe13 ca3b 5ea2 cdc9     ....]..Z..;..^..
+    6c1c:	5ea2 70fe c3c8 6600 a2cd fe5e ca71 5f96     .^.p...f..^.q.._
+    6c2c:	03c3 cd66 6055 8dcd 135f 8cfe d4ca fe5e     ..f.U`.._.....^.
+    6c3c:	c28d 660c 96cd fe5f ca90 5eed 09c3 cd66     ...f.._....^..f.
+    6c4c:	5f96 8efe 06c2 cd66 5eed 8ffe 13c0 13d5     ._....f..^......
+    6c5c:	cd13 5ddb 99cd e15a 2373 c972 99cd fe5a     ...]..Z.s#r...Z.
+    6c6c:	ca22 5f07 27fe 4fc0 1a13 0dfe 30ca b966     ".._.'.O.....0f.
+    6c7c:	08c2 135f cdc9 5efc 96c4 cd5f 5a99 fe13     .._....^.._..Z..
+    6c8c:	ca2c 5f15 29fe c3c8 660f fccd ca5e 5f3e     ,.._.)...f..^.>_
+    6c9c:	2ffe 49c2 135f 99cd fe5a ca2f 5f35 99cd     ./.I_...Z./.5_..
+    6cac:	135a 2cfe 2aca 185f cddb 5f96 3afe 3ec2     Z..,.*_...._.:.>
+    6cbc:	135f 96cd c35f 5f3e 96cd 135f 73fe 96ca     _..._.>_.._..s..
+    6ccc:	c35f 6612 96cd 135f 73fe 24c2 0e5f 0d03     _..f.._..s.$_...
+    6cdc:	27ca c566 96cd c15f 2cfe 13c0 6fc3 cd5f     .'f..._..,...o_.
+    6cec:	6055 99cd 135a 2cfe 7fca 185f cd97 5a99     U`..Z..,.._....Z
+    6cfc:	72fe c213 6612 a0cd fe5f d884 8bfe 13d0     .r...f.._.......
+    6d0c:	99cd fe5a ca81 5fad 80fe aec2 135f bbcd     ..Z...._...._...
+    6d1c:	fe5f d880 84fe 13d0 aec3 cd5f 5fd0 99cd     _........._.._..
+    6d2c:	fe5a ca2f 5fcc 7cfe fed8 d080 c313 5fbb     Z./.._.|......._
+    6d3c:	99cd fe5a da74 5ff4 7cfe f4d2 135f 78fe     ..Z.t.._.|.._..x
+    6d4c:	d2c8 5fea 96cd c35f 5fed 55cd cd60 5a99     ..._.._.._.U`..Z
+    6d5c:	c313 5f24 fe13 c228 6001 96cd 135f 24c3     ..$_..(..`.._..$
+    6d6c:	fe5f ca6c 5ffa 8bfe d0ca fe5f ca22 6015     _.l.._...._."..`
+    6d7c:	27fe 1ec2 4f60 1a13 b913 c3c8 662a 91fe     .'..`O......*f..
+    6d8c:	28ca fe60 c292 602b 1313 1bc9 66cd cd5b     .(`...+`.....f[.
+    6d9c:	5e7c 58da cd60 5a99 28fe 48ca 7960 f2a7     |^.X`..Z.(.H`y..
+    6dac:	6639 7fe6 c3c8 6624 cdc5 5e8d f679 c180     9f....$f...^y...
+    6dbc:	c8b9 24c3 cd66 5b66 44cd d05e 1ec3 d566     ...$f.f[.D^...f.
+    6dcc:	982a eb80 0021 3900 a5cd d163 c3d0 65f7     *...!..9..c....e
+    6ddc:	fe1a c20d 6079 1313 cd1a 579f a6dc d257     ....y`.....W..W.
+    6dec:	6077 1ac9 0dfe 13c0 1a13 cdc9 66a5 70cd     w`...........f.p
+    6dfc:	fe60 da64 60b8 70fe b8d2 d660 cd64 5dcf     `.d..`.p..`.d..]
+    6e0c:	60d5 60e5 610d 6129 615b 6172 61ae 61c2     .`.`.a)a[ara.a.a
+    6e1c:	61ce 543e 61f9 6253 013e 9432 1a80 fe13     .a>T.aSb>.2.....
+    6e2c:	ca95 62c0 fe1b ca93 6336 94fe 36ca fe63     ...b....6c...6c.
+    6e3c:	c025 0ac3 cd5e 605f 8bcd cd60 6083 fe13     %...^._`..`..`..
+    6e4c:	ca3b 60d8 cdc9 6348 b57c c213 60fc 5eeb     ;..`..Hc|....`.^
+    6e5c:	5623 fe1a c08f 1313 c313 608b 1313 8bcd     #V.........`....
+    6e6c:	cd60 6083 8ffe ebc0 5e23 5623 cdc9 605f     `..`....#^#V.._`
+    6e7c:	cdd5 6348 b57c ca13 6123 1313 8bcd d160     ..Hc|...#a....`.
+    6e8c:	10c3 eb61 235e f156 cdc9 605f cdd5 608b     ..a.^#V..._`...`
+    6e9c:	83cd 1360 3bfe 2dca cd61 6348 b57c c0e1     ..`..;.-a.Hc|...
+    6eac:	c3eb 612c 70cd fe60 ca22 614f 27fe 47c0     ..,a.p`.".Oa.'.G
+    6ebc:	1a13 13b8 cdc8 669f 51c3 cd61 6144 68ca     .......f.Qa.Da.h
+    6ecc:	cd61 6348 cd7d 669f 83cd 1360 2cfe 5bca     a.Hc}..f..`..,.[
+    6edc:	c961 44cd ca61 61a4 2ffe 8cc2 1361 98cd     a..Da..a./..a...
+    6eec:	cd66 6083 2ffe 7dca c361 61a4 48cd fe63     f..`./.}a..a.Hc.
+    6efc:	c23a 61a1 e513 48cd 4d63 cde1 5958 a4c3     :..a...HcM..XY..
+    6f0c:	cd61 5956 83cd 1360 2cfe 72ca c961 48cd     a.VY..`..,.ra..H
+    6f1c:	1363 a77c f5c2 7d65 8432 cd80 6348 c37d     c.|...e}2...Hc}.
+    6f2c:	8083 48cd 1363 cde5 6348 e17d c977 48cd     ...Hc...Hc}.w..H
+    6f3c:	1363 73fe f1c2 e561 48cd e563 2cfe e5c2     c..s..a..Hc..,..
+    6f4c:	1361 48cd eb63 e3c1 21e5 61f7 e5e3 6960     a..Hc....!.a..`i
+    6f5c:	d5c9 f701 c561 d1e9 cdc9 605f 8e2a e580     ....a....._`*...
+    6f6c:	902a e580 36cd 2b63 8e22 c580 fe13 f58c     *....6c+".......
+    6f7c:	48cd 1363 9022 f180 f5c1 50d5 ca59 6221     .Hc."......PY.!b
+    6f8c:	cdeb 639f e5e1 235e 2356 48da eb62 8bcd     ...c..^#V#.Hb...
+    6f9c:	d160 2af1 808e 234e 0346 3fca 0b62 700b     `..*..N#F..?b..p
+    6fac:	712b 902a c380 6219 e1e1 22e1 8090 22e1     +q*....b..."..."
+    6fbc:	808e 3ec9 3203 8095 0021 3900 9222 d580     ...>.2..!..9"...
+    6fcc:	3f3e 9a2a cd80 54d3 9acd fe55 ca0d 65fd     >?*....T..U....e
+    6fdc:	000e 2dfe 7bc2 0c62 80c3 fe62 c22b 6281     ...-.{b...b.+..b
+    6fec:	c513 9acd cd55 57a6 fdda cd65 57e6 0dc1     ....U..W..e..W..
+    6ffc:	9fcc cd65 559a 0dfe fdc2 d165 cde5 6698     ..e..U....e....f
+    700c:	13cd cd65 6083 71c1 7023 fe13 ca2c 625f     ..e..`.q#p..,._b
+    701c:	023e 9532 c980 922a f980 3b3b c3d1 625f     >.2...*...;;.._b
+    702c:	fe21 39ff 1ae5 882a 8780 064f 0900 237e     !..9..*...O...~#
+    703c:	6f66 e5e3 8c2a e380 3ae5 8094 ca3d 6330     fo..*....:..=.0c
+    704c:	21e5 0002 e539 cd13 6083 28fe fdc2 1362     .!..9....`.(..b.
+    705c:	48cd c163 e5e3 fec5 ca2c 62ef e113 8c22     .Hc.....,..b..".
+    706c:	e180 737e 235f 727e 1a57 93fe 1ec2 1363     ..~s_#~rW.....c.
+    707c:	871a 6f2f ff26 3923 13f9 83cd 1360 5fcd     ../o&.#9....`.._
+    708c:	cd60 608b 8c2a f980 e3e1 8c22 e180 c9d1     `..`*.....".....
+    709c:	0021 c300 62e4 13cd cd65 6083 e513 48cd     !....b..e..`...H
+    70ac:	4463 e14d 2371 c970 abcd fe63 d884 8bfe     cDM.q#p...c.....
+    70bc:	d6d0 f584 13e5 abcd eb63 cde3 639f 1bd1     ........c....c..
+    70cc:	21c1 637c f5e5 0021 e500 cd78 5dcf 6394     .!|c..!...x..].c
+    70dc:	6399 638a 638f 638f 637e 6385 c91a f1e1     .c.c.c.c~c.c....
+    70ec:	c82b 23d8 e1c9 d0f1 c92b f1e1 2bc0 e1c9     +..#....+....+..
+    70fc:	c8f1 c92b f1e1 2bd8 e1c9 c8f1 2bd8 7cc9     ..+....+.....+.|
+    710c:	f2aa 63a5 7ceb c0ba bb7d cdc9 6083 81fe     ...c.|..}....`..
+    711c:	bdc2 1363 fccd cd63 659f c6c3 fe63 c280     ..c...c..e..c...
+    712c:	63c3 cd13 63fc fe1a d880 84fe e5d0 13f5     .c...c..........
+    713c:	fccd f163 81fe f7da ca63 63f4 82fe c2c1     ..c.....c..c....
+    714c:	63eb b07c 7d67 6fb1 c6c3 7c63 67a8 a97d     .c|.g}.o..c|.g}.
+    715c:	c36f 63c6 9fcd c165 c309 63c6 aacd cd64     o..c..e....c..d.
+    716c:	6083 2ffe 0dca fe64 d87c 80fe 13d0 f5e5     .`./..d.|.......
+    717c:	aacd f164 2ffe 42ca fe64 da7d 6430 42ca     ..d../.Bd.}.0d.B
+    718c:	fe64 ca7e 6463 7cc1 67a0 a17d c36f 63ff     d.~.cd.|.g}.o..c
+    719c:	0006 98cd eb65 cde3 6598 44c5 cd4d 647b     ....e....e.DM.{d
+    71ac:	1718 b57c faca 0665 cd00 6598 e3eb 98cd     ..|...e....e....
+    71bc:	c565 44eb cd4d 648b c1eb a778 9ffc d165     e..DM..d..x...e.
+    71cc:	ffc3 7c63 cab5 65fa 98cd 0665 eb00 cde3     ..c|...e..e.....
+    71dc:	6598 ebc5 4d44 8bcd 1864 21de 0000 103e     .e..DM..d..!..>.
+    71ec:	eb29 eb29 0130 3d09 f620 21c9 0000 103e     ).).0..= ..!..>.
+    71fc:	ebf5 7b29 5f17 177a eb57 917d 7c6f 6798     ..){._z.W.}.o|.g
+    720c:	0230 1b09 f113 203d c9e7 83cd fe60 3874     0.....= ....`.t8
+    721c:	fe19 307c d615 cd74 5dcf 656b 6594 65a7     ..|0..t..]ke.e.e
+    722c:	65b9 65c1 65c8 65d0 65d9 13cd 3865 7e05     .e.e.e.e.e..e8.~
+    723c:	6623 c96f 92fe 0428 91fe 0820 1a13 136f     #fo...(... ...o.
+    724c:	671a c913 aff5 9432 f180 fe13 ca95 62c0     .g....2........b
+    725c:	6cfe ceca fe61 2028 cd05 6348 c913 8bfe     .l..a.( ..Hc....
+    726c:	0a20 aacd 7c64 672f 2f7d c96f 6f1a 0026      ...d|/g}/o..o&.
+    727c:	1313 cdc9 6070 93fe fed8 3f95 13d8 93fe     ....p`.....?....
+    728c:	3420 871a 064f 2a00 809e 1309 83cd d660      4..O..*......`.
+    729c:	a75b 13c0 cde5 6348 2913 f5da eb65 7ee3     [.....Hc.)..e..~
+    72ac:	6623 eb6f da19 65f5 2aeb 809a cdeb 63a5     #fo....e.*.....c
+    72bc:	3fd1 c3d0 65f5 871a 8c2a 2f80 064f 03ff     .?...e..*../O...
+    72cc:	1309 c9a7 937d 7c6f 679a cdc9 6348 7c13     ....}.o|.g..Hc.|
+    72dc:	faa7 65f5 cab5 65f5 2ae5 8086 1f7d 29ad     ...e...e.*..}..)
+    72ec:	00ce e62f b501 226f 8086 e3eb 4d44 8bcd     ../...o"....DM..
+    72fc:	2364 c9d1 48cd 1363 a77c 78f0 80ee af47     d#...Hc.|..x..G.
+    730c:	6f95 003e 679c cdc9 6348 7c13 c2a7 65f5     .o>..g..Hc.|...e
+    731c:	327d 8081 80cd 6f80 cdc9 6348 6e13 0026     }2.....o..Hc.n&.
+    732c:	cdc9 66ae 266f c900 13cd cd65 6083 c913     ...fo&....e..`..
+    733c:	13cd 4e65 4623 1803 cd07 6513 234e 0b46     ..eN#F.....eN#F.
+    734c:	2b70 6071 cd69 6083 c913 7ee3 e323 c8a7     p+q`i..`...~#...
+    735c:	9fcd 1866 aff5 3e01 0101 023e 3e01 0103     ..f....>..>..>..
+    736c:	043e 3e01 0105 063e 3e01 0107 083e 3e01     >..>..>..>..>..>
+    737c:	0109 103e 3e01 0111 123e 3e01 0113 143e     ..>..>..>..>..>.
+    738c:	3e01 0115 163e 3e01 0117 183e 3e01 0119     .>..>..>..>..>..
+    739c:	203e 3e01 0121 223e 3e01 4723 953a fe80     > .>!.>".>#G:...
+    73ac:	2003 cd1b 65ea 2a20 4552 4441 4520 5252     . ...e *READ ERR
+    73bc:	524f 0020 cd78 599a 98cd c366 62b6 cdf5     OR .x..Y..f..b..
+    73cc:	65ea 0a0d 452a 5252 524f 0020 cd78 599a     .e..*ERROR .x..Y
+    73dc:	a7f1 3eca 3d54 0b28 eacd 2065 5552 004e     ...>T=(...e RUN.
+    73ec:	3ec3 cd54 65ea 4c20 4e49 2045 0e00 2a00     .>T..e LINE ...*
+    73fc:	8092 58cd c359 543e 0d3e 9fcd 3e66 a70a     ...XY.>T>...f>..
+    740c:	cdc8 66cd cdc9 66db 03fe c3c0 543e becd     ...f...f....>T..
+    741c:	1866 fef5 3861 fe06 307b ee02 c920 d5c5     f...a8..{0.. ...
+    742c:	0ee5 cd01 5405 b3cd e166 c1d1 c5c9 e5d5     .....T..f.......
+    743c:	0ef5 cd02 5405 e1f1 c1d1 c5c9 e5d5 ff1e     .....T..........
+    744c:	060e 05cd 2854 cd04 66b3 e1b7 c1d1 ffc9     ....T(...f......
+    745c:	ffff ffff ffff ffff ffff ffff ffff ffff     ................
